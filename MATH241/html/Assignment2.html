@@ -1,0 +1,387 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Assignment2</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-11-07"><meta name="DC.source" content="Assignment2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput">clear <span class="string">all</span>;
+<span class="comment">%Name: Yizhan Ao Math241 Project2</span>
+</pre><pre class="codeinput"><span class="comment">%1(a)</span>
+syms <span class="string">f</span> <span class="string">x</span> <span class="string">y</span> <span class="string">z</span> <span class="string">Du</span> <span class="string">u</span> <span class="string">g</span>
+f(x,y,z) = x*y*exp(-x*z*y^3-x)+(x^2)*y*z;
+g = gradient(f)
+z = g(1,-1,1)
+u = [4, 7,1]
+v = norm(u)
+Du = norm(dot(z,u))
+<span class="comment">% 1(b)</span>
+syms <span class="string">a</span> <span class="string">b</span> <span class="string">c</span>
+a = double(norm(z))
+</pre><pre class="codeoutput"> 
+g(x, y, z) =
+ 
+ y*exp(- x*z*y^3 - x) + 2*x*y*z - x*y*exp(- x*z*y^3 - x)*(z*y^3 + 1)
+       x*exp(- x*z*y^3 - x) + x^2*z - 3*x^2*y^3*z*exp(- x*z*y^3 - x)
+                                  x^2*y - x^2*y^4*exp(- x*z*y^3 - x)
+ 
+ 
+z =
+ 
+ -3
+  5
+ -2
+ 
+
+u =
+
+     4     7     1
+
+
+v =
+
+    8.1240
+
+ 
+Du =
+ 
+21
+ 
+
+a =
+
+    6.1644
+
+</pre><pre class="codeinput">syms <span class="string">x</span> <span class="string">y</span> <span class="string">k</span> <span class="string">X</span> <span class="string">Y</span> <span class="string">real</span>
+f=x^2+2*y^2
+g=4*x-6*y-25;
+g1 = (2/3)*x-(25/6);
+[A,B,C]= solve (gradient(f) == k*gradient(g), g==0, [x,y,k] );
+
+[X, Y] = meshgrid (-6:.1:6 , -6:.1 :6) ;
+Z=X.^2+2*Y.^2 ;
+[T, h]= contour(X,Y, Z) ; <span class="comment">%We pl o t the con tou r map of f (x , y )</span>
+clabel(T, h) ;
+hold <span class="string">on</span>
+fplot ( g1, [-2,6],<span class="string">'Linewidth'</span>,2 ) <span class="comment">%EDIT THIS LINE</span>
+hold <span class="string">on</span>
+scatter (A,B, 150 , <span class="string">'filled'</span>)
+text (A,B, <span class="string">'Max'</span> , <span class="string">'FontSize'</span> ,15 )<span class="comment">% EDIT THIS LINE</span>
+hold <span class="string">off</span>
+
+<span class="comment">%2(a+b) Finished before</span>
+
+<span class="comment">%2(c)</span>
+<span class="comment">%disp(Max);</span>
+</pre><pre class="codeoutput"> 
+f =
+ 
+x^2 + 2*y^2
+ 
+</pre><img vspace="5" hspace="5" src="Assignment2_01.png" alt=""> <pre class="codeinput"><span class="comment">%3(a)</span>
+syms <span class="string">x</span> <span class="string">y</span> <span class="string">h</span> <span class="string">n</span>
+f(x,y) = (x^3*y-x*y^3)/(x^2+y^2)
+fx(x,y) = diff(f,x)
+fy(x,y) = diff(f,y)
+<span class="comment">%3(b)</span>
+lx = limit (((((x+h)^3*y-(x+h)*y^3)/((x+h)^2+y^2))-(x^3*y-x*y^3)/(x^2+y^2))/h,h,0)
+ly = limit (((((x)^3*(y+h)-(x)*(y+h)^3)/((x)^2+(y+h)^2))-(x^3*y+-x*y^3)/(x^2+y^2))/h,h,0)
+<span class="comment">%3(c)</span>
+lxy = limit(( ((3*(x+y)^2*y - y^3)/((x+y)^2 + y^2) + (2*x*(- (x+y)^3*y + (x+y)*y^3))/((x+y)^2 + y^2)^2)-lx)/h,h,0)
+fxxy =diff(fx,y);
+fyx = diff(fy,x)
+lyx = limit(((2*(y+x)*(- x^3*(y+x) + x*(y+x)^3))/(x^2 + (y+x)^2)^2 - (- x^3 + 3*x*y^2)/(x^2 + y^2)-lx)/h,h,0)
+
+<span class="comment">%3(e)</span>
+ fsurf(f(x,y),[-0.5,0.5 -0.5,0.5])
+</pre><pre class="codeoutput"> 
+f(x, y) =
+ 
+-(- x^3*y + x*y^3)/(x^2 + y^2)
+ 
+ 
+fx(x, y) =
+ 
+(3*x^2*y - y^3)/(x^2 + y^2) + (2*x*(- x^3*y + x*y^3))/(x^2 + y^2)^2
+ 
+ 
+fy(x, y) =
+ 
+(2*y*(- x^3*y + x*y^3))/(x^2 + y^2)^2 - (- x^3 + 3*x*y^2)/(x^2 + y^2)
+ 
+ 
+lx =
+ 
+(3*x^2*y - y^3)/(x^2 + y^2) + (2*x*(- x^3*y + x*y^3))/(x^2 + y^2)^2
+ 
+ 
+ly =
+ 
+(2*y*(- x^3*y + x*y^3))/(x^2 + y^2)^2 - (- x^3 + 3*x*y^2)/(x^2 + y^2)
+ 
+ 
+lxy =
+ 
+piecewise(2*x*(x^2 + y^2)^2*(y*(x + y)^3 - y^3*(x + y)) + 2*x*(- x^3*y + x*y^3)*((x + y)^2 + y^2)^2 + (x^2 + y^2)*(3*x^2*y - y^3)*((x + y)^2 + y^2)^2 == (x^2 + y^2)^2*(3*y*(x + y)^2 - y^3)*((x + y)^2 + y^2), 0)
+ 
+ 
+fyx(x, y) =
+ 
+(3*x^2 - 3*y^2)/(x^2 + y^2) + (2*x*(- x^3 + 3*x*y^2))/(x^2 + y^2)^2 - (2*y*(3*x^2*y - y^3))/(x^2 + y^2)^2 - (8*x*y*(- x^3*y + x*y^3))/(x^2 + y^2)^3
+ 
+ 
+lyx =
+ 
+piecewise((2*x + 2*y)*(x^2 + y^2)^2*(x*(x + y)^3 - x^3*(x + y)) == 2*x*(- x^3*y + x*y^3)*((x + y)^2 + x^2)^2 + (x^2 + y^2)*(- x^3 + 3*x*y^2)*((x + y)^2 + x^2)^2 + (x^2 + y^2)*(3*x^2*y - y^3)*((x + y)^2 + x^2)^2, 0)
+ 
+</pre><img vspace="5" hspace="5" src="Assignment2_02.png" alt=""> <pre class="codeinput"><span class="comment">%4(a)</span>
+ f(x, y) = x^4 + y^4 - (4*x^2)*y + 2*y
+<span class="comment">%4(b)</span>
+fx = diff(f,x);
+fxx = diff(diff(f,x),x)
+
+fy = diff(f,y);
+fyy = diff(diff(f,y),y)
+
+fxy = diff(diff(f,x),y)
+fyx = diff(diff(f,y),x)
+
+<span class="comment">%4(c+d)</span>
+assume (x ,<span class="string">'real'</span> );
+assume (y ,<span class="string">'real'</span> );
+
+[B]=vpasolve(fyy==0);
+[A]=vpasolve(fxx==0);
+[x,y]=vpasolve(fx==0);
+[x,y]=vpasolve(fy==0);
+[x]=vpasolve(fxy==0);
+
+<span class="comment">%4(e)</span>
+subs(vpasolve(fyy==0), [x], {A})
+subs(solve(fxx==0), [y,y], {A,B})
+subs(solve(fx==0), [x,y], {A,B})
+subs(solve(fy==0), [x,y], {A,B})
+
+<span class="comment">%4(f)</span>
+C=subs(fyy(0,0));
+C=subs(fxx(x,y));
+C=subs(fx(x,y));
+C=subs(fy(x,y));
+
+<span class="comment">%4(g)</span>
+fsurf(x,y,z,C)
+hold <span class="string">on</span>
+scatter(A,B,C,100,<span class="string">'filled'</span>)
+hold <span class="string">off</span>
+<span class="comment">%4(h)</span>
+disp(max)
+disp(min)
+</pre><pre class="codeoutput"> 
+f(x, y) =
+ 
+x^4 - 4*x^2*y + y^4 + 2*y
+ 
+ 
+fxx(x, y) =
+ 
+12*x^2 - 8*y
+ 
+ 
+fyy(x, y) =
+ 
+12*y^2
+ 
+ 
+fxy(x, y) =
+ 
+-8*x
+ 
+ 
+fyx(x, y) =
+ 
+-8*x
+ 
+</pre><pre class="codeoutput error">Error using sym&gt;tomupad (line 1240)
+Unable to convert 'struct' to 'sym'.
+
+Error in sym (line 214)
+                S.s = tomupad(x);
+
+Error in sym/subs&gt;@(x)sym(x) (line 209)
+    Y = cellfun(@(x)sym(x),Y,'UniformOutput',false);
+
+Error in sym/subs&gt;normalize (line 209)
+    Y = cellfun(@(x)sym(x),Y,'UniformOutput',false);
+
+Error in sym/subs&gt;mupadsubs (line 157)
+[X2,Y2,symX,symY] = normalize(X,Y); %#ok
+
+Error in sym/subs (line 145)
+    G = mupadsubs(F,X,Y);
+
+Error in Assignment2 (line 80)
+subs(vpasolve(fyy==0), [x], {A})
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+clear all; 
+%Name: Yizhan Ao Math241 Project2
+%%
+%1(a)
+syms f x y z Du u g
+f(x,y,z) = x*y*exp(-x*z*y^3-x)+(x^2)*y*z;
+g = gradient(f)
+z = g(1,-1,1)
+u = [4, 7,1]
+v = norm(u)
+Du = norm(dot(z,u))
+% 1(b)
+syms a b c
+a = double(norm(z))
+%%
+syms x y k X Y real
+f=x^2+2*y^2
+g=4*x-6*y-25;
+g1 = (2/3)*x-(25/6);
+[A,B,C]= solve (gradient(f) == k*gradient(g), g==0, [x,y,k] );
+
+[X, Y] = meshgrid (-6:.1:6 , -6:.1 :6) ;
+Z=X.^2+2*Y.^2 ;
+[T, h]= contour(X,Y, Z) ; %We pl o t the con tou r map of f (x , y )
+clabel(T, h) ;
+hold on
+fplot ( g1, [-2,6],'Linewidth',2 ) %EDIT THIS LINE
+hold on
+scatter (A,B, 150 , 'filled')
+text (A,B, 'Max' , 'FontSize' ,15 )% EDIT THIS LINE
+hold off
+
+%2(a+b) Finished before
+
+%2(c)
+%disp(Max);
+%%
+%3(a)
+syms x y h n 
+f(x,y) = (x^3*y-x*y^3)/(x^2+y^2)
+fx(x,y) = diff(f,x)
+fy(x,y) = diff(f,y)
+%3(b)
+lx = limit (((((x+h)^3*y-(x+h)*y^3)/((x+h)^2+y^2))-(x^3*y-x*y^3)/(x^2+y^2))/h,h,0)
+ly = limit (((((x)^3*(y+h)-(x)*(y+h)^3)/((x)^2+(y+h)^2))-(x^3*y+-x*y^3)/(x^2+y^2))/h,h,0)
+%3(c)
+lxy = limit(( ((3*(x+y)^2*y - y^3)/((x+y)^2 + y^2) + (2*x*(- (x+y)^3*y + (x+y)*y^3))/((x+y)^2 + y^2)^2)-lx)/h,h,0)
+fxxy =diff(fx,y);
+fyx = diff(fy,x)
+lyx = limit(((2*(y+x)*(- x^3*(y+x) + x*(y+x)^3))/(x^2 + (y+x)^2)^2 - (- x^3 + 3*x*y^2)/(x^2 + y^2)-lx)/h,h,0)
+
+%3(e)
+ fsurf(f(x,y),[-0.5,0.5 -0.5,0.5])
+
+%%
+
+%4(a)
+ f(x, y) = x^4 + y^4 - (4*x^2)*y + 2*y
+%4(b)
+fx = diff(f,x);
+fxx = diff(diff(f,x),x)
+
+fy = diff(f,y);
+fyy = diff(diff(f,y),y)
+
+fxy = diff(diff(f,x),y)
+fyx = diff(diff(f,y),x)
+
+%4(c+d)
+assume (x ,'real' );
+assume (y ,'real' );
+
+[B]=vpasolve(fyy==0);
+[A]=vpasolve(fxx==0);
+[x,y]=vpasolve(fx==0);
+[x,y]=vpasolve(fy==0);
+[x]=vpasolve(fxy==0);
+
+%4(e)
+subs(vpasolve(fyy==0), [x], {A})
+subs(solve(fxx==0), [y,y], {A,B})
+subs(solve(fx==0), [x,y], {A,B})
+subs(solve(fy==0), [x,y], {A,B})
+
+%4(f)
+C=subs(fyy(0,0));
+C=subs(fxx(x,y));
+C=subs(fx(x,y));
+C=subs(fy(x,y));
+
+%4(g)
+fsurf(x,y,z,C)
+hold on 
+scatter(A,B,C,100,'filled')
+hold off
+%4(h)
+disp(max)
+disp(min)
+
+##### SOURCE END #####
+--></body></html>
