@@ -82,10 +82,10 @@ P*D*inv(P)
 %There is no such basis that for R^2 therefore part b is wrong
 %% Problem 5
 %(a)
-V1 = [ 8 -11 -11 -6 1 ]'
-V2 = [ 15 7 -5 -6 11]'
-V3 = [ 13 5 -7 -12 11]'
-V4 = [ 3 14 -13 3 -6]'
+V1 = [ 9 14 -11 3 0 ]'
+V2 = [ -14 -4 -10 9 -5]'
+V3 = [ 1 -10 4 -7 5]'
+V4 = [ 6 8 -1 -12 -8]'
 %(b)
 A = [V1 V2 V3 V4]
 rref(A)
@@ -97,26 +97,59 @@ rank(A)
 W1 = V1 
 W2 = V2 -(dot(V2,W1)/ dot(W1,W1))*W1
 %(d)
-W3 = V3 -(dot(V3,W1)/dot(W1,W1))*W1- 
+W3 = V3 -(dot(V3,W1)/dot(W1,W1))*W1- ((dot(V3,W2)/ dot(W2,W2))*W2
+W4 = V4 -(dot(V4,W1)/dot(W1,W1))*W1- ((dot(V4,W2)/ dot(W2,W2))*W2- 
+     (dot(V4,W3)/dot(W3,W3))*W3 
+ 
 %(e)
-
+K1 = W1/norm(W1)
+K2 = W2/norm(W2)
+K3 = W3/norm(W3)
+K4 = W4/norm(W4)
 %(f)
-
+Q = [K1 K2 K3 K4]
+Q'*Q
+%Q columns are orthogonal  since its transpose is equal to its identity
+%matrix 
 %(g)
+R = Q'*A
+Q*R
+A
+%A = Q*R
+%(h)
+[Q1 R1] = qr(A,0)
+Q
+R
 
 %% Problem 6
 W= [5 9 -2 2 -1; -5 -12 -4 3 -2; 0 2 4 -2 2; -4 -3 10 -4 5]
+v1= [5 -5 0 -4 -3 4]'
+v2= [9 -12 2 -3 -7 2]'
+v3= [-2 -4 4 10 -2 -12]'
+v4= [2 3 -2 -4 -2 7]'
+v5 =[-1 -2 2 5 -1 -6]' 
+A = [v1 v2 v3 v4 v5]
 %(a)
 rank(W)
+rref(W)
 %(b)
-A = (rref(W))
-B =A
+%only v1 v2 v4 has basis for W
+B = [ V1 V2 V4] 
 %(c)
-
+[Q, R] = qr(B)
 %(d)
-
+e = Q*Q'
+v = [1 1 1 1 1 1]'
+e*v
 %(e)
-
+F = B'
+rref(F)
 %(f)
-
+w1 = v1 
+w2 = v2 -(dot(v2,w1)/dot(w1,w1))*w1
+w3 = v3 -(dot(v3,w1)/dot(w1,w1))*w1 -(dot(v3,w2)/dot(w2,w2))*w2
+w4 = v4 -(dot(v4,w1)/dot(w1,w1))*w1 -(dot(v4,w2)/dot(w2,w2))*w2 - (dot(v4,w3)/dot(w3,w3))*w3
+w5 = v5 -(dot(v5,w1)/dot(w1,w1))*w1 -(dot(v5,w2)/dot(w2,w2))*w2 - (dot(v5,w3)/dot(w3,w3))*w3 - (dot(v5,w4)/dot(w4,w4))*w4
 %(g)
+M = [w1 w2 w3 w4 w5]
+A*v1
