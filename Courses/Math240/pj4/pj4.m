@@ -2,6 +2,7 @@ clear all;
 %Name Yizhan Ao MATH240 Project4
 %% Problem 1
 format rat 
+syms x
 %(a)
 e = [1 0 0 0 ; 0 1 0 0; 0 0 1 0; 0 0 0 1]
 B = [1 1 2 4 ; 0 2 -1 -1; 0 0 3 0; 0 0 0 1]
@@ -12,19 +13,19 @@ P = B
 Q = C
 
 %(b)
-R = (Q^-1)*P
+A = inv(Q)
+R= A*P
 
 %(C)
-t3_e = [0; 0; 0; 1]
-t3_C = (Q^-1)*t3_e
+X = [ 0 0 0 1]'
+R*X
 
 %(d)
-pt_B = [0; 1;2;3]
+pt_B = [0 3 2 1]'
 pt_c = R*pt_B
 
 %(e)
-syms x
-p(x) = 0*1+1(1+2*x)+2*(2-x+3*x^2)+3*(4-x+x^3)
+P * pt_B 
 %
 %% Problem 2
 format short 
@@ -97,9 +98,8 @@ rank(A)
 W1 = V1 
 W2 = V2 -(dot(V2,W1)/ dot(W1,W1))*W1
 %(d)
-W3 = V3 -(dot(V3,W1)/dot(W1,W1))*W1- ((dot(V3,W2)/ dot(W2,W2))*W2
-W4 = V4 -(dot(V4,W1)/dot(W1,W1))*W1- ((dot(V4,W2)/ dot(W2,W2))*W2- 
-     (dot(V4,W3)/dot(W3,W3))*W3 
+W3 = V3 -(dot(V3,W1)/dot(W1,W1))*W1- (dot(V3,W2)/ dot(W2,W2))*W2
+W4 = V4 -(dot(V4,W1)/dot(W1,W1))*W1- (dot(V4,W2)/ dot(W2,W2))*W2- (dot(V4,W3)/dot(W3,W3))*W3 
  
 %(e)
 K1 = W1/norm(W1)
@@ -139,8 +139,8 @@ B = [ V1 V2 V4]
 [Q, R] = qr(B)
 %(d)
 e = Q*Q'
-v = [1 1 1 1 1 1]'
-e*v
+v = [1 1 1 1 1 ]'
+e * v
 %(e)
 F = B'
 rref(F)
@@ -152,4 +152,4 @@ w4 = v4 -(dot(v4,w1)/dot(w1,w1))*w1 -(dot(v4,w2)/dot(w2,w2))*w2 - (dot(v4,w3)/do
 w5 = v5 -(dot(v5,w1)/dot(w1,w1))*w1 -(dot(v5,w2)/dot(w2,w2))*w2 - (dot(v5,w3)/dot(w3,w3))*w3 - (dot(v5,w4)/dot(w4,w4))*w4
 %(g)
 M = [w1 w2 w3 w4 w5]
-A*v1
+A.*v1

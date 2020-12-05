@@ -1,0 +1,1093 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>pj4</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-12-03"><meta name="DC.source" content="pj4.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Problem 1</a></li><li><a href="#3">Problem 2</a></li><li><a href="#4">Problem 3</a></li><li><a href="#5">Problem 4</a></li><li><a href="#6">Problem 5</a></li><li><a href="#7">Problem 6</a></li></ul></div><pre class="codeinput">clear <span class="string">all</span>;
+<span class="comment">%Name Yizhan Ao MATH240 Project4</span>
+</pre><h2 id="2">Problem 1</h2><pre class="codeinput">format <span class="string">rat</span>
+syms <span class="string">x</span>
+<span class="comment">%(a)</span>
+e = [1 0 0 0 ; 0 1 0 0; 0 0 1 0; 0 0 0 1]
+B = [1 1 2 4 ; 0 2 -1 -1; 0 0 3 0; 0 0 0 1]
+C = [1 2 0 0 ; 3 1 3 3; 0 0 -1 0; 1 0 4 0]
+<span class="comment">%Since e is 4*4 I, B = eP(e&lt;-B) = IP(E&lt;-B)</span>
+<span class="comment">%and C = EP(E&lt;-C) =IP(E&lt;-C)= P(E&lt;-C)</span>
+P = B
+Q = C
+
+<span class="comment">%(b)</span>
+A = inv(Q)
+R= A*P
+
+<span class="comment">%(C)</span>
+X = [ 0 0 0 1]'
+R*X
+
+<span class="comment">%(d)</span>
+pt_B = [0 3 2 1]'
+pt_c = R*pt_B
+
+<span class="comment">%(e)</span>
+P * pt_B
+<span class="comment">%</span>
+</pre><pre class="codeoutput">
+e =
+
+       1              0              0              0       
+       0              1              0              0       
+       0              0              1              0       
+       0              0              0              1       
+
+
+B =
+
+       1              1              2              4       
+       0              2             -1             -1       
+       0              0              3              0       
+       0              0              0              1       
+
+
+C =
+
+       1              2              0              0       
+       3              1              3              3       
+       0              0             -1              0       
+       1              0              4              0       
+
+
+P =
+
+       1              1              2              4       
+       0              2             -1             -1       
+       0              0              3              0       
+       0              0              0              1       
+
+
+Q =
+
+       1              2              0              0       
+       3              1              3              3       
+       0              0             -1              0       
+       1              0              4              0       
+
+
+A =
+
+       0              0              4              1       
+       1/2            0             -2             -1/2     
+       0              0             -1              0       
+      -1/6            1/3           -7/3           -5/6     
+
+
+R =
+
+       0              0             12              1       
+       1/2            1/2           -5              3/2     
+       0              0             -3              0       
+      -1/6            1/2          -23/3          -11/6     
+
+
+X =
+
+       0       
+       0       
+       0       
+       1       
+
+
+ans =
+
+       1       
+       3/2     
+       0       
+     -11/6     
+
+
+pt_B =
+
+       0       
+       3       
+       2       
+       1       
+
+
+pt_c =
+
+      25       
+      -7       
+      -6       
+     -47/3     
+
+
+ans =
+
+      11       
+       3       
+       6       
+       1       
+
+</pre><h2 id="3">Problem 2</h2><pre class="codeinput">format <span class="string">short</span>
+A = [163 34 -8; -522 -108 26; 990 210 -47]
+<span class="comment">%(a)</span>
+[P,D] = eig(A)
+
+<span class="comment">%(b)</span>
+P*D*inv(P)
+A
+<span class="comment">%YEs they are identical</span>
+
+<span class="comment">%(c)</span>
+E1 = D(1,1)
+V1 = P(:,1)
+E2 = D(2,2)
+V2 = P(:,2)
+E3 = D(3,3)
+V3 = P(:,3)
+<span class="comment">%E1,E2,E3 are eigenvalues an v1,2,3 are the eigen vectors</span>
+</pre><pre class="codeoutput">
+A =
+
+   163    34    -8
+  -522  -108    26
+   990   210   -47
+
+
+P =
+
+   -0.1229    0.1617   -0.1961
+    0.3686   -0.5659    0.7845
+   -0.9214    0.8085   -0.5883
+
+
+D =
+
+    1.0000         0         0
+         0    4.0000         0
+         0         0    3.0000
+
+
+ans =
+
+  163.0000   34.0000   -8.0000
+ -522.0000 -108.0000   26.0000
+  990.0000  210.0000  -47.0000
+
+
+A =
+
+   163    34    -8
+  -522  -108    26
+   990   210   -47
+
+
+E1 =
+
+    1.0000
+
+
+V1 =
+
+   -0.1229
+    0.3686
+   -0.9214
+
+
+E2 =
+
+    4.0000
+
+
+V2 =
+
+    0.1617
+   -0.5659
+    0.8085
+
+
+E3 =
+
+    3.0000
+
+
+V3 =
+
+   -0.1961
+    0.7845
+   -0.5883
+
+</pre><h2 id="4">Problem 3</h2><pre class="codeinput">A = [-23 -32 -10; 11 15 5; 18 26 7]
+<span class="comment">%(a)</span>
+A^2
+A^3
+A^4
+A^5
+A^6
+A^7
+A^8
+<span class="comment">%Pattern A^(4k) = I&#65292; k&gt;0</span>
+<span class="comment">%(b)</span>
+[P,D] = eig(A)
+<span class="comment">%(c)</span>
+D
+D^2
+D^3
+D^4
+<span class="comment">%we cam further observe the fact that D^4 will be the identity matrix and</span>
+<span class="comment">%the pattern is D^4*k where the k is 1,2,3,4 ...</span>
+<span class="comment">%(d)</span>
+<span class="comment">% 10000001 = 4n +1, n = 250000</span>
+</pre><pre class="codeoutput">
+A =
+
+   -23   -32   -10
+    11    15     5
+    18    26     7
+
+
+ans =
+
+    -3    -4     0
+     2     3     0
+    -2    -4    -1
+
+
+ans =
+
+    25    36    10
+   -13   -19    -5
+   -16   -22    -7
+
+
+ans =
+
+     1     0     0
+     0     1     0
+     0     0     1
+
+
+ans =
+
+   -23   -32   -10
+    11    15     5
+    18    26     7
+
+
+ans =
+
+    -3    -4     0
+     2     3     0
+    -2    -4    -1
+
+
+ans =
+
+    25    36    10
+   -13   -19    -5
+   -16   -22    -7
+
+
+ans =
+
+     1     0     0
+     0     1     0
+     0     0     1
+
+
+P =
+
+  -0.7559 + 0.0000i  -0.7559 + 0.0000i   0.5774 + 0.0000i
+   0.3780 + 0.0000i   0.3780 - 0.0000i  -0.5774 + 0.0000i
+   0.5292 + 0.0756i   0.5292 - 0.0756i   0.5774 + 0.0000i
+
+
+D =
+
+   0.0000 + 1.0000i   0.0000 + 0.0000i   0.0000 + 0.0000i
+   0.0000 + 0.0000i   0.0000 - 1.0000i   0.0000 + 0.0000i
+   0.0000 + 0.0000i   0.0000 + 0.0000i  -1.0000 + 0.0000i
+
+
+D =
+
+   0.0000 + 1.0000i   0.0000 + 0.0000i   0.0000 + 0.0000i
+   0.0000 + 0.0000i   0.0000 - 1.0000i   0.0000 + 0.0000i
+   0.0000 + 0.0000i   0.0000 + 0.0000i  -1.0000 + 0.0000i
+
+
+ans =
+
+  -1.0000 + 0.0000i   0.0000 + 0.0000i   0.0000 + 0.0000i
+   0.0000 + 0.0000i  -1.0000 - 0.0000i   0.0000 + 0.0000i
+   0.0000 + 0.0000i   0.0000 + 0.0000i   1.0000 + 0.0000i
+
+
+ans =
+
+  -0.0000 - 1.0000i   0.0000 + 0.0000i   0.0000 + 0.0000i
+   0.0000 + 0.0000i  -0.0000 + 1.0000i   0.0000 + 0.0000i
+   0.0000 + 0.0000i   0.0000 + 0.0000i  -1.0000 + 0.0000i
+
+
+ans =
+
+   1.0000 - 0.0000i   0.0000 + 0.0000i   0.0000 + 0.0000i
+   0.0000 + 0.0000i   1.0000 + 0.0000i   0.0000 + 0.0000i
+   0.0000 + 0.0000i   0.0000 + 0.0000i   1.0000 + 0.0000i
+
+</pre><h2 id="5">Problem 4</h2><pre class="codeinput"><span class="comment">%(a)</span>
+A = [3 1; 0 3]
+[P,D] = eig(A)
+<span class="comment">%(b)</span>
+<span class="comment">%from the part A we can tell P is not invertible</span>
+P*D*inv(P)
+<span class="comment">%A is not equal to pdp^-1</span>
+<span class="comment">%(c)</span>
+<span class="comment">%Basis is for the eigenspace = [1;0]</span>
+<span class="comment">%(d)</span>
+<span class="comment">%There is no such basis that for R^2 therefore part b is wrong</span>
+</pre><pre class="codeoutput">
+A =
+
+     3     1
+     0     3
+
+
+P =
+
+    1.0000   -1.0000
+         0    0.0000
+
+
+D =
+
+     3     0
+     0     3
+
+
+ans =
+
+     3     0
+     0     3
+
+</pre><h2 id="6">Problem 5</h2><pre class="codeinput"><span class="comment">%(a)</span>
+V1 = [ 9 14 -11 3 0 ]'
+V2 = [ -14 -4 -10 9 -5]'
+V3 = [ 1 -10 4 -7 5]'
+V4 = [ 6 8 -1 -12 -8]'
+<span class="comment">%(b)</span>
+A = [V1 V2 V3 V4]
+rref(A)
+rank(A)
+<span class="comment">%there is a pivot in each column therefore the v1 v2 v3 v4 are linearly</span>
+<span class="comment">%independent So v1- v4 are also linearly independent and form a basis for W</span>
+
+<span class="comment">%(c)</span>
+W1 = V1
+W2 = V2 -(dot(V2,W1)/ dot(W1,W1))*W1
+<span class="comment">%(d)</span>
+W3 = V3 -(dot(V3,W1)/dot(W1,W1))*W1- (dot(V3,W2)/ dot(W2,W2))*W2
+W4 = V4 -(dot(V4,W1)/dot(W1,W1))*W1- (dot(V4,W2)/ dot(W2,W2))*W2- (dot(V4,W3)/dot(W3,W3))*W3
+
+<span class="comment">%(e)</span>
+K1 = W1/norm(W1)
+K2 = W2/norm(W2)
+K3 = W3/norm(W3)
+K4 = W4/norm(W4)
+<span class="comment">%(f)</span>
+Q = [K1 K2 K3 K4]
+Q'*Q
+<span class="comment">%Q columns are orthogonal  since its transpose is equal to its identity</span>
+<span class="comment">%matrix</span>
+<span class="comment">%(g)</span>
+R = Q'*A
+Q*R
+A
+<span class="comment">%A = Q*R</span>
+<span class="comment">%(h)</span>
+[Q1 R1] = qr(A,0)
+Q
+R
+</pre><pre class="codeoutput">
+V1 =
+
+     9
+    14
+   -11
+     3
+     0
+
+
+V2 =
+
+   -14
+    -4
+   -10
+     9
+    -5
+
+
+V3 =
+
+     1
+   -10
+     4
+    -7
+     5
+
+
+V4 =
+
+     6
+     8
+    -1
+   -12
+    -8
+
+
+A =
+
+     9   -14     1     6
+    14    -4   -10     8
+   -11   -10     4    -1
+     3     9    -7   -12
+     0    -5     5    -8
+
+
+ans =
+
+     1     0     0     0
+     0     1     0     0
+     0     0     1     0
+     0     0     0     1
+     0     0     0     0
+
+
+ans =
+
+     4
+
+
+W1 =
+
+     9
+    14
+   -11
+     3
+     0
+
+
+W2 =
+
+  -13.0049
+   -2.4521
+  -11.2162
+    9.3317
+   -5.0000
+
+
+W3 =
+
+    1.4401
+   -3.9922
+   -4.6557
+   -2.7611
+    3.5029
+
+
+W4 =
+
+   -1.7788
+    1.3028
+   -2.5483
+  -10.0873
+   -9.1222
+
+
+K1 =
+
+    0.4461
+    0.6940
+   -0.5452
+    0.1487
+         0
+
+
+K2 =
+
+   -0.6399
+   -0.1207
+   -0.5519
+    0.4592
+   -0.2460
+
+
+K3 =
+
+    0.1866
+   -0.5172
+   -0.6032
+   -0.3577
+    0.4538
+
+
+K4 =
+
+   -0.1269
+    0.0930
+   -0.1819
+   -0.7199
+   -0.6510
+
+
+Q =
+
+    0.4461   -0.6399    0.1866   -0.1269
+    0.6940   -0.1207   -0.5172    0.0930
+   -0.5452   -0.5519   -0.6032   -0.1819
+    0.1487    0.4592   -0.3577   -0.7199
+         0   -0.2460    0.4538   -0.6510
+
+
+ans =
+
+    1.0000    0.0000    0.0000    0.0000
+    0.0000    1.0000    0.0000   -0.0000
+    0.0000    0.0000    1.0000    0.0000
+    0.0000   -0.0000    0.0000    1.0000
+
+
+R =
+
+   20.1742   -2.2306   -9.7154    6.9891
+   -0.0000   20.3230   -6.0853   -7.7946
+   -0.0000    0.0000    7.7189   -1.7529
+    0.0000    0.0000    0.0000   14.0115
+
+
+ans =
+
+    9.0000  -14.0000    1.0000    6.0000
+   14.0000   -4.0000  -10.0000    8.0000
+  -11.0000  -10.0000    4.0000   -1.0000
+    3.0000    9.0000   -7.0000  -12.0000
+   -0.0000   -5.0000    5.0000   -8.0000
+
+
+A =
+
+     9   -14     1     6
+    14    -4   -10     8
+   -11   -10     4    -1
+     3     9    -7   -12
+     0    -5     5    -8
+
+
+Q1 =
+
+   -0.4461    0.6399    0.1866   -0.1269
+   -0.6940    0.1207   -0.5172    0.0930
+    0.5452    0.5519   -0.6032   -0.1819
+   -0.1487   -0.4592   -0.3577   -0.7199
+         0    0.2460    0.4538   -0.6510
+
+
+R1 =
+
+  -20.1742    2.2306    9.7154   -6.9891
+         0  -20.3230    6.0853    7.7946
+         0         0    7.7189   -1.7529
+         0         0         0   14.0115
+
+
+Q =
+
+    0.4461   -0.6399    0.1866   -0.1269
+    0.6940   -0.1207   -0.5172    0.0930
+   -0.5452   -0.5519   -0.6032   -0.1819
+    0.1487    0.4592   -0.3577   -0.7199
+         0   -0.2460    0.4538   -0.6510
+
+
+R =
+
+   20.1742   -2.2306   -9.7154    6.9891
+   -0.0000   20.3230   -6.0853   -7.7946
+   -0.0000    0.0000    7.7189   -1.7529
+    0.0000    0.0000    0.0000   14.0115
+
+</pre><h2 id="7">Problem 6</h2><pre class="codeinput">W= [5 9 -2 2 -1; -5 -12 -4 3 -2; 0 2 4 -2 2; -4 -3 10 -4 5]
+v1= [5 -5 0 -4 -3 4]'
+v2= [9 -12 2 -3 -7 2]'
+v3= [-2 -4 4 10 -2 -12]'
+v4= [2 3 -2 -4 -2 7]'
+v5 =[-1 -2 2 5 -1 -6]'
+A = [v1 v2 v3 v4 v5]
+<span class="comment">%(a)</span>
+rank(W)
+rref(W)
+<span class="comment">%(b)</span>
+<span class="comment">%only v1 v2 v4 has basis for W</span>
+B = [ V1 V2 V4]
+<span class="comment">%(c)</span>
+[Q, R] = qr(B)
+<span class="comment">%(d)</span>
+e = Q*Q'
+v = [1 1 1 1 1 ]'
+e * v
+<span class="comment">%(e)</span>
+F = B'
+rref(F)
+<span class="comment">%(f)</span>
+w1 = v1
+w2 = v2 -(dot(v2,w1)/dot(w1,w1))*w1
+w3 = v3 -(dot(v3,w1)/dot(w1,w1))*w1 -(dot(v3,w2)/dot(w2,w2))*w2
+w4 = v4 -(dot(v4,w1)/dot(w1,w1))*w1 -(dot(v4,w2)/dot(w2,w2))*w2 - (dot(v4,w3)/dot(w3,w3))*w3
+w5 = v5 -(dot(v5,w1)/dot(w1,w1))*w1 -(dot(v5,w2)/dot(w2,w2))*w2 - (dot(v5,w3)/dot(w3,w3))*w3 - (dot(v5,w4)/dot(w4,w4))*w4
+<span class="comment">%(g)</span>
+M = [w1 w2 w3 w4 w5]
+A.*v1
+</pre><pre class="codeoutput">
+W =
+
+     5     9    -2     2    -1
+    -5   -12    -4     3    -2
+     0     2     4    -2     2
+    -4    -3    10    -4     5
+
+
+v1 =
+
+     5
+    -5
+     0
+    -4
+    -3
+     4
+
+
+v2 =
+
+     9
+   -12
+     2
+    -3
+    -7
+     2
+
+
+v3 =
+
+    -2
+    -4
+     4
+    10
+    -2
+   -12
+
+
+v4 =
+
+     2
+     3
+    -2
+    -4
+    -2
+     7
+
+
+v5 =
+
+    -1
+    -2
+     2
+     5
+    -1
+    -6
+
+
+A =
+
+     5     9    -2     2    -1
+    -5   -12    -4     3    -2
+     0     2     4    -2     2
+    -4    -3    10    -4     5
+    -3    -7    -2    -2    -1
+     4     2   -12     7    -6
+
+
+ans =
+
+     3
+
+
+ans =
+
+     1     0    -4     0    -2
+     0     1     2     0     1
+     0     0     0     1     0
+     0     0     0     0     0
+
+
+B =
+
+     9   -14     6
+    14    -4     8
+   -11   -10    -1
+     3     9   -12
+     0    -5    -8
+
+
+Q =
+
+   -0.4461    0.6399   -0.1491    0.5892   -0.1485
+   -0.6940    0.1207    0.1565   -0.6652   -0.1920
+    0.5452    0.5519   -0.1056   -0.3439   -0.5183
+   -0.1487   -0.4592   -0.6700    0.0756   -0.5590
+         0    0.2460   -0.7023   -0.2937    0.5999
+
+
+R =
+
+  -20.1742    2.2306   -6.9891
+         0  -20.3230    7.7946
+         0         0   14.1208
+         0         0         0
+         0         0         0
+
+
+e =
+
+    1.0000   -0.0000    0.0000    0.0000    0.0000
+   -0.0000    1.0000   -0.0000   -0.0000   -0.0000
+    0.0000   -0.0000    1.0000   -0.0000    0.0000
+    0.0000   -0.0000   -0.0000    1.0000   -0.0000
+    0.0000   -0.0000    0.0000   -0.0000    1.0000
+
+
+v =
+
+     1
+     1
+     1
+     1
+     1
+
+
+ans =
+
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+    1.0000
+
+
+F =
+
+     9    14   -11     3     0
+   -14    -4   -10     9    -5
+     6     8    -1   -12    -8
+
+
+ans =
+
+    1.0000         0         0    2.6076    2.6773
+         0    1.0000         0   -3.8328   -3.2515
+         0         0    1.0000   -3.0174   -1.9477
+
+
+w1 =
+
+     5
+    -5
+     0
+    -4
+    -3
+     4
+
+
+w2 =
+
+    0.9780
+   -3.9780
+    2.0000
+    3.4176
+   -2.1868
+   -4.4176
+
+
+w3 =
+
+   1.0e-14 *
+
+   -0.0222
+   -0.0888
+    0.0444
+    0.0888
+   -0.2665
+   -0.1776
+
+
+w4 =
+
+    0.1920
+    0.5964
+    0.4486
+    2.3190
+   -5.8373
+   -1.3514
+
+
+w5 =
+
+    0.2647
+    1.1615
+   -1.0276
+   -2.9059
+    8.0477
+    3.8453
+
+
+M =
+
+    5.0000    0.9780   -0.0000    0.1920    0.2647
+   -5.0000   -3.9780   -0.0000    0.5964    1.1615
+         0    2.0000    0.0000    0.4486   -1.0276
+   -4.0000    3.4176    0.0000    2.3190   -2.9059
+   -3.0000   -2.1868   -0.0000   -5.8373    8.0477
+    4.0000   -4.4176   -0.0000   -1.3514    3.8453
+
+
+ans =
+
+    25    45   -10    10    -5
+    25    60    20   -15    10
+     0     0     0     0     0
+    16    12   -40    16   -20
+     9    21     6     6     3
+    16     8   -48    28   -24
+
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+clear all;
+%Name Yizhan Ao MATH240 Project4
+%% Problem 1
+format rat 
+syms x
+%(a)
+e = [1 0 0 0 ; 0 1 0 0; 0 0 1 0; 0 0 0 1]
+B = [1 1 2 4 ; 0 2 -1 -1; 0 0 3 0; 0 0 0 1]
+C = [1 2 0 0 ; 3 1 3 3; 0 0 -1 0; 1 0 4 0]
+%Since e is 4*4 I, B = eP(e<-B) = IP(E<-B) 
+%and C = EP(E<-C) =IP(E<-C)= P(E<-C)
+P = B
+Q = C
+
+%(b)
+A = inv(Q)
+R= A*P
+
+%(C)
+X = [ 0 0 0 1]'
+R*X
+
+%(d)
+pt_B = [0 3 2 1]'
+pt_c = R*pt_B
+
+%(e)
+P * pt_B 
+%
+%% Problem 2
+format short 
+A = [163 34 -8; -522 -108 26; 990 210 -47]
+%(a)
+[P,D] = eig(A)
+
+%(b)
+P*D*inv(P)
+A
+%YEs they are identical
+
+%(c)
+E1 = D(1,1)
+V1 = P(:,1)
+E2 = D(2,2)
+V2 = P(:,2)
+E3 = D(3,3)
+V3 = P(:,3)
+%E1,E2,E3 are eigenvalues an v1,2,3 are the eigen vectors 
+
+%% Problem 3
+A = [-23 -32 -10; 11 15 5; 18 26 7]
+%(a)
+A^2
+A^3
+A^4
+A^5
+A^6
+A^7
+A^8
+%Pattern A^(4k) = I， k>0
+%(b)
+[P,D] = eig(A)
+%(c)
+D
+D^2
+D^3
+D^4
+%we cam further observe the fact that D^4 will be the identity matrix and
+%the pattern is D^4*k where the k is 1,2,3,4 ...
+%(d)
+% 10000001 = 4n +1, n = 250000
+%% Problem 4
+%(a)
+A = [3 1; 0 3]
+[P,D] = eig(A)
+%(b)
+%from the part A we can tell P is not invertible 
+P*D*inv(P)
+%A is not equal to pdp^-1
+%(c)
+%Basis is for the eigenspace = [1;0]
+%(d)
+%There is no such basis that for R^2 therefore part b is wrong
+%% Problem 5
+%(a)
+V1 = [ 9 14 -11 3 0 ]'
+V2 = [ -14 -4 -10 9 -5]'
+V3 = [ 1 -10 4 -7 5]'
+V4 = [ 6 8 -1 -12 -8]'
+%(b)
+A = [V1 V2 V3 V4]
+rref(A)
+rank(A)
+%there is a pivot in each column therefore the v1 v2 v3 v4 are linearly
+%independent So v1- v4 are also linearly independent and form a basis for W
+
+%(c)
+W1 = V1 
+W2 = V2 -(dot(V2,W1)/ dot(W1,W1))*W1
+%(d)
+W3 = V3 -(dot(V3,W1)/dot(W1,W1))*W1- (dot(V3,W2)/ dot(W2,W2))*W2
+W4 = V4 -(dot(V4,W1)/dot(W1,W1))*W1- (dot(V4,W2)/ dot(W2,W2))*W2- (dot(V4,W3)/dot(W3,W3))*W3 
+ 
+%(e)
+K1 = W1/norm(W1)
+K2 = W2/norm(W2)
+K3 = W3/norm(W3)
+K4 = W4/norm(W4)
+%(f)
+Q = [K1 K2 K3 K4]
+Q'*Q
+%Q columns are orthogonal  since its transpose is equal to its identity
+%matrix 
+%(g)
+R = Q'*A
+Q*R
+A
+%A = Q*R
+%(h)
+[Q1 R1] = qr(A,0)
+Q
+R
+
+%% Problem 6
+W= [5 9 -2 2 -1; -5 -12 -4 3 -2; 0 2 4 -2 2; -4 -3 10 -4 5]
+v1= [5 -5 0 -4 -3 4]'
+v2= [9 -12 2 -3 -7 2]'
+v3= [-2 -4 4 10 -2 -12]'
+v4= [2 3 -2 -4 -2 7]'
+v5 =[-1 -2 2 5 -1 -6]' 
+A = [v1 v2 v3 v4 v5]
+%(a)
+rank(W)
+rref(W)
+%(b)
+%only v1 v2 v4 has basis for W
+B = [ V1 V2 V4] 
+%(c)
+[Q, R] = qr(B)
+%(d)
+e = Q*Q'
+v = [1 1 1 1 1 ]'
+e * v
+%(e)
+F = B'
+rref(F)
+%(f)
+w1 = v1 
+w2 = v2 -(dot(v2,w1)/dot(w1,w1))*w1
+w3 = v3 -(dot(v3,w1)/dot(w1,w1))*w1 -(dot(v3,w2)/dot(w2,w2))*w2
+w4 = v4 -(dot(v4,w1)/dot(w1,w1))*w1 -(dot(v4,w2)/dot(w2,w2))*w2 - (dot(v4,w3)/dot(w3,w3))*w3
+w5 = v5 -(dot(v5,w1)/dot(w1,w1))*w1 -(dot(v5,w2)/dot(w2,w2))*w2 - (dot(v5,w3)/dot(w3,w3))*w3 - (dot(v5,w4)/dot(w4,w4))*w4
+%(g)
+M = [w1 w2 w3 w4 w5]
+A.*v1
+##### SOURCE END #####
+--></body></html>
