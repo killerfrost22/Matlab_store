@@ -1,0 +1,222 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Project2</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-03-04"><meta name="DC.source" content="Project2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Exercise 1</a></li><li><a href="#3">Exercise 2</a></li><li><a href="#4">Exercise 3</a></li></ul></div><pre class="codeinput">clear <span class="string">all</span>;
+<span class="comment">%Name Yizhan Ao &amp; Yisheng Leng MATH246 Project2</span>
+</pre><h2 id="2">Exercise 1</h2><p>pages 86.3 a</p><pre class="codeinput">format <span class="string">long</span>
+syms <span class="string">t</span> <span class="string">c</span>;
+res = <span class="string">'t*Dy+y = 2*t'</span>;
+y(t,c)=dsolve(res, <span class="string">'y(1) = c'</span>, <span class="string">'t'</span>)
+
+<span class="comment">% b</span>
+fprintf(<span class="string">'at t = 0.01, c = 0.8, y = %f\n'</span>,y(0.01,0.8));
+fprintf(<span class="string">'at t = 0.1, c = 0.8, y = %f\n'</span>,y(0.1,0.8));
+fprintf(<span class="string">'at t = 1, c = 0.8, y = %f\n'</span>,y(1,0.8));
+fprintf(<span class="string">'at t = 10, c = 0.8, y = %f\n'</span>,y(10,0.8));
+fprintf(<span class="string">'at t = 0.01, c = 1, y = %f\n'</span>,y(0.01,1));
+fprintf(<span class="string">'at t = 0.1, c = 1, y = %f\n'</span>,y(0.1,1));
+fprintf(<span class="string">'at t = 1, c = 1, y = %f\n'</span>,y(1,1));
+fprintf(<span class="string">'at t = 10, c = 1, y = %f\n'</span>,y(10,1));
+fprintf(<span class="string">'at t = 0.01, c = 1.2, y = %f\n'</span>,y(0.01,1.2));
+fprintf(<span class="string">'at t = 0.1, c = 1.2, y = %f\n'</span>,y(0.1,1.2));
+fprintf(<span class="string">'at t = 1, c = 1.2, y = %f\n'</span>,y(1,1.2));
+fprintf(<span class="string">'at t = 10, c = 1.2, y = %f\n'</span>,y(10,1.2));
+
+<span class="comment">%c</span>
+i = 0.01:0.01:2.5;
+c = [0.8,0.9,1,1.1,1.2];
+
+figure
+<span class="keyword">for</span> x = 1:5
+    a = y(i,c(x));
+    plot(i,a)
+    hold <span class="string">on</span>
+<span class="keyword">end</span>
+xlabel(<span class="string">'t'</span>)
+ylabel(<span class="string">'y'</span>)
+legend(<span class="string">'c=0.8, c=0.9, c=1, c=1.1, c=1.2 '</span>)
+
+<span class="comment">% d</span>
+<span class="comment">% Since the value of c does not affect the solutions as the t tends to</span>
+<span class="comment">% going infinitelyfor t that approaching to 0 when the value c is less than</span>
+<span class="comment">% 1 the function is tending to reaching 0 while c is bigger than 1. Then</span>
+<span class="comment">% the function tends to decreases.</span>
+</pre><pre class="codeoutput">Warning: Support of character vectors and strings will be removed in a future
+release. Use sym objects to define differential equations instead. 
+ 
+y(t, c) =
+ 
+(t^2 + c - 1)/t
+ 
+at t = 0.01, c = 0.8, y = -19.990000
+at t = 0.1, c = 0.8, y = -1.900000
+at t = 1, c = 0.8, y = 0.800000
+at t = 10, c = 0.8, y = 9.980000
+at t = 0.01, c = 1, y = 0.010000
+at t = 0.1, c = 1, y = 0.100000
+at t = 1, c = 1, y = 1.000000
+at t = 10, c = 1, y = 10.000000
+at t = 0.01, c = 1.2, y = 20.010000
+at t = 0.1, c = 1.2, y = 2.100000
+at t = 1, c = 1.2, y = 1.200000
+at t = 10, c = 1.2, y = 10.020000
+</pre><img vspace="5" hspace="5" src="Project2_01.png" alt=""> <h2 id="3">Exercise 2</h2><p>7, page 87-88 a</p><pre class="codeinput">syms <span class="string">y</span> <span class="string">c</span>;
+res = <span class="string">'(exp(y))+(t*exp(y)-sin(y)*Dy)=0'</span>;
+x = dsolve(res ,<span class="string">'t'</span>);
+
+<span class="comment">% b</span>
+syms <span class="string">y</span> <span class="string">c</span>;
+res = <span class="string">'(exp(y))+(t*exp(y)-sin(y)*Dy)=0'</span>;
+x = dsolve(res , <span class="string">'y(-1) = 0'</span>, <span class="string">'t'</span>);
+
+syms <span class="string">t</span> <span class="string">y</span>
+f = t + exp(-y)*cos(y);
+ezcontour(f,[-1,4],[0,3]);
+
+<span class="comment">% c</span>
+ezcontour(f,[2, 20],[-10,10])
+
+<span class="comment">% d</span>
+</pre><pre class="codeoutput">Warning: Support of character vectors and strings will be removed in a future
+release. Use sym objects to define differential equations instead. 
+Warning: Unable to find symbolic solution. 
+Warning: Support of character vectors and strings will be removed in a future
+release. Use sym objects to define differential equations instead. 
+Warning: Unable to find symbolic solution. 
+</pre><img vspace="5" hspace="5" src="Project2_02.png" alt=""> <h2 id="4">Exercise 3</h2><p>18 page 92</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+clear all;
+%Name Yizhan Ao & Yisheng Leng MATH246 Project2
+%% Exercise 1
+% pages 86.3
+% a
+format long 
+syms t c;
+res = 't*Dy+y = 2*t';
+y(t,c)=dsolve(res, 'y(1) = c', 't')
+
+% b
+fprintf('at t = 0.01, c = 0.8, y = %f\n',y(0.01,0.8));
+fprintf('at t = 0.1, c = 0.8, y = %f\n',y(0.1,0.8));
+fprintf('at t = 1, c = 0.8, y = %f\n',y(1,0.8));
+fprintf('at t = 10, c = 0.8, y = %f\n',y(10,0.8));
+fprintf('at t = 0.01, c = 1, y = %f\n',y(0.01,1));
+fprintf('at t = 0.1, c = 1, y = %f\n',y(0.1,1));
+fprintf('at t = 1, c = 1, y = %f\n',y(1,1));
+fprintf('at t = 10, c = 1, y = %f\n',y(10,1));
+fprintf('at t = 0.01, c = 1.2, y = %f\n',y(0.01,1.2));
+fprintf('at t = 0.1, c = 1.2, y = %f\n',y(0.1,1.2));
+fprintf('at t = 1, c = 1.2, y = %f\n',y(1,1.2));
+fprintf('at t = 10, c = 1.2, y = %f\n',y(10,1.2));
+
+%c
+i = 0.01:0.01:2.5;
+c = [0.8,0.9,1,1.1,1.2];
+
+figure 
+for x = 1:5
+    a = y(i,c(x));
+    plot(i,a)
+    hold on 
+end
+xlabel('t')
+ylabel('y')
+legend('c=0.8, c=0.9, c=1, c=1.1, c=1.2 ')
+
+% d
+% Since the value of c does not affect the solutions as the t tends to
+% going infinitelyfor t that approaching to 0 when the value c is less than
+% 1 the function is tending to reaching 0 while c is bigger than 1. Then
+% the function tends to decreases.
+%% Exercise 2
+% 7, page 87-88
+% a
+syms y c;
+res = '(exp(y))+(t*exp(y)-sin(y)*Dy)=0';
+x = dsolve(res ,'t');
+
+% b
+syms y c;
+res = '(exp(y))+(t*exp(y)-sin(y)*Dy)=0';
+x = dsolve(res , 'y(-1) = 0', 't');
+
+syms t y 
+f = t + exp(-y)*cos(y);
+ezcontour(f,[-1,4],[0,3]);
+
+% c
+ezcontour(f,[2, 20],[-10,10])
+
+% d
+
+%% Exercise 3
+% 18 page 92
+
+##### SOURCE END #####
+--></body></html>
