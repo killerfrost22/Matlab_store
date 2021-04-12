@@ -44,6 +44,12 @@ axis auto
 xlabel t, ylabel y
 title 'Problem 14 Part A - Forcing Factor'
 hold off
+
+%% Problem 14 Part B
+
+
+
+
 %% Problem 17 Part A
 % This problem illustrates how the choice of method can dramatically affect
 % the time it takes the computer to solve a differential equation. It can
