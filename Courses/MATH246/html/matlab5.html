@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>matlab5</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-04-11"><meta name="DC.source" content="matlab5.m"><style type="text/css">
+      --><title>matlab5</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-04-15"><meta name="DC.source" content="matlab5.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -67,11 +67,11 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Problem 13 Part A</a></li><li><a href="#2">Problem 14 Part A</a></li><li><a href="#3">Problem 17 Part A</a></li><li><a href="#4">Problem 17 Part B</a></li><li><a href="#5">Problem 17 Part C</a></li></ul></div><h2 id="1">Problem 13 Part A</h2><p>Use the Laplace Transform method to solve the following initial value problems. Then graph the solutions on the interval [0, 15]. In parts a and b, also graph the function on the right-hand side of the differential equation (the forcing function). In each part, discuss how the solution behaves in response to the forcing function.</p><pre class="codeinput">syms <span class="string">s</span> <span class="string">t</span> <span class="string">Y</span>;
-g = <span class="string">'heaviside(t-pi())*(1) + heaviside(t-10)*(-1)'</span>
-eqn = sym([<span class="string">'D(D(y))(t) + 3*D(y)(t) + 2*y(t) = '</span> g]);
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Problem 13 Part A</a></li><li><a href="#2">Problem 14 Part B</a></li><li><a href="#3">Problem 17 Part A</a></li><li><a href="#4">Problem 17 Part B</a></li><li><a href="#5">Problem 17 Part C</a></li></ul></div><h2 id="1">Problem 13 Part A</h2><pre class="codeinput">syms <span class="string">s</span> <span class="string">t</span> <span class="string">y(t)</span> <span class="string">Y</span>;
+g = heaviside(t-pi())*(1) + heaviside(t-10)*(-1)
+eqn = diff(y,2) + 3*diff(y) + 2*y == g;
 lteqn = laplace(eqn, t, s);
-neweqn = subs(lteqn, {<span class="string">'laplace(y(t),t,s)'</span>, <span class="string">'y(0)'</span>, <span class="string">'D(y)(0)'</span>}, {Y, 1, 0});
+neweqn = subs(lteqn, [laplace(y(t),t,s), y(0),subs(diff(y(t),t),t,0)], {Y, 1, 0});
 ytrans = simplify(solve(neweqn,Y));
 solution5 = ilaplace(ytrans, s, t);
 figure
@@ -80,45 +80,75 @@ set(plot3, <span class="string">'linewidth'</span>, 3, <span class="string">'col
 axis <span class="string">auto</span>
 xlabel <span class="string">t</span>, ylabel <span class="string">y</span>
 title <span class="string">'Problem 13 Part A - LaPlace Method Solution'</span>
-</pre><pre class="codeoutput">
+</pre><pre class="codeoutput"> 
 g =
+ 
+heaviside(t - pi) - heaviside(t - 10)
+ 
 
-    'heaviside(t-pi())*(1) + heaviside(t-10)*(-1)'
+plot3 = 
 
-</pre><pre class="codeoutput error">Error using sym&gt;convertChar (line 1557)
-Character vectors and strings in the first argument can only specify a variable or number. To evaluate character vectors and strings representing symbolic expressions, use 'str2sym'.
+  Line with properties:
 
-Error in sym&gt;tomupad (line 1273)
-        S = convertChar(x);
+              Color: [0 0.4470 0.7410]
+          LineStyle: '-'
+          LineWidth: 0.5000
+             Marker: 'none'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+              XData: [1&times;434 double]
+              YData: [1&times;434 double]
+              ZData: [1&times;0 double]
 
-Error in sym (line 229)
-                S.s = tomupad(x);
+  Use GET to show all properties
 
-Error in matlab5 (line 9)
-eqn = sym(['D(D(y))(t) + 3*D(y)(t) + 2*y(t) = ' g]);
-</pre><h2 id="2">Problem 14 Part A</h2><p>Use the Laplace Transform method to solve the following initial value problems. See problem 13 for additional instructions.</p><pre class="codeinput">figure; hold <span class="string">on</span>
-syms <span class="string">t</span> <span class="string">s</span> <span class="string">Y</span>
-f = [<span class="string">'(1 - heaviside(t-2*pi))*sin(t)'</span>];
-eqn = sym([<span class="string">'D(D(y))(t) + 4*y(t) = '</span> f]);
-lteqn = laplace(eqn, t, s)
-neweqn = subs(lteqn, {<span class="string">'laplace(y(t),t,s)'</span>, <span class="string">'y(0)'</span>, <span class="string">'D(y)(0)'</span>}, {Y, 0, 0})
+</pre><img vspace="5" hspace="5" src="matlab5_01.png" alt=""> <h2 id="2">Problem 14 Part B</h2><p>Use the Laplace Transform method to solve the following initial value problems. See problem 13 for additional instructions.</p><pre class="codeinput">figure; hold <span class="string">on</span>
+syms <span class="string">s</span> <span class="string">t</span> <span class="string">y(t)</span> <span class="string">Y</span>
+h = heaviside(t-5)-2*heaviside(t-10);
+eqn = diff(y,2)+ 6*diff(y)+8*y == h;
+lteqn = laplace(eqn,t,s);
+neweqn = subs(lteqn, [laplace(y(t),t,s),y(0),subs(diff(y(t),t),t,0)], [Y,0,2])
 ytrans = simplify(solve(neweqn, Y))
-y = ilaplace(ytrans, s, t)
-plot4 = ezplot(y, [0 15])
-set(plot4, <span class="string">'linewidth'</span>, 3, <span class="string">'color'</span>, <span class="string">'r'</span>)
+y= ilaplace(ytrans,s,t)
+plot1 = ezplot(y, [0 15])
+set(plot1, <span class="string">'linewidth'</span>, 3, <span class="string">'color'</span>, <span class="string">'r'</span>)
 axis <span class="string">auto</span>
 xlabel <span class="string">t</span>, ylabel <span class="string">y</span>
-title <span class="string">'Problem 14 Part A - LaPlace Method Solution'</span>
+title <span class="string">'Problem 14 Part B - LaPlace Method Solution'</span>
 hold <span class="string">off</span>
+</pre><pre class="codeoutput"> 
+neweqn =
+ 
+Y*s^2 + 6*Y*s + 8*Y - 2 == exp(-5*s)/s - (2*exp(-10*s))/s
+ 
+ 
+ytrans =
+ 
+(2*s + exp(-5*s) - 2*exp(-10*s))/(s*(s^2 + 6*s + 8))
+ 
+ 
+y =
+ 
+exp(-2*t) - exp(-4*t) + heaviside(t - 5)*(exp(20 - 4*t)/8 - exp(10 - 2*t)/4 + 1/8) - 2*heaviside(t - 10)*(exp(40 - 4*t)/8 - exp(20 - 2*t)/4 + 1/8)
+ 
 
-figure; hold <span class="string">on</span>
-plot5 = ezplot(f, [0 15])
-set(plot5, <span class="string">'linewidth'</span>, 3, <span class="string">'color'</span>, <span class="string">'r'</span>)
-axis <span class="string">auto</span>
-xlabel <span class="string">t</span>, ylabel <span class="string">y</span>
-title <span class="string">'Problem 14 Part A - Forcing Factor'</span>
-hold <span class="string">off</span>
-</pre><h2 id="3">Problem 17 Part A</h2><p>This problem illustrates how the choice of method can dramatically affect the time it takes the computer to solve a differential equation. It can also affect the form of the solution. Consider the initial value problem y"+y'+y=(t+1)^3*e^-t*cos(t)*sin(3t), y(0)=1, y'(0)=0 (E.5). This problem could be solved by methods of undetermined coefficients, variation of parameters, or Laplace Transforms. Try to solve (E.5) usign dsolve. How long does it take? The MATLAB commands tic and toc can be used as a stopwatch.</p><pre class="codeinput">tic
+plot1 = 
+
+  Line with properties:
+
+              Color: [0 0.4470 0.7410]
+          LineStyle: '-'
+          LineWidth: 0.5000
+             Marker: 'none'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+              XData: [1&times;434 double]
+              YData: [1&times;434 double]
+              ZData: [1&times;0 double]
+
+  Use GET to show all properties
+
+</pre><img vspace="5" hspace="5" src="matlab5_02.png" alt=""> <img vspace="5" hspace="5" src="matlab5_03.png" alt=""> <h2 id="3">Problem 17 Part A</h2><pre class="codeinput">tic
 figure; hold <span class="string">on</span>
 sol2=dsolve(<span class="string">'D2y+Dy+y=((t+1)^3)*exp(-t)*cos(t)*sin(3*t)'</span>,<span class="string">'y(0)=1'</span>,<span class="string">'Dy(0)=0'</span>)
 p17partA = ezplot(sol2, [0 15])
@@ -134,12 +164,37 @@ toc
 <span class="comment">% However these results may vary because tic and toc depends on the program</span>
 <span class="comment">% being used and the speed of the computer running the program. In this</span>
 <span class="comment">% case, the LaPlace Transform method seemed to produce results faster.</span>
-</pre><h2 id="4">Problem 17 Part B</h2><p>Now use the Laplace Transform method from Chapter 13 to solve the problem. How long does it take to get a result?</p><pre class="codeinput">tic
-syms <span class="string">t</span> <span class="string">s</span> <span class="string">Y</span>
+</pre><pre class="codeoutput">Warning: Support of character vectors and strings will be removed in a future
+release. Use sym objects to define differential equations instead. 
+ 
+sol2 =
+ 
+(208760666888776*exp(-t/2)*cos((3^(1/2)*t)/2))/96347750544721 + (58400630975296*3^(1/2)*exp(-t/2)*sin((3^(1/2)*t)/2))/289043251634163 + exp(-t/2)*cos((3^(1/2)*t)/2)*(exp(- t*4i - (3^(1/2)*t*1i)/2)*(exp(-t/2)*(3^(1/2)*(319856713/20240415366 + 318553609i/20240415366) - 79743641/6746805122 - 25398489i/13493610244) - exp(t*(- 1/2 + 8i))*(3^(1/2)*(319856713/20240415366 - 318553609i/20240415366) + 79743641/6746805122 - 25398489i/13493610244) + exp(t*(- 1/2 + 2i))*(3^(1/2)*(16205/85683 - 16643i/342732) - 31973/114244 + 12801i/114244) - exp(t*(- 1/2 + 6i))*(3^(1/2)*(16205/85683 + 16643i/342732) + 31973/114244 + 12801i/114244) + t*exp(t*(- 1/2 + 2i))*(3^(1/2)*(3849/17576 + 1881i/8788) - 2559/8788 - 3867i/17576) - t*exp(t*(- 1/2 + 6i))*(3^(1/2)*(3849/17576 - 1881i/8788) + 2559/8788 - 3867i/17576) + t*exp(-t/2)*(3^(1/2)*(3272277/111980168 + 1824465i/27995042) - 615567/27995042 - 2745159i/111980168) - t*exp(t*(- 1/2 + 8i))*(3^(1/2)*(3272277/111980168 - 1824465i/27995042) + 615567/27995042 - 2745159i/111980168) - t^3*exp(t*(- 1/2 + 2i))*(3^(1/2)*(5/312 - 7i/156) - 1/52 + 3i/104) + t^3*exp(t*(- 1/2 + 6i))*(3^(1/2)*(5/312 + 7i/156) + 1/52 + 3i/104) + t^2*exp(t*(- 1/2 + 2i))*(3^(1/2)*(7/338 + 135i/676) - 9/676 - 123i/676) - t^2*exp(t*(- 1/2 + 6i))*(3^(1/2)*(7/338 - 135i/676) + 9/676 - 123i/676) - t^3*exp(-t/2)*(3^(1/2)*(17/5784 - 31i/1446) - 1/482 + 15i/1928) + t^3*exp(t*(- 1/2 + 8i))*(3^(1/2)*(17/5784 + 31i/1446) + 1/482 + 15i/1928) + t^2*exp(-t/2)*(3^(1/2)*(470/58081 + 8043i/116162) - 621/116162 - 6549i/232324) - t^2*exp(t*(- 1/2 + 8i))*(3^(1/2)*(470/58081 - 8043i/116162) + 621/116162 - 6549i/232324)) - exp(- t*4i + (3^(1/2)*t*1i)/2)*(exp(-t/2)*(3^(1/2)*(319856713/20240415366 + 318553609i/20240415366) + 79743641/6746805122 + 25398489i/13493610244) - exp(t*(- 1/2 + 8i))*(3^(1/2)*(319856713/20240415366 - 318553609i/20240415366) - 79743641/6746805122 + 25398489i/13493610244) + exp(t*(- 1/2 + 2i))*(3^(1/2)*(16205/85683 - 16643i/342732) + 31973/114244 - 12801i/114244) - exp(t*(- 1/2 + 6i))*(3^(1/2)*(16205/85683 + 16643i/342732) - 31973/114244 - 12801i/114244) + t*exp(t*(- 1/2 + 2i))*(3^(1/2)*(3849/17576 + 1881i/8788) + 2559/8788 + 3867i/17576) - t*exp(t*(- 1/2 + 6i))*(3^(1/2)*(3849/17576 - 1881i/8788) - 2559/8788 + 3867i/17576) + t*exp(-t/2)*(3^(1/2)*(3272277/111980168 + 1824465i/27995042) + 615567/27995042 + 2745159i/111980168) - t*exp(t*(- 1/2 + 8i))*(3^(1/2)*(3272277/111980168 - 1824465i/27995042) - 615567/27995042 + 2745159i/111980168) - t^3*exp(t*(- 1/2 + 2i))*(3^(1/2)*(5/312 - 7i/156) + 1/52 - 3i/104) + t^3*exp(t*(- 1/2 + 6i))*(3^(1/2)*(5/312 + 7i/156) - 1/52 - 3i/104) + t^2*exp(t*(- 1/2 + 2i))*(3^(1/2)*(7/338 + 135i/676) + 9/676 + 123i/676) - t^2*exp(t*(- 1/2 + 6i))*(3^(1/2)*(7/338 - 135i/676) - 9/676 + 123i/676) - t^3*exp(-t/2)*(3^(1/2)*(17/5784 - 31i/1446) + 1/482 - 15i/1928) + t^3*exp(t*(- 1/2 + 8i))*(3^(1/2)*(17/5784 + 31i/1446) - 1/482 - 15i/1928) + t^2*exp(-t/2)*(3^(1/2)*(470/58081 + 8043i/116162) + 621/116162 + 6549i/232324) - t^2*exp(t*(- 1/2 + 8i))*(3^(1/2)*(470/58081 - 8043i/116162) - 621/116162 + 6549i/232324))) - exp(-t/2)*sin((3^(1/2)*t)/2)*(exp(- t*4i - (3^(1/2)*t*1i)/2)*(exp(-t/2)*(3^(1/2)*(318553609/20240415366 - 319856713i/20240415366) - 25398489/13493610244 + 79743641i/6746805122) + exp(t*(- 1/2 + 8i))*(3^(1/2)*(318553609/20240415366 + 319856713i/20240415366) + 25398489/13493610244 + 79743641i/6746805122) - exp(t*(- 1/2 + 2i))*(3^(1/2)*(16643/342732 + 16205i/85683) - 12801/114244 - 31973i/114244) - exp(t*(- 1/2 + 6i))*(3^(1/2)*(16643/342732 - 16205i/85683) + 12801/114244 - 31973i/114244) + t*exp(t*(- 1/2 + 2i))*(3^(1/2)*(1881/8788 - 3849i/17576) - 3867/17576 + 2559i/8788) + t*exp(t*(- 1/2 + 6i))*(3^(1/2)*(1881/8788 + 3849i/17576) + 3867/17576 + 2559i/8788) + t*exp(-t/2)*(3^(1/2)*(1824465/27995042 - 3272277i/111980168) - 2745159/111980168 + 615567i/27995042) + t*exp(t*(- 1/2 + 8i))*(3^(1/2)*(1824465/27995042 + 3272277i/111980168) + 2745159/111980168 + 615567i/27995042) + t^3*exp(t*(- 1/2 + 2i))*(3^(1/2)*(7/156 + 5i/312) - 3/104 - 1i/52) + t^3*exp(t*(- 1/2 + 6i))*(3^(1/2)*(7/156 - 5i/312) + 3/104 - 1i/52) + t^2*exp(t*(- 1/2 + 2i))*(3^(1/2)*(135/676 - 7i/338) - 123/676 + 9i/676) + t^2*exp(t*(- 1/2 + 6i))*(3^(1/2)*(135/676 + 7i/338) + 123/676 + 9i/676) + t^3*exp(-t/2)*(3^(1/2)*(31/1446 + 17i/5784) - 15/1928 - 1i/482) + t^3*exp(t*(- 1/2 + 8i))*(3^(1/2)*(31/1446 - 17i/5784) + 15/1928 - 1i/482) + t^2*exp(-t/2)*(3^(1/2)*(8043/116162 - 470i/58081) - 6549/232324 + 621i/116162) + t^2*exp(t*(- 1/2 + 8i))*(3^(1/2)*(8043/116162 + 470i/58081) + 6549/232324 + 621i/116162)) + exp(- t*4i + (3^(1/2)*t*1i)/2)*(exp(-t/2)*(3^(1/2)*(318553609/20240415366 - 319856713i/20240415366) + 25398489/13493610244 - 79743641i/6746805122) + exp(t*(- 1/2 + 8i))*(3^(1/2)*(318553609/20240415366 + 319856713i/20240415366) - 25398489/13493610244 - 79743641i/6746805122) - exp(t*(- 1/2 + 2i))*(3^(1/2)*(16643/342732 + 16205i/85683) + 12801/114244 + 31973i/114244) - exp(t*(- 1/2 + 6i))*(3^(1/2)*(16643/342732 - 16205i/85683) - 12801/114244 + 31973i/114244) + t*exp(t*(- 1/2 + 2i))*(3^(1/2)*(1881/8788 - 3849i/17576) + 3867/17576 - 2559i/8788) + t*exp(t*(- 1/2 + 6i))*(3^(1/2)*(1881/8788 + 3849i/17576) - 3867/17576 - 2559i/8788) + t*exp(-t/2)*(3^(1/2)*(1824465/27995042 - 3272277i/111980168) + 2745159/111980168 - 615567i/27995042) + t*exp(t*(- 1/2 + 8i))*(3^(1/2)*(1824465/27995042 + 3272277i/111980168) - 2745159/111980168 - 615567i/27995042) + t^3*exp(t*(- 1/2 + 2i))*(3^(1/2)*(7/156 + 5i/312) + 3/104 + 1i/52) + t^3*exp(t*(- 1/2 + 6i))*(3^(1/2)*(7/156 - 5i/312) - 3/104 + 1i/52) + t^2*exp(t*(- 1/2 + 2i))*(3^(1/2)*(135/676 - 7i/338) + 123/676 - 9i/676) + t^2*exp(t*(- 1/2 + 6i))*(3^(1/2)*(135/676 + 7i/338) - 123/676 - 9i/676) + t^3*exp(-t/2)*(3^(1/2)*(31/1446 + 17i/5784) + 15/1928 + 1i/482) + t^3*exp(t*(- 1/2 + 8i))*(3^(1/2)*(31/1446 - 17i/5784) - 15/1928 + 1i/482) + t^2*exp(-t/2)*(3^(1/2)*(8043/116162 - 470i/58081) + 6549/232324 - 621i/116162) + t^2*exp(t*(- 1/2 + 8i))*(3^(1/2)*(8043/116162 + 470i/58081) - 6549/232324 - 621i/116162)))
+ 
+
+p17partA = 
+
+  Line with properties:
+
+              Color: [0 0.4470 0.7410]
+          LineStyle: '-'
+          LineWidth: 0.5000
+             Marker: 'none'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+              XData: [1&times;434 double]
+              YData: [1&times;434 double]
+              ZData: [1&times;0 double]
+
+  Use GET to show all properties
+
+Elapsed time is 0.443519 seconds.
+</pre><img vspace="5" hspace="5" src="matlab5_04.png" alt=""> <h2 id="4">Problem 17 Part B</h2><p>Now use the Laplace Transform method from Chapter 13 to solve the problem. How long does it take to get a result?</p><pre class="codeinput">tic
+syms <span class="string">t</span> <span class="string">s</span>  <span class="string">y(t)</span> <span class="string">Y</span>
 figure; hold <span class="string">on</span>
-eqn1 = sym(<span class="string">'D(D(y))(t)+D(y)(t)+y(t)=((t+1)^3)*exp(-t)*cos(t)*sin(3*t)'</span>);
+eqn1 = diff(y,2)+ diff(y)+y(t)==((t+1)^3)*exp(-t)*cos(t)*sin(3*t);
 lteqn1 = laplace(eqn1, t, s)
-neweqn1 = subs(lteqn1, {<span class="string">'laplace(y(t),t,s)'</span>, <span class="string">'y(0)'</span>, <span class="string">'D(y)(0)'</span>}, {Y, 1, 0})
+neweqn1 = subs(lteqn1, [laplace(y(t),t,s), y(0), subs(diff(y(t),t),t,0)], [Y, 1, 0])
 ytrans1 = simplify(solve(neweqn1, Y))
 y1 = ilaplace(ytrans1, s, t)
 p17partB = ezplot(y1, [0 15])
@@ -155,7 +210,45 @@ toc
 <span class="comment">% toc depend on the program being used and the speed of the computer</span>
 <span class="comment">% running the program. In this case, the LaPlace Transform method seemed to</span>
 <span class="comment">% produce results faster.</span>
-</pre><h2 id="5">Problem 17 Part C</h2><p>Plot the two solutions over the range 0&lt;=t&lt;=15 and verify that they look the same.</p><pre class="codeinput">figure; hold <span class="string">on</span>
+</pre><pre class="codeoutput"> 
+lteqn1 =
+ 
+s*laplace(y(t), t, s) - y(0) - s*y(0) + s^2*laplace(y(t), t, s) - subs(diff(y(t), t), t, 0) + laplace(y(t), t, s) == (2*s^6 + 24*s^5 + 150*s^4 + 544*s^3 + 1134*s^2 + 1128*s + 346)/(2*(s^8 + 8*s^7 + 44*s^6 + 152*s^5 + 406*s^4 + 760*s^3 + 1100*s^2 + 1000*s + 625)) + (4*s^6 + 48*s^5 + 444*s^4 + 2240*s^3 + 8316*s^2 + 16080*s + 19844)/(2*(s^8 + 8*s^7 + 92*s^6 + 440*s^5 + 2566*s^4 + 7480*s^3 + 26588*s^2 + 39304*s + 83521))
+ 
+ 
+neweqn1 =
+ 
+Y - s + Y*s + Y*s^2 - 1 == (2*s^6 + 24*s^5 + 150*s^4 + 544*s^3 + 1134*s^2 + 1128*s + 346)/(2*(s^8 + 8*s^7 + 44*s^6 + 152*s^5 + 406*s^4 + 760*s^3 + 1100*s^2 + 1000*s + 625)) + (4*s^6 + 48*s^5 + 444*s^4 + 2240*s^3 + 8316*s^2 + 16080*s + 19844)/(2*(s^8 + 8*s^7 + 92*s^6 + 440*s^5 + 2566*s^4 + 7480*s^3 + 26588*s^2 + 39304*s + 83521))
+ 
+ 
+ytrans1 =
+ 
+(s^17 + 17*s^16 + 216*s^15 + 1883*s^14 + 13496*s^13 + 77881*s^12 + 382776*s^11 + 1585099*s^10 + 5657314*s^9 + 17221099*s^8 + 45092776*s^7 + 100147529*s^6 + 188387568*s^5 + 292748555*s^4 + 368303432*s^3 + 351557137*s^2 + 229139061*s + 72851008)/((s^2 + s + 1)*(s^4 + 4*s^3 + 26*s^2 + 44*s + 85)^4)
+ 
+ 
+y1 =
+ 
+(208760666888776*exp(-t/2)*(cos((3^(1/2)*t)/2) + (7300078871912*3^(1/2)*sin((3^(1/2)*t)/2))/78285250083291))/96347750544721 - (exp(-t)*(60*t*cos(4*t) - 15*sin(4*t) - 45*t*sin(4*t) + 180*t^2*cos(4*t) - 64*t^3*cos(4*t) + 96*t^2*sin(4*t) + 240*t^3*sin(4*t)))/7712 - (3*exp(-t)*(336*t*cos(2*t) - 168*sin(2*t) + 27*t*sin(2*t) - 54*t^2*cos(2*t) + 224*t^2*sin(2*t)))/1352 - (3*exp(-t)*(46608*t*cos(4*t) - 11652*sin(4*t) + 303*t*sin(4*t) - 1212*t^2*cos(4*t) + 62144*t^2*sin(4*t)))/1858592 - (3*exp(-t)*(766*t*cos(2*t) - 383*sin(2*t) + 5312*t*sin(2*t)))/17576 - (3*exp(-t)*(737948*t*cos(4*t) - 184487*sin(4*t) + 15439040*t*sin(4*t)))/447920672 - (31973*exp(-t)*(cos(2*t) + (7665*sin(2*t))/63946))/28561 - (exp(-t)*(30*t*cos(2*t) - 15*sin(2*t) - 9*t*sin(2*t) + 18*t^2*cos(2*t) - 8*t^3*cos(2*t) + 24*t^2*sin(2*t) + 12*t^3*sin(2*t)))/104 - (159487282*exp(-t)*(cos(4*t) + (199148625*sin(4*t))/318974564))/3373402561
+ 
+
+p17partB = 
+
+  Line with properties:
+
+              Color: [0 0.4470 0.7410]
+          LineStyle: '-'
+          LineWidth: 0.5000
+             Marker: 'none'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+              XData: [1&times;434 double]
+              YData: [1&times;434 double]
+              ZData: [1&times;0 double]
+
+  Use GET to show all properties
+
+Elapsed time is 1.182501 seconds.
+</pre><img vspace="5" hspace="5" src="matlab5_05.png" alt=""> <img vspace="5" hspace="5" src="matlab5_06.png" alt=""> <h2 id="5">Problem 17 Part C</h2><p>Plot the two solutions over the range 0&lt;=t&lt;=15 and verify that they look the same.</p><pre class="codeinput">figure; hold <span class="string">on</span>
 p17partB = ezplot(y1, [0 15])
 p17partA = ezplot(sol2, [0 15])
 set(p17partA, <span class="string">'linewidth'</span>, 3, <span class="string">'color'</span>, <span class="string">'k'</span>)
@@ -166,19 +259,49 @@ title <span class="string">'Problem 17 Part A and B Solutions Plotted Together'<
 hold <span class="string">off</span>
 
 <span class="comment">% Both the dsolve graph and the LaPlace Transform graph are the same.</span>
-</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+</pre><pre class="codeoutput">
+p17partB = 
+
+  Line with properties:
+
+              Color: [0 0.4470 0.7410]
+          LineStyle: '-'
+          LineWidth: 0.5000
+             Marker: 'none'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+              XData: [1&times;434 double]
+              YData: [1&times;434 double]
+              ZData: [1&times;0 double]
+
+  Use GET to show all properties
+
+
+p17partA = 
+
+  Line with properties:
+
+              Color: [0.8500 0.3250 0.0980]
+          LineStyle: '-'
+          LineWidth: 0.5000
+             Marker: 'none'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+              XData: [1&times;434 double]
+              YData: [1&times;434 double]
+              ZData: [1&times;0 double]
+
+  Use GET to show all properties
+
+</pre><img vspace="5" hspace="5" src="matlab5_07.png" alt=""> <img vspace="5" hspace="5" src="matlab5_08.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% Problem 13 Part A
-% Use the Laplace Transform method to solve the following initial value
-% problems. Then graph the solutions on the interval [0, 15]. In parts a
-% and b, also graph the function on the right-hand side of the differential
-% equation (the forcing function). In each part, discuss how the solution
-% behaves in response to the forcing function.
-syms s t Y;
-g = 'heaviside(t-pi())*(1) + heaviside(t-10)*(-1)'
-eqn = sym(['D(D(y))(t) + 3*D(y)(t) + 2*y(t) = ' g]);
+
+syms s t y(t) Y;
+g = heaviside(t-pi())*(1) + heaviside(t-10)*(-1)
+eqn = diff(y,2) + 3*diff(y) + 2*y == g;
 lteqn = laplace(eqn, t, s);
-neweqn = subs(lteqn, {'laplace(y(t),t,s)', 'y(0)', 'D(y)(0)'}, {Y, 1, 0});
+neweqn = subs(lteqn, [laplace(y(t),t,s), y(0),subs(diff(y(t),t),t,0)], {Y, 1, 0});
 ytrans = simplify(solve(neweqn,Y));
 solution5 = ilaplace(ytrans, s, t);
 figure
@@ -189,40 +312,28 @@ xlabel t, ylabel y
 title 'Problem 13 Part A - LaPlace Method Solution'
 
 
-%% Problem 14 Part A
+
+
+%% Problem 14 Part B
 % Use the Laplace Transform method to solve the following initial value
 % problems. See problem 13 for additional instructions.
 figure; hold on
-syms t s Y
-f = ['(1 - heaviside(t-2*pi))*sin(t)'];
-eqn = sym(['D(D(y))(t) + 4*y(t) = ' f]);
-lteqn = laplace(eqn, t, s)
-neweqn = subs(lteqn, {'laplace(y(t),t,s)', 'y(0)', 'D(y)(0)'}, {Y, 0, 0})
+syms s t y(t) Y
+h = heaviside(t-5)-2*heaviside(t-10);
+eqn = diff(y,2)+ 6*diff(y)+8*y == h;
+lteqn = laplace(eqn,t,s);
+neweqn = subs(lteqn, [laplace(y(t),t,s),y(0),subs(diff(y(t),t),t,0)], [Y,0,2])
 ytrans = simplify(solve(neweqn, Y))
-y = ilaplace(ytrans, s, t)
-plot4 = ezplot(y, [0 15])
-set(plot4, 'linewidth', 3, 'color', 'r')
+y= ilaplace(ytrans,s,t)
+plot1 = ezplot(y, [0 15])
+set(plot1, 'linewidth', 3, 'color', 'r')
 axis auto
 xlabel t, ylabel y
-title 'Problem 14 Part A - LaPlace Method Solution'
+title 'Problem 14 Part B - LaPlace Method Solution'
 hold off
 
-figure; hold on
-plot5 = ezplot(f, [0 15])
-set(plot5, 'linewidth', 3, 'color', 'r')
-axis auto
-xlabel t, ylabel y
-title 'Problem 14 Part A - Forcing Factor'
-hold off
 %% Problem 17 Part A
-% This problem illustrates how the choice of method can dramatically affect
-% the time it takes the computer to solve a differential equation. It can
-% also affect the form of the solution. Consider the initial value problem
-% y"+y'+y=(t+1)^3*e^-t*cos(t)*sin(3t), y(0)=1, y'(0)=0 (E.5). This problem
-% could be solved by methods of undetermined coefficients, variation of
-% parameters, or Laplace Transforms.
-% Try to solve (E.5) usign dsolve. How long does it take? The MATLAB
-% commands tic and toc can be used as a stopwatch.
+
 tic
 figure; hold on
 sol2=dsolve('D2y+Dy+y=((t+1)^3)*exp(-t)*cos(t)*sin(3*t)','y(0)=1','Dy(0)=0')
@@ -244,11 +355,11 @@ toc
 % Now use the Laplace Transform method from Chapter 13 to solve the
 % problem. How long does it take to get a result?
 tic
-syms t s Y
+syms t s  y(t) Y
 figure; hold on
-eqn1 = sym('D(D(y))(t)+D(y)(t)+y(t)=((t+1)^3)*exp(-t)*cos(t)*sin(3*t)');
+eqn1 = diff(y,2)+ diff(y)+y(t)==((t+1)^3)*exp(-t)*cos(t)*sin(3*t);
 lteqn1 = laplace(eqn1, t, s)
-neweqn1 = subs(lteqn1, {'laplace(y(t),t,s)', 'y(0)', 'D(y)(0)'}, {Y, 1, 0})
+neweqn1 = subs(lteqn1, [laplace(y(t),t,s), y(0), subs(diff(y(t),t),t,0)], [Y, 1, 0])
 ytrans1 = simplify(solve(neweqn1, Y))
 y1 = ilaplace(ytrans1, s, t)
 p17partB = ezplot(y1, [0 15])
