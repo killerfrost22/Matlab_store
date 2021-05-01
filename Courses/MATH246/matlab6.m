@@ -1,11 +1,7 @@
 %%Yisheng Leng && Yizhan Ao
 %% Matlab 6
 %% Problem 3 Part A
-% Use eig to find the eigenvalues and eigenvectors of the following
-% systems. Use the eigenvalues and eigenvectors to write down the general
-% solutions. Let x(t) = (x(t), y(t)). Determine the possible limiting
-% behavior of x(t), of y(t), and of x(t)/y(t) as t approaches positive
-% infinity.
+
 A = [3 -1;1 -2]
 [xi, R] = eig(sym(A))
 
@@ -18,11 +14,7 @@ A = [3 -1;1 -2]
 % eigenvectors is positive or negative.
 
 %% Problem 3 Part B
-% Use eig to find the eigenvalues and eigenvectors of the following
-% systems. Use the eigenvalues and eigenvectors to write down the general
-% solutions. Let x(t) = (x(t), y(t)). Determine the possible limiting
-% behavior of x(t), of y(t), and of x(t)/y(t) as t approaches positive
-% infinity.
+
 A = [3 -3;3 -2]
 [xi, R] = eig(sym(A))
 
@@ -30,11 +22,7 @@ A = [3 -3;3 -2]
 % + (11^(1/2)*i)/6;1]*exp(( 1/2 + (11^(1/2)*i)/2)t)
 
 %% Problem 3 Part C
-% Use eig to find the eigenvalues and eigenvectors of the following
-% systems. Use the eigenvalues and eigenvectors to write down the general
-% solutions. Let x(t) = (x(t), y(t)). Determine the possible limiting
-% behavior of x(t), of y(t), and of x(t)/y(t) as t approaches positive
-% infinity. Find the solution with the initial condition x(0) = (7; 5; 5).
+
 A = [-2 -1 2;0 4 5;0 -1 0]
 [xi, R] = eig(sym(A))
 b = [7;5;5]
@@ -44,19 +32,12 @@ c = xi\b
 % 5/2)*[1;-i-2;1]*exp(i+2)+ 2*[1;0;0]*exp(-2)
 
 %% Problem 3 Part D
-% Now solve the initial value problem in Part C with dsolve and compare
-% the answer with the solution you obtained in Part C.
+
 syms x y z t
 [x,y,z] = dsolve('Dx = -2*x-y+2*z','Dy = 4*y+5*z','Dz = -y','x(0)=7','y(0)=5','z(0)=5','t')
 
 
 %% Problem 7 Part A
-% Consider the competing species model (Boyce & DiPrima, Problem 4, Section
-% 9.4) dx/dt = x(1.5 - 0.5x - y); dy/dt = y(0.75 - 0.125y - y) For x,y > 0.
-% Find all critical points of the system. At each critical point, calculate
-% the corresponding linear system and find the eigenvalues of the
-% coefficient matrix; then identify the type and stability of each critical
-% point. 
 
 % Finding Critical Points
 syms x y
