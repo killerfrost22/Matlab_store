@@ -1,0 +1,170 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Untitled</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-06-03"><meta name="DC.source" content="Untitled.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput">\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx}
+\usepackage[normalem]{ulem} <span class="comment">%For striking out text</span>
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational <span class="string">Methods\qquad</span> <span class="string">Summer</span> <span class="string">2021</span> <span class="string">I</span>
+
+\textbf{\large HOMEWORK 1}
+    \begin{center}
+        \textbf{\large Author: Yizhan Ao}
+    \<span class="keyword">end</span>{center}
+\<span class="keyword">end</span>{center}
+\noindent \textbf{Due Date}: Thursday, June <span class="string">3\\</span>
+\noindent
+<span class="comment">% \noindent Homework should be handed in \emph{individually}, though</span>
+
+\begin{enumerate}
+\item Let <span class="string">$f(x)</span> <span class="string">=</span> <span class="string">e^x</span> <span class="string">+</span> <span class="string">x^2</span> <span class="string">-</span> <span class="string">5x$.</span>
+	\begin{enumerate}
+	\item The <span class="string">bracket</span> <span class="string">$[1.5,2]$</span> <span class="string">contains</span> <span class="string">a</span> <span class="string">root.</span> <span class="string">Explain</span> <span class="string">why</span> <span class="string">using</span> <span class="string">the</span> <span class="string">Intermediate</span> <span class="string">Value</span> <span class="string">Theorem.</span> <span class="string">For</span> <span class="string">this</span> <span class="string">bracket</span>, estimate <span class="string">the</span> <span class="string">number</span> <span class="string">of</span> <span class="string">iterations</span> <span class="string">$N$</span> <span class="string">that</span> <span class="string">would</span> <span class="string">be</span> <span class="string">needed</span> <span class="string">to</span> <span class="string">compute</span> <span class="string">the</span> <span class="string">root</span> <span class="string">to</span> <span class="string">an</span> <span class="string">accuracy</span> <span class="string">of</span> <span class="string">$10^{-4}$.</span>
+        \begin{enumerate}
+            \item Explanation:
+        \<span class="keyword">end</span>{enumerate}
+	\item The <span class="string">bracket</span> <span class="string">given</span> <span class="string">in</span> <span class="string">(a)</span> <span class="string">contains</span> <span class="string">a</span> <span class="string">root</span>, but <span class="string">there</span> <span class="string">is</span> <span class="string">another</span> <span class="string">root.</span> <span class="string">Find</span> <span class="string">a</span> <span class="string">bracket</span> <span class="string">for</span> <span class="string">it.</span> <span class="string">Then</span> <span class="string">use</span> <span class="string">the</span> <span class="string">bisection</span> <span class="string">method</span> <span class="string">to</span> <span class="string">find</span> <span class="string">the</span> <span class="string">two</span> <span class="string">roots</span> <span class="string">to</span> <span class="string">an</span> <span class="string">accuracy</span> <span class="string">of</span> <span class="string">$10^{-4}$.</span>
+	\<span class="keyword">end</span>{enumerate}
+\item Consider <span class="string">the</span> <span class="string">cubic</span> <span class="string">$f(x)=x^3-x-1$.</span>
+	\begin{enumerate}
+	\item Use <span class="string">the</span> <span class="string">MATLAB</span> <span class="string">command</span> <span class="string">\texttt{fzero}</span> <span class="string">to</span> <span class="string">find</span> <span class="string">a</span> <span class="string">root</span> <span class="string">in</span> <span class="string">the</span> <span class="string">interval</span> <span class="string">$[1,2]$.</span>
+	\item Show <span class="string">that</span> <span class="string">$f(x)=0$</span> <span class="string">can</span> <span class="string">be</span> <span class="string">rewritten</span> <span class="string">as</span> <span class="string">a</span> <span class="string">fixed</span> <span class="string">point</span> <span class="string">problem</span> <span class="string">for</span> <span class="string">both</span> <span class="string">the</span> <span class="string">functions</span> <span class="string">(i)</span> <span class="string">$g_1(x)=x^3-1$</span>, and (ii) $g_2(x)=(1+x)^{1/3}$.
+	\item Which <span class="string">of</span> <span class="string">the</span> <span class="string">functions</span> <span class="string">$g_1$</span> <span class="string">and</span> <span class="string">$g_2$</span> <span class="string">is</span> <span class="string">a</span> <span class="string">contraction</span> <span class="string">mapping</span> <span class="string">near</span> <span class="string">the</span> <span class="string">root</span> <span class="string">$r$</span> <span class="string">from</span> <span class="string">part</span> <span class="string">(a)?</span> <span class="string">Which</span> <span class="string">of</span> <span class="string">$g_1$</span> <span class="string">or</span> <span class="string">$g_2$</span> <span class="string">will</span> <span class="string">be</span> <span class="string">successful</span> <span class="string">in</span> <span class="string">making</span> <span class="string">the</span> <span class="string">iteration</span> <span class="string">$x_{i+1}</span> <span class="string">=</span> <span class="string">g(x_i)$</span> <span class="string">converge</span> <span class="string">locally</span> <span class="string">to</span> <span class="string">the</span> <span class="string">root</span> <span class="string">$r$?</span>
+	\item Write <span class="string">a</span> <span class="string">script</span> <span class="string">in</span> <span class="string">MATLAB</span> <span class="string">to</span> <span class="string">carry</span> <span class="string">out</span> <span class="string">10</span> <span class="string">steps</span> <span class="string">of</span> <span class="string">the</span> <span class="string">fixed</span> <span class="string">point</span> <span class="string">iteration</span> <span class="string">(use a \texttt{for} or \texttt{while} loop to do this)</span> <span class="string">for</span> <span class="string">both</span> <span class="string">$g_1$</span> <span class="string">and</span> <span class="string">$g_2$</span>, each <span class="string">starting</span> <span class="string">with</span> <span class="string">the</span> <span class="string">guess</span> <span class="string">$x_0=0$.</span> <span class="string">What</span> <span class="string">approximate</span> <span class="string">root</span> <span class="string">does</span> <span class="string">your</span> <span class="string">algorithm</span> <span class="string">give</span> <span class="string">for</span> <span class="string">$g_1$?</span> <span class="string">For</span> <span class="string">$g_2$?</span> <span class="string">Are</span> <span class="string">your</span> <span class="string">results</span> <span class="string">consistent</span> <span class="string">with</span> <span class="string">the</span> <span class="string">analysis</span> <span class="string">from</span> <span class="string">part</span> <span class="string">(c)?</span>
+	\<span class="keyword">end</span>{enumerate}
+\<span class="keyword">end</span>{enumerate}
+\<span class="keyword">end</span>{document}
+</pre><pre class="codeoutput error">Error using dbstatus
+Error: File: C:\Users\josep\OneDrive\Documents\GitHub\Matlab_store\Courses\Amsc460\HW\Untitled.m Line: 1 Column: 1
+Invalid use of operator.
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021 I
+
+\textbf{\large HOMEWORK 1}
+    \begin{center}
+        \textbf{\large Author: Yizhan Ao}
+    \end{center}
+\end{center}
+\noindent \textbf{Due Date}: Thursday, June 3\\
+\noindent 
+% \noindent Homework should be handed in \emph{individually}, though
+
+\begin{enumerate}
+\item Let $f(x) = e^x + x^2 - 5x$.
+	\begin{enumerate}
+	\item The bracket $[1.5,2]$ contains a root. Explain why using the Intermediate Value Theorem. For this bracket, estimate the number of iterations $N$ that would be needed to compute the root to an accuracy of $10^{-4}$.
+        \begin{enumerate}
+            \item Explanation: 
+        \end{enumerate}
+	\item The bracket given in (a) contains a root, but there is another root. Find a bracket for it. Then use the bisection method to find the two roots to an accuracy of $10^{-4}$.
+	\end{enumerate}
+\item Consider the cubic $f(x)=x^3-x-1$. 
+	\begin{enumerate}
+	\item Use the MATLAB command \texttt{fzero} to find a root in the interval $[1,2]$.
+	\item Show that $f(x)=0$ can be rewritten as a fixed point problem for both the functions (i) $g_1(x)=x^3-1$, and (ii) $g_2(x)=(1+x)^{1/3}$. 
+	\item Which of the functions $g_1$ and $g_2$ is a contraction mapping near the root $r$ from part (a)? Which of $g_1$ or $g_2$ will be successful in making the iteration $x_{i+1} = g(x_i)$ converge locally to the root $r$?
+	\item Write a script in MATLAB to carry out 10 steps of the fixed point iteration (use a \texttt{for} or \texttt{while} loop to do this) for both $g_1$ and $g_2$, each starting with the guess $x_0=0$. What approximate root does your algorithm give for $g_1$? For $g_2$? Are your results consistent with the analysis from part (c)? 
+	\end{enumerate}
+\end{enumerate}
+\end{document}
+##### SOURCE END #####
+--></body></html>

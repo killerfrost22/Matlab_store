@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021 I
+
+\textbf{\large HOMEWORK 1}
+    \begin{center}
+        \textbf{\large Author: Yizhan Ao}
+    \end{center}
+\end{center}
+\noindent \textbf{Due Date}: Thursday, June 3\\
+\noindent 
+% \noindent Homework should be handed in \emph{individually}, though
+
+\begin{enumerate}
+\item Let $f(x) = e^x + x^2 - 5x$.
+	\begin{enumerate}
+	\item The bracket $[1.5,2]$ contains a root. Explain why using the Intermediate Value Theorem. For this bracket, estimate the number of iterations $N$ that would be needed to compute the root to an accuracy of $10^{-4}$.
+        \begin{enumerate}
+            \item Explanation: 
+        \end{enumerate}
+	\item The bracket given in (a) contains a root, but there is another root. Find a bracket for it. Then use the bisection method to find the two roots to an accuracy of $10^{-4}$.
+	\end{enumerate}
+\item Consider the cubic $f(x)=x^3-x-1$. 
+	\begin{enumerate}
+	\item Use the MATLAB command \texttt{fzero} to find a root in the interval $[1,2]$.
+	\item Show that $f(x)=0$ can be rewritten as a fixed point problem for both the functions (i) $g_1(x)=x^3-1$, and (ii) $g_2(x)=(1+x)^{1/3}$. 
+	\item Which of the functions $g_1$ and $g_2$ is a contraction mapping near the root $r$ from part (a)? Which of $g_1$ or $g_2$ will be successful in making the iteration $x_{i+1} = g(x_i)$ converge locally to the root $r$?
+	\item Write a script in MATLAB to carry out 10 steps of the fixed point iteration (use a \texttt{for} or \texttt{while} loop to do this) for both $g_1$ and $g_2$, each starting with the guess $x_0=0$. What approximate root does your algorithm give for $g_1$? For $g_2$? Are your results consistent with the analysis from part (c)? 
+	\end{enumerate}
+\end{enumerate}
+\end{document}
