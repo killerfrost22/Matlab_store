@@ -1,0 +1,239 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>AMSC 460 - Computational Methods</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-06-03"><meta name="DC.source" content="HW1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>AMSC 460 - Computational Methods</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">HOMEWORK 1 - Problem 1</a></li><li><a href="#10">HOMEWORK 1 - Problem 2</a></li></ul></div><h2 id="1">HOMEWORK 1 - Problem 1</h2><p>Let f(x) = e^x + x^2 &#8722; 5x.</p><p>(a) The bracket [1.5, 2] contains a root. Explain why using the Intermediate Value Theorem. For this bracket, estimate the number of iterations N that would be needed to compute the root to an accuracy of 10^-4.</p><pre class="codeinput">clear <span class="string">all</span>
+format <span class="string">compact</span>
+close <span class="string">all</span>
+syms <span class="string">f(x)</span> <span class="string">x</span> <span class="string">y</span>
+</pre><pre class="codeinput">f(x) = exp(x) + x^2 - 5*x;
+double(f(1.5))
+</pre><pre class="codeoutput">ans =
+   -0.7683
+</pre><pre class="codeinput">double(f(2))
+</pre><pre class="codeoutput">ans =
+    1.3891
+</pre><pre>  Because f(x) is continuous on [1.5, 2], f(1.5) = -0.7683 &lt; 0 and f(2) = 1.3891 &gt; 0.
+  Then by the Intermediate Theorem f(x) has at least one root on [1.5, 2].</pre><p>(b) The bracket given in (a) contains a root, but there is another root. Find a bracket for it. Then use the bisection method to find the two roots to an accuracy of 10^-4.</p><pre class="codeinput">double(f(0))
+fprintf([<span class="string">'Because f(0)= %g &gt; 0 f(1.5)= %g &lt; 0. So find a root in'</span>, <span class="keyword">...</span>
+        <span class="string">' [0, 1.5]'</span>], double(f(0)),double(f(1.5)))
+</pre><pre class="codeoutput">ans =
+     1
+Because f(0)= 1 &gt; 0 f(1.5)= -0.768311 &lt; 0. So find a root in [0, 1.5]</pre><pre class="codeinput">bisect(@(x) exp(x) + x^2 - 5*x, 0, 1, 0.0001)
+</pre><pre class="codeoutput error">Undefined function 'bisect' for input arguments of type 'function_handle'.
+Error in HW1 (line 36)
+bisect(@(x) exp(x) + x^2 - 5*x, 0, 1, 0.0001)</pre><pre class="codeinput">bisect(@(x) exp(x) + x^2 - 5*x, 1.5, 2, 0.0001)
+</pre><pre>  So roots are at x = 0.2805 and at x = 1.7339.</pre><h2 id="10">HOMEWORK 1 - Problem 2</h2><p>Consider the cubic f(x) = x^3 &#8722; x &#8722; 1.</p><p>(a) Use the MATLAB command fzero to find a root in the interval [1, 2].</p><pre class="codeinput">fzero(@(x) x^3 - x - 1,1)
+</pre><p>(b) Show that f(x) = 0 can be rewritten as a fixed point problem for both the functions (i) g1(x) = x^3 &#8722; 1, and (ii) g2(x)=(1+x)^(1/3).</p><pre>  Let f(x) = x^3 &#8722; x &#8722; 1 = 0, then we can have x^3 &#8722; x &#8722; 1 = 0
+                                      and then     x^3 &#8722; 1 = x
+  So we can write g1(x) = x^3 &#8722; 1.</pre><pre>  Also, we can have x^3 &#8722; x &#8722; 1 = 0
+               then         x^3 = 1 + x
+               then           x = (1 + x)^(1/3)
+  And write g2(x) = (1 + x)^(1/3).</pre><p>(c) Which of the functions g1 and g2 is a contraction mapping near the root r from part (a)? Which of g1 or g2 will be successful in making the iteration xi+1 = g(xi) converge locally to the root r?</p><pre class="codeinput">diff((1 + x)^(1/3))
+</pre><pre>  Take the derivative of g1 and g2, then we have g1'= 3 * x^2 and g2'= 1/(3*(x + 1)^(2/3)).
+  Since g1'(1) = 3 and g1'(2) = 12 and g1' is strictly increasing on [1,2]. So g1' diverges.
+  g2' is continuous and strictly decreasing on [1,2],
+  g2'(1) = 0.21 and g2'(2) = 0.1602
+  So &#8707; L,  0 &#8804; L &lt; 1 s.t |g2'(x)| &#8804; L &lt; 1   &#8704; x &#8712; [1,2]     g2'converges.
+  Thus by the Contraction Mapping Theorem only g2 is a constraction on [1,2],
+  g2 will be successful in making the iteration xi+1 = g(xi) converge locally to the root r.</pre><p>(d) Write a script or function in MATLAB to carry out 10 steps of the fixed point iteration for both g1 and g2, each starting with the guess x0 = 0. What approximate root does your algorithm give for g1? For g2?. Are your results consistent with the analysis from part (c)?</p><pre>  function x = fpi_root(g,x0,steps)
+      x = x0;
+      iter = 0;</pre><pre>      while ( iter &lt; steps)
+          xNew = g(x);
+          x = xNew;
+          iter = iter + 1;
+          fprintf('\tAfter %g steps, root = %g\n', iter, xNew)
+      end
+  end</pre><pre class="codeinput">g1 = @(x) x.^3 - 1;
+g2 = @(x) (1 + x).^(1/3);
+</pre><pre class="codeinput">disp(<span class="string">'Fixed point iteration for g1 starts with x0=0:'</span>)
+fpi_root(g1,0,10)
+fprintf(<span class="string">'The approximate root I got for g1 is %.15g'</span>,ans)
+</pre><pre class="codeinput">disp(<span class="string">'Fixed point iteration for g2 starts with x0=0:'</span>)
+fpi_root(g2,0,10)
+fprintf(<span class="string">'The approximate root I got for g2 is %.15g'</span>,ans)
+</pre><pre>  Only g2 is successful in making the iteration xi+1 = g(xi) converge locally to the root r.
+  The results consistent with the analysis from part (c).</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% AMSC 460 - Computational Methods 
+%% HOMEWORK 1 - Problem 1
+
+%%
+% Let f(x) = e^x + x^2 − 5x.
+%
+% (a) The bracket [1.5, 2] contains a root. Explain why using the Intermediate Value
+% Theorem. For this bracket, estimate the number of iterations N that would be
+% needed to compute the root to an accuracy of 10^-4.
+
+clear all
+format compact
+close all
+syms f(x) x y
+%%
+f(x) = exp(x) + x^2 - 5*x;
+double(f(1.5))
+%%
+double(f(2))
+
+%%
+%    Because f(x) is continuous on [1.5, 2], f(1.5) = -0.7683 < 0 and f(2) = 1.3891 > 0.
+%    Then by the Intermediate Theorem f(x) has at least one root on [1.5, 2].
+%
+
+%%
+% (b) The bracket given in (a) contains a root, but there is another root. Find a bracket
+% for it. Then use the bisection method to find the two roots to an accuracy of 10^-4.
+
+double(f(0))
+fprintf(['Because f(0)= %g > 0 f(1.5)= %g < 0. So find a root in', ...
+        ' [0, 1.5]'], double(f(0)),double(f(1.5)))
+%%
+
+
+bisect(@(x) exp(x) + x^2 - 5*x, 0, 1, 0.0001)
+%%
+bisect(@(x) exp(x) + x^2 - 5*x, 1.5, 2, 0.0001)
+%%
+%    So roots are at x = 0.2805 and at x = 1.7339.
+
+%% HOMEWORK 1 - Problem 2
+
+%%
+% Consider the cubic f(x) = x^3 − x − 1.
+%
+% (a) Use the MATLAB command fzero to find a root in the interval [1, 2].
+
+fzero(@(x) x^3 - x - 1,1)
+
+%%
+% (b) Show that f(x) = 0 can be rewritten as a fixed point problem for both the
+% functions (i) g1(x) = x^3 − 1, and (ii) g2(x)=(1+x)^(1/3).
+%%
+%    Let f(x) = x^3 − x − 1 = 0, then we can have x^3 − x − 1 = 0
+%                                        and then     x^3 − 1 = x
+%    So we can write g1(x) = x^3 − 1.
+%
+%    Also, we can have x^3 − x − 1 = 0
+%                 then         x^3 = 1 + x
+%                 then           x = (1 + x)^(1/3)
+%    And write g2(x) = (1 + x)^(1/3).
+
+%%
+% (c) Which of the functions g1 and g2 is a contraction mapping near the root r
+% from part (a)? Which of g1 or g2 will be successful in making the iteration
+% xi+1 = g(xi) converge locally to the root r?
+%%
+diff((1 + x)^(1/3))
+%%
+%    Take the derivative of g1 and g2, then we have g1'= 3 * x^2 and g2'= 1/(3*(x + 1)^(2/3)).
+%    Since g1'(1) = 3 and g1'(2) = 12 and g1' is strictly increasing on [1,2]. So g1' diverges.
+%    g2' is continuous and strictly decreasing on [1,2],
+%    g2'(1) = 0.21 and g2'(2) = 0.1602
+%    So ∃ L,  0 ≤ L < 1 s.t |g2'(x)| ≤ L < 1   ∀ x ∈ [1,2]     g2'converges.
+%    Thus by the Contraction Mapping Theorem only g2 is a constraction on [1,2],
+%    g2 will be successful in making the iteration xi+1 = g(xi) converge locally to the root r.
+
+%%
+% (d) Write a script or function in MATLAB to carry out 10 steps of the fixed point iteration for both
+% g1 and g2, each starting with the guess x0 = 0. What approximate root does your algorithm give for g1?
+% For g2?. Are your results consistent with the analysis from part (c)?
+
+%%
+%    function x = fpi_root(g,x0,steps)
+%        x = x0;
+%        iter = 0;
+%
+%        while ( iter < steps)
+%            xNew = g(x);
+%            x = xNew;
+%            iter = iter + 1;
+%            fprintf('\tAfter %g steps, root = %g\n', iter, xNew)
+%        end
+%    end
+
+g1 = @(x) x.^3 - 1;
+g2 = @(x) (1 + x).^(1/3);
+
+%%
+
+disp('Fixed point iteration for g1 starts with x0=0:')
+fpi_root(g1,0,10)
+fprintf('The approximate root I got for g1 is %.15g',ans)
+%%
+
+disp('Fixed point iteration for g2 starts with x0=0:')
+fpi_root(g2,0,10)
+fprintf('The approximate root I got for g2 is %.15g',ans)
+
+%%
+%    Only g2 is successful in making the iteration xi+1 = g(xi) converge locally to the root r.
+%    The results consistent with the analysis from part (c).
+
+
+##### SOURCE END #####
+--></body></html>

@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1622693820 "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW1/hw01_amsc460_summer2021_1.tex" "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW1/hw01_amsc460_summer2021_1.pdf" "hw01_amsc460_summer2021_1" 1622693823
+["pdflatex"] 1622693008 "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW1/hw01_amsc460_summer2021_1.tex" "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW1/hw01_amsc460_summer2021_1.pdf" "hw01_amsc460_summer2021_1" 1622693008
   "C:/Users/josep/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1611623886 9258827 c37326b0799604116136c19bd82b2f4a ""
-  "C:/Users/josep/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1622693757 82507 a9eef8696c92627b87e9975edea03b2a ""
+  "C:/Users/josep/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1622742719 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
   "C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
   "C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/courier/pcrr8r.tfm" 1136768653 1292 bd42be2f344128bff6d35d98474adfe3 ""
@@ -99,15 +99,15 @@
   "C:/Users/josep/AppData/Roaming/MiKTeX/tex/latex/kvoptions/kvoptions.sty" 1602228096 22521 d2fceb764a442a2001d257ef11db7618 ""
   "C:/Users/josep/AppData/Roaming/MiKTeX/tex/latex/letltxmacro/letltxmacro.sty" 1575403136 5766 13a9e8766c47f30327caf893ece86ac8 ""
   "C:/Users/josep/AppData/Roaming/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1575574882 9715 b051d5b493d9fe5f4bc251462d039e5f ""
-  "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW1/hw01_amsc460_summer2021_1.aux" 1622693823 686 e6bf9f11827e1eae1d85e75b99e0a183 ""
-  "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW1/hw01_amsc460_summer2021_1.tex" 1622693819 2133 4c3e137e904191d91d1f3101bcf54ddf ""
-  "hw01_amsc460_summer2021_1.aux" 1622693823 686 e6bf9f11827e1eae1d85e75b99e0a183 "pdflatex"
-  "hw01_amsc460_summer2021_1.out" 1622693823 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW1/hw01_amsc460_summer2021_1.aux" 1622693008 9 a94a2480d3289e625eea47cd1b285758 ""
+  "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW1/hw01_amsc460_summer2021_1.tex" 1622692961 2133 4c3e137e904191d91d1f3101bcf54ddf ""
+  "hw01_amsc460_summer2021_1.aux" 0 -1 0 "pdflatex"
+  "hw01_amsc460_summer2021_1.out" 0 -1 0 "pdflatex"
   "hw01_amsc460_summer2021_1.tex" 1622693819 2133 4c3e137e904191d91d1f3101bcf54ddf ""
   (generated)
-  "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW1/hw01_amsc460_summer2021_1.pdf"
-  "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW1/hw01_amsc460_summer2021_1.log"
-  "hw01_amsc460_summer2021_1.pdf"
   "hw01_amsc460_summer2021_1.log"
   "hw01_amsc460_summer2021_1.aux"
+  "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW1/hw01_amsc460_summer2021_1.log"
+  "hw01_amsc460_summer2021_1.pdf"
+  "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW1/hw01_amsc460_summer2021_1.pdf"
   "hw01_amsc460_summer2021_1.out"

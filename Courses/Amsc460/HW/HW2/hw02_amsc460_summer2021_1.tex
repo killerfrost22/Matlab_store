@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021 I
+\\
+
+\textbf{\large HOMEWORK 2}\\
+\end{center}
+\noindent \textbf{Due Date}: Friday, June 4\\
+
+\noindent Homework should be handed in \emph{individually}, though you may work with others and collaboration is encouraged. For MATLAB problems please follow the guidelines specified in ELMS (in particular see the file ``Formatting MATLAB assignments'')
+
+\begin{enumerate}\item
+\begin{enumerate}
+	\item Write a MATLAB program to implement Newton's method for root finding.
+	\item To compare root finding algorithms, we will approximate $\sqrt{2}$ using two methods: Newton and Bisection. Using the equation $f(x)=x^2-2=0$, use your program from part (a) to ensure $\sqrt{2}$ is obtained. For Newton, use $x_0=2$, and for Bisection use the starting bracket $[1,2]$. In each case use $10^{-8}$ for the error tolerance. You can use the bisection method code from class.
+	\item Modify the algorithms to keep track of the absolute error $e_n = |r - x_n|$ at each iteration. Store these errors in a vector (for plotting purposes). Then plot the absolute errors on the same graph, and with a semilogarithmic y-axis (use \texttt{semilogy} in MATLAB). Which algorithm used the least steps to achieve the required error tolerance?
+	\end{enumerate}
+\end{enumerate}
+\end{document}
