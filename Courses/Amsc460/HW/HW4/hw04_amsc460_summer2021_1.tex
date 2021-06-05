@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 4}\\
+\end{center}
+\noindent \textbf{Due Date}: Tuesday, June 8\\
+
+\begin{enumerate}
+\item Express $x = (12.8)_{10}$ as a normalized double-precision IEEE floating point number $fl(x)$ (i.e. in the form $\pm 1.\textrm{mantissa}\times 2^E$), using the round-to-nearest rule.
+\item \begin{enumerate}
+\item Explain why between $2^{53}$ and $2^{54}$, the only double precision floating point numbers that exist are the even numbers. 
+\item Suppose we type the following into the MATLAB command prompt
+	\[x = 2^{53}+1\]
+	What will MATLAB store in $x$? Explain. 
+\end{enumerate}
+\item (Optional, not graded) Express $(12.8)_{10}$ as a \emph{computer word}. (You will need to read the supplementary notes about how exponents are stored using the \emph{exponent bias}.)
+\end{enumerate}
+\end{document}
