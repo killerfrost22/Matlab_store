@@ -1,0 +1,218 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>AMSC 460 - HW 3</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-06-08"><meta name="DC.source" content="HW4.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>AMSC 460 - HW 3</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Problem 1</a></li><li><a href="#6">Problem 2</a></li><li><a href="#11">Problem 3</a></li></ul></div><h2 id="1">Problem 1</h2><p>(a) Express x = (12.8)_10 as a double-precision IEEE float fl(x), using the round-tonearest rule.</p><pre>  (12.8)_10 = (12)_10 + (0.8)_10
+  Integer part: 12/2 = 6 remainder = 0
+                 6/2 = 3 remainder = 0
+                 3/2 = 1 remainder = 1
+                 1/2 = 0 remainder = 1   -&gt; (12)_10 = (1100)_2
+  Fractional part: 0.8 * 2 = 1.6 = 0.6 + 1
+                   0.6 * 2 = 1.2 = 0.2 + 1
+                   0.2 * 2 = 0.4 = 0.4 + 0                     ____
+                   0.4 * 2 = 0.8 = 0.8 + 0    -&gt; (0.8)_10 = (0.1100)_2
+                       ____                             ____
+  So (12.8)_10 = (1100.1100)_2, fl(x) = 1.[10011....01] 1001 x 2^3</pre><pre>  Sine b_53 = 1 and the rest of bits are Not all zero,
+  1. By truncating,  ____                       ____              [in base 10]
+      we lose R = (0.1001) x 2^(-52) x 2^3 = (0.1001) x 2^(-49) = 0.6 x 2^(-49)
+  2. By the round-tonearest rule, we add 1 to the b_52 bit to get an addition
+      of 2^(-52) x 2^3 = 2^(-49)
+  Thus we have fl(12.8) = 12.8 + 2^(-49) - 0.6 x 2^(-49) = 12.8 + 0.4 * 2^(-49)</pre><p>(b) Compute the relative error d = <tt>x &#8722; fl(x)</tt>/|x| exactly as a base-10 number, and show that d satisfies the upper bound d &#8804;&#949;_mach/2.</p><pre class="codeinput">d = abs(0.4 * 2^(-49))/abs(12.8)
+eps/2 - d
+</pre><pre class="codeoutput">
+d =
+
+   5.5511e-17
+
+
+ans =
+
+   5.5511e-17
+
+</pre><pre>  ans = 5.551115123125783e-17 &gt; 0 so the d satisfies the upper bound d &#8804;&#949;_mach/2.</pre><h2 id="6">Problem 2</h2><p>(a) Explain why between 2^53 and 2^54, the only double precision floating point numbers that exist are the even numbers.</p><pre class="codeinput">eps(2^53)
+</pre><pre class="codeoutput">
+ans =
+
+     2
+
+</pre><pre>  We got eps(2^53) = 2 and we know 2^53 is an even number.
+  So the smalles &#949; for 2^53 is 2, which means we can add 2 to 2^53 to get the next
+  floating point, the distance between each floating point is 2. 2^53 is an even number
+  and even number plus 2 is also enen, thus the only double precision floating point
+  numbers between 2^53 and 2^54 are the even numbers.</pre><p>(b) Suppose we type the following into the MATLAB command prompt    x = 2^{53}+1 What will MATLAB store in <img src="HW4_eq12428413953531653171.png" alt="$x$">? Explain.</p><pre class="codeinput">syms <span class="string">x</span>
+x = 2^53+1
+</pre><pre class="codeoutput">
+x =
+
+   9.0072e+15
+
+</pre><pre>  x = 9.0072e+15 since in matlab we can only rounded up to decimal point
+  15 digits. Therefore, 9.0072* 10^15</pre><h2 id="11">Problem 3</h2><p>Express (12.8)_{10} as a computer word.</p><pre class="language-matlab">2.810 in <span class="string">Decimal</span> <span class="string">number</span> <span class="string">system</span> <span class="string">and</span> <span class="string">want</span> <span class="string">to</span> <span class="string">translate</span> <span class="string">it</span> <span class="string">into</span> <span class="string">Binary.</span>
+Taking <span class="string">whole</span> <span class="string">part</span> <span class="string">of</span> <span class="string">a</span> <span class="string">number</span> <span class="string">is</span> <span class="string">obtained</span> <span class="string">by</span> <span class="string">dividing</span> <span class="string">on</span> <span class="string">the</span> <span class="string">basis</span> <span class="string">new</span>
+We <span class="string">get</span> <span class="string">12</span> <span class="string">using</span> <span class="string">2</span> <span class="string">as</span> <span class="string">a</span> <span class="string">denominator</span> <span class="string">we</span> <span class="string">get</span> <span class="string">1100_2</span> <span class="string">as</span> <span class="string">12_10</span> <span class="string">in</span> <span class="string">binary</span>
+The <span class="string">fractional</span> <span class="string">part</span> <span class="string">will</span> <span class="string">be</span> <span class="string">rounded</span> <span class="string">by</span> <span class="string">multiplying</span> <span class="string">the</span> <span class="string">basis</span>
+8/2=4.<span class="keyword">...</span><span class="comment">..0</span>
+6/2=3.<span class="keyword">...</span><span class="comment">..1</span>
+2/2=1.<span class="keyword">...</span><span class="comment">..1</span>
+4/2=2.<span class="keyword">...</span><span class="comment">..0</span>
+8/2=4.<span class="keyword">...</span><span class="comment">..0</span>
+6/2=3.<span class="keyword">...</span><span class="comment">..1</span>
+2/2=1.<span class="keyword">...</span><span class="comment">..1</span>
+4/2=2.<span class="keyword">...</span><span class="comment">..0</span>
+8/2=4.<span class="keyword">...</span><span class="comment">..0</span>
+6/2=3.<span class="keyword">...</span><span class="comment">..1</span>
+2/2=1.<span class="keyword">...</span><span class="comment">..1</span>
+4/2=2.<span class="keyword">...</span><span class="comment">..0</span>
+0.8_10 = 0.11001100110_2
+Adding <span class="string">two</span> <span class="string">parts</span> <span class="string">will</span> <span class="string">be</span> <span class="string">1100.11001100110_2</span>
+Done
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% AMSC 460 - HW 3
+
+%% Problem 1
+
+%%
+% (a) Express x = (12.8)_10 as a double-precision IEEE float fl(x), 
+% using the round-tonearest rule.
+%%
+%    (12.8)_10 = (12)_10 + (0.8)_10
+%    Integer part: 12/2 = 6 remainder = 0
+%                   6/2 = 3 remainder = 0
+%                   3/2 = 1 remainder = 1
+%                   1/2 = 0 remainder = 1   -> (12)_10 = (1100)_2
+%    Fractional part: 0.8 * 2 = 1.6 = 0.6 + 1
+%                     0.6 * 2 = 1.2 = 0.2 + 1
+%                     0.2 * 2 = 0.4 = 0.4 + 0                     ____
+%                     0.4 * 2 = 0.8 = 0.8 + 0    -> (0.8)_10 = (0.1100)_2
+%                         ____                             ____
+%    So (12.8)_10 = (1100.1100)_2, fl(x) = 1.[10011....01] 1001 x 2^3
+%       
+%    Sine b_53 = 1 and the rest of bits are Not all zero,
+%    1. By truncating,  ____                       ____              [in base 10]
+%        we lose R = (0.1001) x 2^(-52) x 2^3 = (0.1001) x 2^(-49) = 0.6 x 2^(-49)
+%    2. By the round-tonearest rule, we add 1 to the b_52 bit to get an addition
+%        of 2^(-52) x 2^3 = 2^(-49)
+%    Thus we have fl(12.8) = 12.8 + 2^(-49) - 0.6 x 2^(-49) = 12.8 + 0.4 * 2^(-49)
+
+
+%%
+% (b) Compute the relative error d = |x − fl(x)|/|x| exactly as a base-10 number, and
+% show that d satisfies the upper bound d ≤ε_mach/2.
+
+d = abs(0.4 * 2^(-49))/abs(12.8)
+eps/2 - d
+%%
+%    ans = 5.551115123125783e-17 > 0 so the d satisfies the upper bound d ≤ε_mach/2.
+
+%% Problem 2 
+
+%%
+% (a) Explain why between 2^53 and 2^54, the only double precision floating point numbers
+% that exist are the even numbers.
+eps(2^53)
+%%
+%    We got eps(2^53) = 2 and we know 2^53 is an even number.
+%    So the smalles ε for 2^53 is 2, which means we can add 2 to 2^53 to get the next
+%    floating point, the distance between each floating point is 2. 2^53 is an even number
+%    and even number plus 2 is also enen, thus the only double precision floating point
+%    numbers between 2^53 and 2^54 are the even numbers.
+%%
+% (b) Suppose we type the following into the MATLAB command prompt
+%    x = 2^{53}+1
+% What will MATLAB store in $x$? Explain. 
+syms x
+x = 2^53+1
+%%   
+%    x = 9.0072e+15 since in matlab we can only rounded up to decimal point
+%    15 digits. Therefore, 9.0072* 10^15
+%% Problem 3 
+%%
+% Express (12.8)_{10} as a computer word.
+%%
+%   2.810 in Decimal number system and want to translate it into Binary.
+%   Taking whole part of a number is obtained by dividing on the basis new
+%   We get 12 using 2 as a denominator we get 1100_2 as 12_10 in binary
+%   The fractional part will be rounded by multiplying the basis 
+%   8/2=4......0 
+%   6/2=3......1
+%   2/2=1......1
+%   4/2=2......0
+%   8/2=4......0 
+%   6/2=3......1
+%   2/2=1......1
+%   4/2=2......0
+%   8/2=4......0 
+%   6/2=3......1
+%   2/2=1......1
+%   4/2=2......0
+%   0.8_10 = 0.11001100110_2
+%   Adding two parts will be 1100.11001100110_2
+%   Done
+##### SOURCE END #####
+--></body></html>
