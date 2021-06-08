@@ -1,0 +1,191 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>AMSC 460 - HW 3</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-06-07"><meta name="DC.source" content="HW3.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>AMSC 460 - HW 3</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Problem 1</a></li><li><a href="#6">Problem 2</a></li><li><a href="#7">Problem 3</a></li></ul></div><h2 id="1">Problem 1</h2><p>Find the multiplicity of the root r = 0 of f(x) = 1 &#8722; cos(x). Find the forward and backward errors for the approximate root x&#710; = 10^&#8722;5.</p><pre class="codeinput">f = 1-cos(x);    <span class="comment">% f(0) = 0, so r = 0 is a root.</span>
+diff(f);         <span class="comment">% ans = sin(x), sin(0)=0, so r = 0 is a root of multiplicity at least 2</span>
+diff(sin(x));    <span class="comment">% ans = cos(x), cos(x)=1, so r = 0 is a root of multiplicity 2.</span>
+</pre><pre>  So we see that the root r = 0 has multiplicity 2.</pre><pre class="codeinput">r = 0; x_hat = 10^-5; f = @(x) 1-cos(x);
+fwd_err = abs(r - x_hat)
+bwd_err = abs(f(x_hat))
+</pre><pre class="codeoutput">
+fwd_err =
+
+   1.0000e-05
+
+
+bwd_err =
+
+   5.0000e-11
+
+</pre><h2 id="6">Problem 2</h2><h2 id="7">Problem 3</h2><p>Newton&#8217;s method for solving f(x) = 0 requires computing the derivative of f each iteration. Suppose instead that the initial slope d = f'(x0&#65289;is kept throughout the iterations, i.e xn+1 = xn &#8722; f(xn)/d. Suppose that the root r is simple (so that f'(r)&#8800; 0). Find a condition on the initial slope d that ensures the scheme will be locally convergent. What is the order of convergence?</p><pre>  Accordint to our class note, Newton is an FPI, with g(x) = x - f(x)/f'(x)
+  In this case, we have g(x) = x - f(x)/d
+                   then g(r) = r - f(r)/d = r - f(r)/f'(x0)
+  To get local convergence, we must have g'(r) = 1 - [ f'(x0)f'(r)- f(r)f''(x0)/[f'(x0)]^2] = 0 &lt; 1
+             since f(r)=0     so         g'(r) = 1 - [ f'(x0)f'(r)/[f'(x0)]^2] = 0 &lt; 1
+                            then             1 =  f'(x0)f'(r)/[f'(x0)]^2
+                                   f'(x0)f'(r) = [f'(x0)]^2
+                                         f'(r) = f'(x0)
+  Given that f'(r)&#8800; 0 so d = f'(x0) &#8800; 0       &lt;----  This is the condition for d</pre><pre>  Assume f(x)is a continuous function with a continuous second derivative,
+  and f(x) is defined on an interval I = [r-&#949;,r+&#949;], with &#949;&gt; 0.
+  Given that f(r) = 0 and f''(r) &#8800; 0
+  Want to show there exists a constant A such that |f''(x)|/|f'(y)| &#8804; A &#8704;x,y&#8712;I
+  If the initial guess x0 is suciently close to the root r
+  then the sequence {xn} converges quadratically to the root r.
+  i.e the order of cpnvergence is 2.</pre><pre>  Proof:
+  We assume that x_n&#8712; I. Since f(r) = 0,
+  A Taylor expansion of f(x) at x = x_n, evaluated at x = r is:
+  0 = f(r) = f(x_n)+(r - xn)f'(x_n) + [(r-x_n)^2 / 2] f''(&#958;_n)
+  where &#958;_n is between r and x_n, and hence &#958;&#8712;I
+  Then we have r - x_n = [ -2f(x_n) - f''(&#958;_n)(r - x_n)^2 ] / 2f'(x_n)
+  Since x_n+1 are the Newton iterates so we have
+  r - x_n+1 = r - x_n + [f(x_n)/f'(x_n)] = - [f''(&#958;_n)(r - x_n)^2]/2f'(x_n)
+  Hence | r - x_n+1 | &#8804; [(r - x_n)^2 / 2]*A &#8804; |r-x_n|/2  &#8804; &#8230;&#8230;&#8804; 2^(1-n) *|r-x_0|
+  which implies that x_n -&gt; r as n -&gt;&#8734;</pre><pre>  To show that the convergence rate of {x_n} to r is quadratic.
+  Since &#958;_n is between the root r and x_n, it also converges to r as n-&gt;&#8734;
+  The derivatives f' and f''are continuous and therefore we can write
+  lim     |x_n+1 - r| / |x_n - r|^2 =  |f''(r) / 2f'(r)|
+  n -&gt;&#8734;
+  which implies the quadratic convergence of {x_n} to r.   QED</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% AMSC 460 - HW 3
+
+%% Problem 1
+
+%%
+% Find the multiplicity of the root r = 0 of f(x) = 1 − cos(x). Find the forward and
+% backward errors for the approximate root xˆ = 10^−5.
+
+%%
+f = 1-cos(x);    % f(0) = 0, so r = 0 is a root.
+diff(f);         % ans = sin(x), sin(0)=0, so r = 0 is a root of multiplicity at least 2
+diff(sin(x));    % ans = cos(x), cos(x)=1, so r = 0 is a root of multiplicity 2.
+%%
+%    So we see that the root r = 0 has multiplicity 2.
+
+%%
+r = 0; x_hat = 10^-5; f = @(x) 1-cos(x);
+fwd_err = abs(r - x_hat)
+bwd_err = abs(f(x_hat))
+
+
+
+%% Problem 2
+
+
+
+
+%% Problem 3
+
+%%
+% Newton’s method for solving f(x) = 0 requires computing the derivative of f each
+% iteration. Suppose instead that the initial slope d = f'(x0）is kept throughout the
+% iterations, i.e xn+1 = xn − f(xn)/d.
+% Suppose that the root r is simple (so that f'(r)≠ 0). Find a condition on the initial
+% slope d that ensures the scheme will be locally convergent. What is the order of
+% convergence?
+
+%%
+%    Accordint to our class note, Newton is an FPI, with g(x) = x - f(x)/f'(x)
+%    In this case, we have g(x) = x - f(x)/d
+%                     then g(r) = r - f(r)/d = r - f(r)/f'(x0)
+%    To get local convergence, we must have g'(r) = 1 - [ f'(x0)f'(r)- f(r)f''(x0)/[f'(x0)]^2] = 0 < 1
+%               since f(r)=0     so         g'(r) = 1 - [ f'(x0)f'(r)/[f'(x0)]^2] = 0 < 1
+%                              then             1 =  f'(x0)f'(r)/[f'(x0)]^2
+%                                     f'(x0)f'(r) = [f'(x0)]^2
+%                                           f'(r) = f'(x0)
+%    Given that f'(r)≠ 0 so d = f'(x0) ≠ 0       <REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH  This is the condition for d
+%    
+%    Assume f(x)is a continuous function with a continuous second derivative,
+%    and f(x) is defined on an interval I = [r-ε,r+ε], with ε> 0.
+%    Given that f(r) = 0 and f''(r) ≠ 0
+%    Want to show there exists a constant A such that |f''(x)|/|f'(y)| ≤ A ∀x,y∈I
+%    If the initial guess x0 is suciently close to the root r
+%    then the sequence {xn} converges quadratically to the root r.
+%    i.e the order of cpnvergence is 2.
+%    
+%    Proof:
+%    We assume that x_n∈ I. Since f(r) = 0,
+%    A Taylor expansion of f(x) at x = x_n, evaluated at x = r is:
+%    0 = f(r) = f(x_n)+(r - xn)f'(x_n) + [(r-x_n)^2 / 2] f''(ξ_n)
+%    where ξ_n is between r and x_n, and hence ξ∈I
+%    Then we have r - x_n = [ -2f(x_n) - f''(ξ_n)(r - x_n)^2 ] / 2f'(x_n)
+%    Since x_n+1 are the Newton iterates so we have
+%    r - x_n+1 = r - x_n + [f(x_n)/f'(x_n)] = - [f''(ξ_n)(r - x_n)^2]/2f'(x_n)
+%    Hence | r - x_n+1 | ≤ [(r - x_n)^2 / 2]*A ≤ |r-x_n|/2  ≤ ……≤ 2^(1-n) *|r-x_0|
+%    which implies that x_n -> r as n ->∞
+%    
+%    To show that the convergence rate of {x_n} to r is quadratic.
+%    Since ξ_n is between the root r and x_n, it also converges to r as n->∞
+%    The derivatives f' and f''are continuous and therefore we can write
+%    lim     |x_n+1 - r| / |x_n - r|^2 =  |f''(r) / 2f'(r)|
+%    n ->∞  
+%    which implies the quadratic convergence of {x_n} to r.   QED
+
+##### SOURCE END #####
+--></body></html>

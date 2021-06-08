@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 3}\\
+\end{center}
+\noindent \textbf{Due Date}: Monday, June 7\\
+
+\noindent Homework should be handed in \emph{individually}, though you may work with others and collaboration is encouraged. For MATLAB problems please follow the guidelines specified in ELMS (in particular see the file ``Formatting MATLAB assignments'')
+
+\begin{enumerate}
+\item Find the multiplicity of the root $r=0$ of $f(x)=1-\cos(x)$. Find the forward and backward errors for the approximate root $\widetilde{r}=10^{-5}$.
+\item In class it was mentioned how backward error and forward error are not always of similar sizes. Verify this by finding the relationship between the forward and backward error for the problem of finding the root of $f(x)=ax+b$. 
+
+If we know $f(\widetilde{r})=10^{-10}$ for some approximate root $\widetilde{r}$, can we guarantee $\widetilde{r}$ is accurate? Describe the problems (i.e. a range of $a$ and $b$) for which accuracy is guaranteed.
+\item Newton's method for solving $f(x)=0$ requires computing the derivative of $f$ each iteration. Suppose instead computing the derivative is expensive, and that the initial slope $d=f'(x_0)$ is kept throughout the iterations, i.e.
+	\[x_{n+1}=x_n - \frac{f(x_n)}{d}.\]
+Suppose furthermore that the root $r$ is simple (so that $f'(r)\neq 0$). Find a condition on the initial slope $d$ that ensures the iteration will be locally convergent. What is the order of convergence?
+\end{enumerate}
+\end{document}
