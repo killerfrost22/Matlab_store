@@ -8,7 +8,7 @@
 d = abs(0.4 * 2^(-49))/abs(12.8)
 eps/2 - d
 %%
-%    ans = 5.551115123125783e-17 > 0 so the d satisfies the upper bound d ≤ε_mach/2.
+%ans = 5.551115123125783e-17 > 0 so the d satisfies the upper bound d ≤ε_mach/2.
 
 
 %% Problem 2
