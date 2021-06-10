@@ -1,0 +1,34 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 6}\\
+\end{center}
+\noindent \textbf{Due Date}: Thursday, June 10\\
+
+\begin{enumerate}
+\item Obtain the precise operation count (number of operations $+, -,*,/ $) for computing a matrix-matrix product $AB$. Suppose each matrix is $n\times n$.
+
+\item Suppose we have an $n\times n$ matrix. In class we discussed how the elimination step of Gaussian elimination is $O(n^3)$, while back-substitution (also forward-substitution) is only $O(n^2)$. The back-substitution steps for finding the components $x_i$ of a solution can be concisely written as
+	\[x_n = b_n/u_{nn},\qquad x_i = \frac{1}{u_{ii}}\left(b_i-\sum_{j=i+1}^n u_{ij}x_j\right),\quad \mathrm{for}\,\,i=n-1,...,1.\]
+Show that the total operation count for constructing ${\bf{x}}$ is exactly $n^2$.
+\item (Optional, not graded) Write down the forward substitution algorithm and pseudocode for solving an $n\times n$ lower triangular matrix system. [A matrix is lower triangular if $a_{ij}=0$ for $i<j$.]
+\end{enumerate}
+\end{document}

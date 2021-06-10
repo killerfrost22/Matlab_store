@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 8}\\
+\end{center}
+\noindent \textbf{Due Date}: Monday, June 14\\
+
+\begin{enumerate}
+\item Let $A\in \mathbb{R}^{2\times 2}$ be given by
+	\[\displaystyle{A = \begin{bmatrix}
+    1 & 1+\epsilon \\
+    1-\epsilon & 1 \\
+	\end{bmatrix}}.\]
+Find $\|A\|_\infty$ and $\|A^{-1}\|_\infty$. What is $\mathrm{cond}_\infty(A)$? Is this matrix well-conditioned or ill-conditioned?
+
+Let $\mathbf{b}=[1+(1+\epsilon)\epsilon,\,\,1]^T$. Find the exact solution of $A\mathbf{x}=\mathbf{b}$. Use MATLAB's backslash command to solve $A\mathbf{x}=\mathbf{b}$ for progressively smaller values of $\epsilon = 10^k$ for $k=-5,-6,...$. At which value of $\epsilon$ does the computed solution no longer accurately represent the true solution? 
+\item (MATLAB) Consider the system $A\mathbf{x}=\mathbf{b}$
+where $\mathbf{b}=[.254\,\,\, .127]^T$ and 
+	\[\displaystyle{A = \begin{bmatrix}
+    .913 & .659 \\
+    .457 & .330 \\
+	\end{bmatrix}}.\]
+Use the MATLAB backslash command to find the exact solution $\mathbf{x}$. Use the command \texttt{cond} to find the 2-norm condition number of $A$.
+
+Consider the two approximate solutions 
+\[\mathbf{x}_1 = [-0.0827\,\,\, 0.5]^T,\quad\mathrm{and}\quad\mathbf{x}_2 = [0.999\,\,\, -1.001]^T.\]
+
+Using the \texttt{norm} command, compute
+	\begin{enumerate}
+	\item the relative forward errors for $\mathbf{x}_1$ and $\mathbf{x}_2$ using the 2-norm
+	\item the relative backward errors for $\mathbf{x}_1$ and $\mathbf{x}_2$
+	\end{enumerate} 
+Comment on the size of your backward and forward errors. Does a small backward error imply an approximate solution is accurate? How do your observations relate to the condition number of $A$?
+\item (Optional, not graded) Let ${\bf{D}}\in \mathbb{R}^{n\times n}$ be the diagonal matrix with $d_1,d_2,...,d_n$ on the diagonal. Show that the $\infty$-condition number is given by 
+	\[\mathrm{cond}_\infty ({\bf{D}}) = 
+	\frac{\max_i|d_i|}{\min_i|d_i|}.\]
+\item (Optional, not graded) Draw the unit sphere of $\mathbb{R}^2$ in the norm $\|\cdot\|_1$, i.e. the set of points satisfying $\|\mathbf{x}\|_1=1$. Let $A$ be the matrix
+	\[\displaystyle{A = \begin{bmatrix}
+    1 & 1 \\
+    0 & 2 \\
+	\end{bmatrix}}.\]
+Sketch the image of your unit sphere under the transformation $A$, i.e. sketch the set of points $\{A\mathbf{x}\,:\,\|\mathbf{x}\|_1 =1\}$. Which points in the image are distance $\|A\|_1$ from the origin? \\\\
+\emph{(You may want to compare your answer to the definition of the operator norm $\|A\|_1$, which characterizes the norm as the maximum `stretching' that occurs under $A$.)}
+\end{enumerate}
+\end{document}

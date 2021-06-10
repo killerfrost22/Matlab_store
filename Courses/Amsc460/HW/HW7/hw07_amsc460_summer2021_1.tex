@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 7}\\
+\end{center}
+\noindent \textbf{Due Date}: Friday, June 11\\
+
+\begin{enumerate}
+\item Suppose you have used a finite element method to convert a system of PDE to a $10^6\times 10^6$ linear system of equations $A\textbf{x}=\textbf{b}$. To check runtime, you decide to first solve a $100\times 100$ linear system $C\textbf{x}=\textbf{d}$ and find that it takes a total of $0.001$ seconds using an LU decomposition method (elimination $+$ backsolve). 
+
+Give an estimate of the time it will take to solve the system $Ax=b$. Would you consider using LU to solve $A\textbf{x}=\textbf{b}$? Or is a faster method needed? 
+[Assume $A$ and $C$ have similar structure, so the difference in runtime is solely due to the different matrix sizes.]
+\item Find the $PA=LU$ decomposition (using partial pivoting) for the matrix
+	\[\displaystyle{A = \begin{bmatrix}
+    2 & 1 \\
+    4 & 3 \\
+	\end{bmatrix}}.\]
+All calculations should be recorded and done by hand. Check your answer using MATLAB's \texttt{lu} command.
+\item (Optional, not graded) Find the LU decomposition of 
+	\[\displaystyle{A = \begin{bmatrix}
+    4 & 2 & 0\\
+    4 & 4 & 2 \\
+    2 & 2 & 3
+	\end{bmatrix}}.\]
+\item (Optional, not graded) Suppose $L$ is a nonsingular lower triangular matrix, $P$ is a permutation matrix, and $\textbf{b}$ is a given vector. How would you efficiently solve the following two linear systems? Without using inverses of course... Comment on the operation counts involved. [Consider that permutation matrices $P$ are orthogonal, so we know $P^{-1}=P^T$.]
+	\begin{enumerate}
+	\item $LP\textbf{x}=\textbf{b}$
+	\item $PL\textbf{x}=\textbf{b}$
+	\end{enumerate}
+\end{enumerate}
+\end{document}
