@@ -67,8 +67,17 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">AMSC 460 - HW6</a></li><li><a href="#2">Problem 1</a></li><li><a href="#3">Problem 2</a></li><li><a href="#5">Problem 3</a></li></ul></div><h2 id="1">AMSC 460 - HW6</h2><pre class="codeinput">clear <span class="string">all</span>; format <span class="string">compact</span>; close <span class="string">all</span>; syms <span class="string">f(x)</span> <span class="string">x</span> <span class="string">y</span>
-</pre><h2 id="2">Problem 1</h2><p>Obtain the precise operation count (number of operations <img src="HW6_eq01788984627102471412.png" alt="$+, -,*,/ $) for computing a matrix-matrix product $AB$">. Suppose each matrix is <img src="HW6_eq01824638618367747883.png" alt="$n\times n$">.</p><h2 id="3">Problem 2</h2><p>Suppose we have an n &times; n matrix. In class we discussed how the elimination step of Gaussian elimination (LU) is O(n^3), while back-substitution (or forward- substitution) is only O(n^2). The back-substitution steps for finding the components xi of a solution can be concisely written as xn = bn/unn,xi =1/uii(bi &#8722;&#8721;uijxj) , for i = n &#8722; 1, ..., 1.</p><p>Show that the total operation count (number of operations +, &#8722;, &#8727;, /) for constructing x is exactly n^2.</p><h2 id="5">Problem 3</h2><p>(Optional, not graded) Suppose <img src="HW6_eq11904963258706611165.png" alt="$L$"> is a nonsingular lower triangular matrix, <img src="HW6_eq02661806082982697695.png" alt="$P$"> is a permutation matrix, and <img src="HW6_eq07108852544751895808.png" alt="$\textbf{b}$"> is a given vector. How would you efficiently solve the following two linear systems? Without using inverses of course... Comment on the operation counts involved. [Consider that permutation matrices <img src="HW6_eq02661806082982697695.png" alt="$P$"> are orthogonal, so we know <img src="HW6_eq09842381939061873113.png" alt="$P^{-1}=P^T$">.]</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">AMSC 460 - HW6</a></li><li><a href="#2">Problem 1</a></li><li><a href="#6">Problem 2</a></li></ul></div><h2 id="1">AMSC 460 - HW6</h2><pre class="codeinput">clear <span class="string">all</span>; format <span class="string">compact</span>; close <span class="string">all</span>; syms <span class="string">f(x)</span> <span class="string">x</span> <span class="string">y</span>
+</pre><pre class="codeoutput error">Error using dbstatus
+Error: File: C:\Users\josep\OneDrive\Documents\GitHub\Matlab_store\Courses\Amsc460\HW\HW6\HW6.m Line: 31 Column: 9
+Incorrect use of '=' operator. To assign a value to a variable, use '='. To compare values for equality, use '=='.</pre><h2 id="2">Problem 1</h2><p>Obtain the precise operation count (number of operations <img src="HW6_eq01788984627102471412.png" alt="$+, -,*,/ $) for computing a matrix-matrix product $AB$">. Suppose each matrix is <img src="HW6_eq01824638618367747883.png" alt="$n\times n$">.</p><p>(AB)ij = &#8721;aibkj (1&lt;=i&lt;=n&amp;1&lt;=j&lt;=n). For matrix B the ith component will have n multiplications, and n -1 additions . The total amout will be 2n-1 for each i.</p><p>The total count for bij in matrix B * A is n(2n-1) = 2n^3-n Since B is n*n matrix , so the total operation wil be n*n(2n-1)= 2n^3-n^2</p><p>O(n^3)</p><h2 id="6">Problem 2</h2><p>Suppose we have an n &times; n matrix. In class we discussed how the elimination step of Gaussian elimination (LU) is O(n^3), while back-substitution (or forward- substitution) is only O(n^2). The back-substitution steps for finding the components xi of a solution can be concisely written as xn = bn/unn,xi =1/uii(bi &#8722;&#8721;uijxj) , for i = n &#8722; 1, ..., 1.</p><p>Show that the total operation count (number of operations +, &#8722;, &#8727;, /) for constructing x is exactly n^2.</p><pre class="codeinput"><span class="keyword">for</span> j = n to <span class="string">1</span>
+  <span class="keyword">if</span> uij=0 stop
+  xj = bj/uij
+     <span class="keyword">for</span> i = 1 to <span class="string">j-1</span>
+         bi = bi-uijxj
+     <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre><p>Since it is a n*n matrix, for every i, the operation will be consisted of 1 divion 1 subtraction and (n-(i+1))+1 = n-i multiplications and n-i-1 addditions</p><p>Adding up all operations and sum it from i =1 to n we can have (2n-1=1)/2 = n^2 So the total operation count is n^2</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% AMSC 460 - HW6
 clear all; format compact; close all; syms f(x) x y
@@ -77,7 +86,16 @@ clear all; format compact; close all; syms f(x) x y
 % Obtain the precise operation count (number of operations $+, -,*,/ $) for
 % computing a matrix-matrix product $AB$. Suppose each matrix is $n\times n$.
 
+%% 
+% (AB)ij = ∑aibkj (1<=i<=n&1<=j<=n). For matrix B the ith component will have n
+% multiplications, and n -1 additions . The total amout will be 2n-1 for
+% each i. 
 
+%% 
+% The total count for bij in matrix B * A is n(2n-1) = 2n^3-n
+% Since B is n*n matrix , so the total operation wil be n*n(2n-1)= 2n^3-n^2
+%%
+% O(n^3)
 %% Problem 2
 %%
 % Suppose we have an n × n matrix. In class we discussed how the elimination
@@ -88,13 +106,22 @@ clear all; format compact; close all; syms f(x) x y
 %
 % Show that the total operation count (number of operations +, −, ∗, /) for 
 % constructing x is exactly n^2. 
+% 
+%%
+for j = n to 1
+  if uij=0 stop
+  xj = bj/uij
+     for i = 1 to j-1
+         bi = bi-uijxj
+     end
+end
 
+%% 
+% Since it is a n*n matrix, for every i, the operation will be consisted of 1 divion 
+% 1 subtraction and (n-(i+1))+1 = n-i multiplications and n-i-1 addditions
+%
+% Adding up all operations and sum it from i =1 to n we can have (2n-1=1)/2 = n^2
+% So the total operation count is n^2 
 
-%% Problem 3
-% (Optional, not graded) Suppose $L$ is a nonsingular lower triangular matrix, 
-% $P$ is a permutation matrix, and $\textbf{b}$ is a given vector. How would 
-% you efficiently solve the following two linear systems? Without using 
-% inverses of course... Comment on the operation counts involved. 
-% [Consider that permutation matrices $P$ are orthogonal, so we know $P^{-1}=P^T$.]
 ##### SOURCE END #####
 --></body></html>

@@ -7,9 +7,7 @@ clear all; format compact; close all; syms f(x) x y
 %%
 % Since LU decomposition is O(n^2)
 % The total of 0.001 seconds solving Cx=b using an LU decomposition
-% Solving Ax =b using LU may take 0.0001* ((10^12)/(10^4))= 10^5 seconds
-% which will be around 28 hours, in that case we will not consider LU to
-% solve Ax = b 
+% Solving Ax =b using LU may take 0.0001
 
 %% Problem 2
 %%
@@ -22,3 +20,17 @@ clear all; format compact; close all; syms f(x) x y
  A = [2 1; 4 3]
  [L,U,P] = lu(A)
 
+
+%% Problem 3
+%%
+% (Optional, not graded) Find the LU decomposition of 
+% A = [4 2 0; 4 4 2; 2 2 3]
+
+%% Problem4
+%%
+%% Problem 3
+% (Optional, not graded) Suppose $L$ is a nonsingular lower tr  iangular matrix, 
+% $P$ is a permutation matrix, and $\textbf{b}$ is a given vector. How would 
+% you efficiently solve the following two linear systems? Without using 
+% inverses of course... Comment on the operation counts involved. 
+% [Consider that permutation matrices $P$ are orthogonal, so we know $P^{-1}=P^T$.]
