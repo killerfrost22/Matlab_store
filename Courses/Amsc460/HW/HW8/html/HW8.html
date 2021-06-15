@@ -1,0 +1,218 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>HW8</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-06-14"><meta name="DC.source" content="HW8.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">AMSC 460 - HW8</a></li><li><a href="#2">Problem 1 (finished)</a></li><li><a href="#6">Problem 2 (Yup)</a></li></ul></div><h2 id="1">AMSC 460 - HW8</h2><pre class="codeinput">clear <span class="string">all</span>; format <span class="string">compact</span>; close <span class="string">all</span>; syms <span class="string">f(x)</span> <span class="string">x</span> <span class="string">y</span>
+</pre><h2 id="2">Problem 1 (finished)</h2><p>Let A &#8712; R2&times;2 be given by A = [1 1+ &#1013;; 1- &#1013; 1] Find kAk&#8734; and kA&#8722;1k&#8734;. What is cond&#8734;(A)? Is this matrix well-conditioned or ill-conditioned? Let b = [1 + (1 + &#1013; )&#1013;, 1]^T. Find the exact solution of Ax = b. Use MATLAB&#8217;s backslash command to solve Ax = b for progressively smaller values of &#1013; = 10^k for k = &#8722;5, &#8722;6, .... At which value of &#1013; does the computed solution no longer accurately represent the true solution?</p><pre class="codeinput">k = 5;
+<span class="keyword">while</span> k &lt; 9
+    e = 10^-k; <span class="comment">% use e to represnt &#1013;</span>
+    A=[1 1+e; 1-e 1];
+    b = transpose([1 + (1 + e )*e, 1]);
+    x=A\b
+    fprintf([<span class="string">'\twhen &#1013; = 10^-%.1f\n'</span>], k)
+    k = k + 1;
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">x =
+    1.0000
+    0.0000
+	when &#1013; = 10^-5.0
+x =
+    1.0000
+    0.0000
+	when &#1013; = 10^-6.0
+x =
+    1.0104
+   -0.0104
+	when &#1013; = 10^-7.0
+Warning: Matrix is close to singular or badly scaled. Results may be inaccurate.
+RCOND =  2.110223e-16. 
+x =
+    1.0522
+   -0.0522
+	when &#1013; = 10^-8.0
+</pre><pre>  At &#1013; = 10^-7 the computed solution no longer accurately represent the true solution.</pre><h2 id="6">Problem 2 (Yup)</h2><p>(MATLAB) Consider the system Ax = b where b = [.254 .127]^T and A = [.913 .659; .457 .330].Use the MATLAB backslash command to find the exact solution x. Usethe command cond to find the 2-norm condition number of A. Consider the two approximate solutions x1 = [&#8722;0.0827 0.5]^T, and x2 = [0.999 &#8722; 1.001]^T Using the norm command, compute (a) the relative forward errors for x1 and x2 using the 2-norm (b) the relative backward errors for x1 and x2 Comment on the size of your backward and forward errors. Does a small backward error imply an approximate solution is accurate? How do your observations relate to the condition number of A?</p><pre class="codeinput">A = [0.913 0.659; 0.457 0.330];
+b = transpose([0.254 0.127]);
+x = A\b
+Two_norm_condition_number_of_A = cond(A,2)
+
+x1 = transpose([-0.0827 0.5]);
+x2 = transpose([0.999 -1.001]);
+
+relative_forward_errors_for_x1 = cond(x-x1,2)/cond(x,2)
+relative_forward_errors_for_x2 = cond(x-x2,2)/cond(x,2)
+</pre><pre class="codeoutput">x =
+    1.0000
+   -1.0000
+Two_norm_condition_number_of_A =
+   1.2485e+04
+relative_forward_errors_for_x1 =
+     1
+relative_forward_errors_for_x2 =
+     1
+</pre><pre>  relative forward errors for x1 and x2 are small</pre><pre class="codeinput">relative_backward_errors_for_x1 = cond(b-A*x1,2)/cond(b,2)
+relative_backward_errors_for_x2 = cond(b-A*x2,2)/cond(b,2)
+</pre><pre class="codeoutput">relative_backward_errors_for_x1 =
+     1
+relative_backward_errors_for_x2 =
+     1
+</pre><pre>  relative backward errors for x1 and x2 are small</pre><pre>  A small backward error does not imply an approximate solution is
+  accurate. The condition number of A is equal to  1.248e+04 which is
+  very large, which is bad and we call it ill-conditioned, and we expect
+  to lose 4 digits of accuracy in computing x.</pre><pre class="codeinput"> A = [2 1; 4 3]
+ [L,U,P] = lu(A)
+</pre><pre class="codeoutput">A =
+     2     1
+     4     3
+L =
+    1.0000         0
+    0.5000    1.0000
+U =
+    4.0000    3.0000
+         0   -0.5000
+P =
+     0     1
+     1     0
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% AMSC 460 - HW8
+clear all; format compact; close all; syms f(x) x y
+
+%% Problem 1 (finished)
+%% 
+% Let A ∈ R2×2 be given by A = [1 1+ ϵ; 1- ϵ 1]
+% Find kAk∞ and kA−1k∞. What is cond∞(A)? Is this matrix well-conditioned or ill-conditioned?
+% Let b = [1 + (1 + ϵ )ϵ, 1]^T. Find the exact solution of Ax = b. Use MATLAB’s
+% backslash command to solve Ax = b for progressively smaller values of ϵ = 10^k
+% for k = −5, −6, .... At which value of ϵ does the computed solution no longer accurately
+% represent the true solution?
+
+
+
+%%
+k = 5;
+while k < 9
+    e = 10^-k; % use e to represnt ϵ
+    A=[1 1+e; 1-e 1];
+    b = transpose([1 + (1 + e )*e, 1]);
+    x=A\b
+    fprintf(['\twhen ϵ = 10^-%.1f\n'], k)
+    k = k + 1;
+end
+%%
+%    At ϵ = 10^-7 the computed solution no longer accurately represent the true solution.
+
+
+
+%% Problem 2 (Yup)
+%%
+% (MATLAB) Consider the system Ax = b where b = [.254 .127]^T and
+% A = [.913 .659; .457 .330].Use the MATLAB backslash command to find the exact solution x. Usethe
+% command cond to find the 2-norm condition number of A.
+% Consider the two approximate solutions x1 = [−0.0827 0.5]^T, and x2 = [0.999 − 1.001]^T
+% Using the norm command, compute
+% (a) the relative forward errors for x1 and x2 using the 2-norm
+% (b) the relative backward errors for x1 and x2
+% Comment on the size of your backward and forward errors. Does a small backward
+% error imply an approximate solution is accurate? How do your observations relate
+% to the condition number of A?
+
+A = [0.913 0.659; 0.457 0.330];
+b = transpose([0.254 0.127]);
+x = A\b
+Two_norm_condition_number_of_A = cond(A,2)
+
+x1 = transpose([-0.0827 0.5]);
+x2 = transpose([0.999 -1.001]);
+
+relative_forward_errors_for_x1 = cond(x-x1,2)/cond(x,2)
+relative_forward_errors_for_x2 = cond(x-x2,2)/cond(x,2)
+
+%%
+%    relative forward errors for x1 and x2 are small
+
+relative_backward_errors_for_x1 = cond(b-A*x1,2)/cond(b,2)
+relative_backward_errors_for_x2 = cond(b-A*x2,2)/cond(b,2)
+
+%%
+%    relative backward errors for x1 and x2 are small
+
+%%
+%    A small backward error does not imply an approximate solution is
+%    accurate. The condition number of A is equal to  1.248e+04 which is
+%    very large, which is bad and we call it ill-conditioned, and we expect
+%    to lose 4 digits of accuracy in computing x.
+
+
+%%
+ A = [2 1; 4 3]
+ [L,U,P] = lu(A)
+
+
+
+##### SOURCE END #####
+--></body></html>

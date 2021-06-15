@@ -10,11 +10,22 @@ clear all; format compact; close all; syms f(x) x y
 % for k = −5, −6, .... At which value of ϵ does the computed solution no longer accurately
 % represent the true solution?
 
-img = imread('amsc460hw3p3.jpg'); imshow(img)
+%%
+syms e % use e to represnt ϵ
+A = [1 1+ e; 1- e 1]
+A^-1
+% Assume ϵ is small and positive 
+% We found ||A||_∞=2+ϵ and ||A^-1||_∞ = 1/e
+% So the condition of A will be (||A||_∞)*(||A^-1||_∞)= (2+e)/e
+% The solution of Ax=b is 
 
+%% 
+b = transpose([1 + (1 + e )*e, 1])
+x = (A^-1)*b
+% By processing we can see the solution of Ax= b is x = [1; e]
 %%
 k = 5;
-while k < 9
+while k < 10
     e = 10^-k; % use e to represnt ϵ
     A=[1 1+e; 1-e 1];
     b = transpose([1 + (1 + e )*e, 1]);
@@ -23,7 +34,7 @@ while k < 9
     k = k + 1;
 end
 %%
-%    At ϵ = 10^-7 the computed solution no longer accurately represent the true solution.
+%    At ϵ = 10^-8 the computed solution no longer accurately represent the true solution.
 
 
 
@@ -36,9 +47,7 @@ end
 % Using the norm command, compute
 % (a) the relative forward errors for x1 and x2 using the 2-norm
 % (b) the relative backward errors for x1 and x2
-% Comment on the size of your backward and forward errors. Does a small backward
-% error imply an approximate solution is accurate? How do your observations relate
-% to the condition number of A?
+
 
 A = [0.913 0.659; 0.457 0.330];
 b = transpose([0.254 0.127]);
@@ -48,36 +57,25 @@ Two_norm_condition_number_of_A = cond(A,2)
 x1 = transpose([-0.0827 0.5]);
 x2 = transpose([0.999 -1.001]);
 
-relative_forward_errors_for_x1 = cond(x-x1,2)/cond(x,2)
-relative_forward_errors_for_x2 = cond(x-x2,2)/cond(x,2)
+relative_forward_errors_for_x1 = norm(x-x1,2)/norm(x,2)
+relative_forward_errors_for_x2 = norm(x-x2,2)/norm(x,2)
 
 %%
-%    relative forward errors for x1 and x2 are small
+%The size of relative forward error 1 is near 1 while the size of error 2 is very small
 
-relative_backward_errors_for_x1 = cond(b-A*x1,2)/cond(b,2)
-relative_backward_errors_for_x2 = cond(b-A*x2,2)/cond(b,2)
-
-%%
-%    relative backward errors for x1 and x2 are small
+relative_backward_errors_for_x1 = norm(b-A*x1,2)/norm(b,2)
+relative_backward_errors_for_x2 = norm(b-A*x2,2)/norm(b,2)
 
 %%
-%    A small backward error does not imply an approximate solution is
-%    accurate. The condition number of A is equal to  1.248e+04 which is
-%    very large, which is bad and we call it ill-conditioned, and we expect
-%    to lose 4 digits of accuracy in computing x.
-
-
+%The size of relative backward error 1 is very small while error 2 is relatively larger
 %%
- A = [2 1; 4 3]
- [L,U,P] = lu(A)
-
-
-%% Problem 3 (optional)
+% Comment on the size of your backward and forward errors. Does a small backward
+% error imply an approximate solution is accurate? How do your observations relate
+% to the condition number of A?
 %%
-% Let D ∈ Rn×n be the diagonal matrix with d1, d2, ..., dn on the diagonal. Show that
-% the ∞-condition number is given by cond∞(D) = maxi|di| / mini|di|.
-% 
+% A small backward error does not imply an approximate solution is
+% accurate. The condition number of A is equal to  1.248e+04 which is
+% very large, which is bad and we call it ill-conditioned, and we expect
+% to lose 4 digits of accuracy in computing x.
 
-%% Problem 4
-%%
-%% Problem 5
+

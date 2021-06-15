@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx,enumerate}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 10}\\
+\end{center}
+\noindent \textbf{Due Date}: Wednesday, June 16\\
+
+\begin{enumerate}
+\item Consider the following system of equations.
+	\begin{equation*}\begin{aligned}
+	& f_1(x,y,z) = x^2+y^2+z^2 - 1 = 0\\
+	& f_2(x,y,z) = 2x^2+y^2-2z = 0\\
+	& f_3(x,y,z) = 3x^2-4y+z^2 = 0
+	\end{aligned}\end{equation*}
+This system can be concisely represented as $\textbf{F}(\textbf{x})=\textbf{0}$, where $\textbf{F}(\textbf{x}) = (f_1,f_2,f_3)^T$, $\textbf{x}=(x,y,z)^T$ and $\textbf{0}=(0,0,0)^T$.
+	\begin{enumerate}[(i)]	
+	\item Find the Jacobian matrix $D\mathbf{F}(\textbf{x})$.
+	\item (MATLAB) Starting with the initial condition $\textbf{x}_0 = (0.5,0.5,0.5)^T$, implement 5 steps of the multivariable Newton method to find the approximation $\textbf{x}_{5}$.
+	\item Compute the absolute backward error of the approximate solution $\textbf{x}_{5}$ in the 2-norm.
+	\end{enumerate}
+\item (Optional, not graded) Let $S_r(x,y,z)$ denote a sphere with center $(x,y,z)$ and radius $r>0$. The spheres $S_{\sqrt{8}}(1,0,1)$, $S_{\sqrt{2}}(0,2,2)$, and $S_{\sqrt{2}}(0,3,3)$ intersect in a single point. Find this point. 
+\end{enumerate}
+\end{document}
