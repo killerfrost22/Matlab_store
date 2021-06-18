@@ -1,0 +1,235 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Exam1</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-06-17"><meta name="DC.source" content="Exam1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">AMSC 460 - EXAM 1</a></li><li><a href="#2">Problem 1 (finished)</a></li><li><a href="#10">Problem 2 (Yup)</a></li><li><a href="#18">Problem 3 (Yup)</a></li><li><a href="#26">Problem 4(WTHDA)</a></li><li><a href="#34">Problem 5 (Yup)</a></li></ul></div><h2 id="1">AMSC 460 - EXAM 1</h2><pre class="codeinput">clear <span class="string">all</span>; format <span class="string">compact</span>; close <span class="string">all</span>; syms <span class="string">f(x)</span> <span class="string">x</span> <span class="string">y</span>
+</pre><h2 id="2">Problem 1 (finished)</h2><p>Consider a base 2 normalized floating point system with mantissa of length 4, and exponent in the range &#8722;5 &#8804; E &#8804; 5.</p><p>(a) What is the distance between the number 8 and the next largest floating point number in this system?</p><p>The next largest &#65306; 1.1111*2^5 = 111110 111110_2 =62_10 62-8 =54</p><p>(b) What is the distance between the number 8 and the next smallest floating point number?</p><p>The next largest &#65306; 1.0001*2^3 = 1000.1 1000.1_2 =8.5_10 8.5-8 =0.5</p><p>(c) Is 1.05 exactly representable in this system? Explain why or why not</p><p>No since 1.05_10 = 1.00001100110_2</p><h2 id="10">Problem 2 (Yup)</h2><p>(a) Pivoting is not necessary in Gaussian elimination for wellconditioned systems.</p><p>False because naive Gaussian elimination with no pivoting will sometimes fail (divide by zero)on a well-conditioned matrix.</p><p>(b) If xa is an approximate solution of a linear system, obtained using PA = LU, then xa can be considered accurate provided <tt>|Ax</tt>|_inf &lt; 10^-16.</p><p>FALSE Because</p><p>(c) Suppose we have computed a factorization A = LU where A is an n*n matrix. How would you use this to solve the system AT x = b in O(n2) operations? Be precise about the steps you would take, and why your method ends up being O(n2).</p><p>IF A = LU then the Ly= b, y1 = b1/L11, y2 = (b2-L21*y1)/L22 The O(n) time will be needed</p><p>O(n^2) calculations we can get y = Ly = b Similarly, Ux = y. U(n,n)= yn/xn, x(n-1) = (y(n-1)-U(n-1,n)*xn)/U(n-1,n-1&gt;&gt;&gt;&gt;) Therefore the n^2 time can be resolved</p><h2 id="18">Problem 3 (Yup)</h2><p>(a) Prove that g has a root in the interval (2, 3).</p><pre class="codeinput">g(x) = 4^x-6*x^2;
+double(g(2))
+double(g(3))
+</pre><pre class="codeoutput">ans =
+    -8
+ans =
+    10
+</pre><p>Since g(x) is continuous on [2, 3], and g(2) = -8 &lt; 0 and f(3) = 10 &gt; 0. By the Intermediate Theorem, g(x) has at least one root on the interval [2, 3].</p><p>(b) Suppose we decide to find the root using the bisection method. How many iterations are needed to guarantee the root is accurate to within 10^-6, starting with the bracket (2,3)?</p><pre class="codeinput">g = @(x) (4^x)-6*x^2
+g(2)*g(3)
+a =2
+tol = 10^(-6)
+(log(3-a)-log(tol))/log(2)-1
+</pre><pre class="codeoutput">g =
+  function_handle with value:
+    @(x)(4^x)-6*x^2
+ans =
+   -80
+a =
+     2
+tol =
+   1.0000e-06
+ans =
+   18.9316
+</pre><p>20 iterations</p><p>(c) Show that finding a root of g is equivalent to solving x = log_4(6*x^2)</p><p>(d) Explain whether or not fixed point iteration will converge for the problem in part (c), using any initial guess from the interval (2; 3). [Note that it is not enough to check a few values, since the question is about all starting guesses from this interval.]</p><h2 id="26">Problem 4(WTHDA)</h2><p>Suppose we attempt to solve the equation x^2 +x^12 = 4 by rewriting as the following nonlinear system: x^2 +y^2 =4, y= x^8</p><p>(a) Set up and explain the Newton method to solve this system. Calculate the Jacobian and right hand side of the method.</p><pre class="codeinput">f1(x,y) = x^2 +x^12 - 4;
+f2(x,y) = x^2 +y^2 - 4;
+f3(x,y) = -x^6 + y;
+F = @(x,y) [f2(x,y); f3(x,y)];
+DFx = jacobian([ x^2 +y^2,-x^6 + y], [x,y])
+</pre><pre class="codeoutput">DFx =
+[   2*x,   0]
+[     0, 2*y]
+[-6*x^5,   1]
+</pre><p>(b) Explain what a good starting guess would be for the solution(s). there is no best initial guess (that would be the root itself) instead, a suitable initial guess is needed if quickly possible, plot the function to compute a numerical approximation to a particular root, choose an initial guess close enough to that root close enough means a position x0, from which the algorithm will not jump to another root &#8211; however, this is not possible for particular kinds of roots if evaluation of the function is expensive and/or computing its derivative is not directly possible, start at the most reasonable value for x0 that you can think of in such a case, use evaluated function values for finding the root and simultaneously plotting the function to get a better understanding of its behavior. wouse auxiliary or alternative methods, if necessary</p><p>(c) Write down the details for the system of equations needed to make the first Newton iteration. Do this without using matrix inverses. [You do NOT have to solve this system.]</p><h2 id="34">Problem 5 (Yup)</h2><p>Write down the Lagrange interpolating polynomial that interpolates the function f(x) = x4 at the points x = -1, x = 0, and x = 2.</p><p>f(x) = x^4, so the three points are (-1,1) (0,0) (2,16) P(x)= (x)(x-2)/((-1)(-3))+0(x+1)(x-2)/((1)(-2))+16*(x+1)(x-0)/((2+1)(2)) The final answer is P(x)=3x^2+2x</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% AMSC 460 - EXAM 1
+clear all; format compact; close all; syms f(x) x y
+
+%% Problem 1 (finished)
+%% 
+% Consider a base 2 normalized floating point system with mantissa of length 4, and
+% exponent in the range −5 ≤ E ≤ 5.
+
+%%
+% (a) What is the distance between the number 8 and the next largest floating point
+% number in this system?
+%% 
+% The next largest ： 1.1111*2^5 = 111110 
+% 111110_2 =62_10
+% 62-8 =54
+%% 
+% (b) What is the distance between the number 8 and the next smallest floating point
+% number?
+%% 
+% The next largest ： 1.0001*2^3 = 1000.1 
+% 1000.1_2 =8.5_10
+% 8.5-8 =0.5
+%%
+% (c) Is 1.05 exactly representable in this system? Explain why or why not
+%% 
+% No since 1.05_10 = 1.00001100110_2
+    
+%% Problem 2 (Yup)
+%%
+% (a) Pivoting is not necessary in Gaussian elimination for wellconditioned systems.
+%% 
+% False because naive Gaussian elimination with no pivoting will sometimes fail (divide by zero)on a well-conditioned matrix.
+%%
+% (b) If xa is an approximate solution of a linear system, obtained
+% using PA = LU, then xa can be considered accurate provided ||Ax||_inf < 10^-16.
+
+%%
+% FALSE Because 
+%%
+% (c) Suppose we have computed a factorization A = LU where A is an n*n matrix.
+% How would you use this to solve the system AT x = b in O(n2) operations? Be
+% precise about the steps you would take, and why your method ends up being
+% O(n2).
+%%
+% IF A = LU then the Ly= b, y1 = b1/L11, y2 = (b2-L21*y1)/L22
+% The O(n) time will be needed
+%%
+% O(n^2) calculations we can get y = Ly = b
+% Similarly, Ux = y. U(n,n)= yn/xn, x(n-1) = (y(n-1)-U(n-1,n)*xn)/U(n-1,n-1>>>>)
+% Therefore the n^2 time can be resolved 
+
+%% Problem 3 (Yup)
+%%
+% (a) Prove that g has a root in the interval (2, 3).
+%%
+g(x) = 4^x-6*x^2;
+double(g(2))
+double(g(3))
+%%
+% Since g(x) is continuous on [2, 3], and g(2) = -8 < 0 and f(3) = 10 > 0.
+% By the Intermediate Theorem, g(x) has at least one root on the interval [2, 3].
+
+%%
+% (b) Suppose we decide to find the root using the bisection method. How many
+% iterations are needed to guarantee the root is accurate to within 10^-6, starting
+% with the bracket (2,3)?
+
+g = @(x) (4^x)-6*x^2
+g(2)*g(3)
+a =2 
+tol = 10^(-6)
+(log(3-a)-log(tol))/log(2)-1
+%%
+% 20 iterations
+%%
+% (c) Show that finding a root of g is equivalent to solving x = log_4(6*x^2)
+
+%%
+% (d) Explain whether or not fixed point iteration will converge for the problem in
+% part (c), using any initial guess from the interval (2; 3). [Note that it is not
+% enough to check a few values, since the question is about all starting guesses
+% from this interval.]
+
+%% Problem 4(WTHDA)
+%%  
+% Suppose we attempt to solve the equation x^2 +x^12 = 4 by rewriting as the following
+% nonlinear system:
+% x^2 +y^2 =4, y= x^8
+%%
+% (a) Set up and explain the Newton method to solve this system. Calculate the
+% Jacobian and right hand side of the method.
+
+%%
+f1(x,y) = x^2 +x^12 - 4;
+f2(x,y) = x^2 +y^2 - 4;
+f3(x,y) = -x^6 + y;
+F = @(x,y) [f2(x,y); f3(x,y)];
+DFx = jacobian([ x^2 +y^2,-x^6 + y], [x,y])
+%%
+
+
+%%
+% (b) Explain what a good starting guess would be for the solution(s).
+% there is no best initial guess (that would be the root itself)
+% instead, a suitable initial guess is needed
+% if quickly possible, plot the function
+% to compute a numerical approximation to a particular root, choose an initial guess close enough to that root
+% close enough means a position x0, from which the algorithm will not jump to another root – however, this is not possible for particular kinds of roots
+% if evaluation of the function is expensive and/or computing its derivative is not directly possible, start at the most reasonable value for x0 that you can think of
+% in such a case, use evaluated function values for finding the root and simultaneously plotting the function to get a better understanding of its behavior.
+% wouse auxiliary or alternative methods, if necessary
+
+
+%%
+% (c) Write down the details for the system of equations needed to make the first
+% Newton iteration. Do this without using matrix inverses. [You do NOT have
+% to solve this system.]
+%%
+
+
+%% Problem 5 (Yup)
+%%
+% Write down the Lagrange interpolating polynomial that interpolates the function
+% f(x) = x4 at the points x = -1, x = 0, and x = 2.
+%% 
+% f(x) = x^4, so the three points are (-1,1) (0,0) (2,16)
+% P(x)= (x)(x-2)/((-1)(-3))+0(x+1)(x-2)/((1)(-2))+16*(x+1)(x-0)/((2+1)(2))
+% The final answer is P(x)=3x^2+2x
+
+##### SOURCE END #####
+--></body></html>
