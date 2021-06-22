@@ -8,9 +8,12 @@ clear all; format compact; close all; syms f(x) x y z
 % x1 = 1 in Lagrange form and Newton form (using divided differences). Check that
 % these polynomials are the same.
 %%
-% f(x) = e^x, so the three points are (0,1) (1,e) 
-% P(x)= 1((x-1)/(0-1))+e((x-0)/(1-0))
-% The final answer is P(x)=ex-x+1
+% f(x) = e^x, so the three points are (0,1) (1,e) (2,e^2)
+% p2(x) = ((x-1)(x-2))/(-1)(-2)+e((x)(x-2))/((1)(1-2))) + e^2*(((x-1)x)/(2)(2-1))
+%%
+% = (x^2-3x+2)/2 + (ex^2-2ex)/-1 + (e^2*x^2 - e^2*x)/2
+%%
+% = ((e-1)^2/2)x^2- ((e^2-2e+3)/2)x + 1
 
 %% Problem 2 (WTh）
 %%
@@ -25,7 +28,13 @@ clear all; format compact; close all; syms f(x) x y z
 %%
 % (a) The original data interval is x0 ≤ x ≤ xn. What is the data interval when using
 % z = (x − α)/β? What matrix equation must be solved to find the a’is in the above formula for pn(z)?
-
+%% 
+% z = (x − α)/β
+%% 
+% The original data interval is x0<=x<=xn
+% so the data interval is z0<=z<=zn
+% pn(z) = a0+a1x+ .. +anz^n
+% A*a = y to find a = [a0; a1; a2; .;.;. ; in the above formular pn(z)]
 %%
 % (b) Taking a hint from the previous step, the data will be scaled so that the new
 % data interval is instead −1 ≤ z ≤ 1. What must α and β be here?
@@ -72,7 +81,7 @@ b = (2000-1900)/2; % β = (xn - x0) / 2
 disp('Scale the data to [−1, 1]：')
 z = (x-a)/b
 %%
-disp('The new Vandermode matrix V：')
+disp('The new Vandermode V：')
 Vz = vander(z)
 %%
 disp('The new condition number：')
@@ -84,7 +93,7 @@ p2 = Vz\y
 t = linspace(-1,1,11);
 f2 = polyval(p2,t);
 plot(z,y,'o',t,f2,'g-+')
-legend({'given y', 'estimate y using Vandermonde'})
+legend({'given y', ' y using Vandermonde'})
 %%
 %    The y using interpolation function in 4(d) is more accurate,
 %    Also the condition number in 4(d) is way smaller than the condition number in 4(c)

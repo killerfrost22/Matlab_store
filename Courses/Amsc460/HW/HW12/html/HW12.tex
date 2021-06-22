@@ -1,0 +1,68 @@
+
+% This LaTeX was auto-generated from MATLAB code.
+% To make changes, update the MATLAB code and republish this document.
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{color}
+
+\sloppy
+\definecolor{lightgray}{gray}{0.5}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+    
+    
+\subsection*{Contents}
+
+\begin{itemize}
+\setlength{\itemsep}{-1ex}
+   \item AMSC 460 - HW11
+   \item Problem 1
+   \item Problem 2 (
+\end{itemize}
+
+
+\subsection*{AMSC 460 - HW11}
+
+\begin{verbatim}
+clear all; format compact; close all; syms f(x) x y z
+\end{verbatim}
+
+
+\subsection*{Problem 1}
+
+\begin{par}
+Use Newton's divided differences to find the Newton table, and a polynomial for interpolating the points $(-1,0),(2,1),(3,1),(5,2)$.
+\end{par} \vspace{1em}
+\begin{par}
+P(x) = 1/3*(x+1)-1/12(x+1)(x-2) + 1/24(x+1)(x-2)(x-3)
+\end{par} \vspace{1em}
+\begin{par}
+= (1/3)x+1/3 -(1/12)x\^{}2+(1/12)x+1/6 +(1/24)x\^{}3-(1/6)x\^{}2+(1/24)x+1/4
+\end{par} \vspace{1em}
+\begin{par}
+= (1/24)x\^{}3-(1/4)x\^{}2+(11/24)x+3/4
+\end{par} \vspace{1em}
+
+
+\subsection*{Problem 2 (}
+
+\begin{par}
+Let $P(x)$ be the degree 10 polynomial taking the value zero at  $x=1,2,...,10$ and where $P(12)=66$. Find $P(0)$. (Hint: Choose the interpolant basis wisely.)
+\end{par} \vspace{1em}
+\begin{par}
+P(x) = a(x-1)(x-2)(x-3)...(x-10) and P(12) = 66 P(12) = a(12-1)(12-2)(12-3)...(12-10) =66
+\end{par} \vspace{1em}
+\begin{par}
+a *11! = 66 so we have a = 66/11!
+\end{par} \vspace{1em}
+\begin{par}
+Therefore P(x) = 66/11!(x-1)(x-2)(x-3)...(x-10) So we can say P(0)= (66/11!)*10!=66/11=6
+\end{par} \vspace{1em}
+
+
+
+\end{document}
+

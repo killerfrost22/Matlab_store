@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1624255948 "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW11/html/hw11.tex" "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW11/html/hw11.pdf" "hw11" 1624255948
+["pdflatex"] 1624319697 "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW11/html/hw11.tex" "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW11/html/hw11.pdf" "hw11" 1624319697
   "C:/Users/josep/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1624255947 11548 d19d39e4713b26f0890737b2d9a4f3af ""
   "C:/Users/josep/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1611623886 9258827 c37326b0799604116136c19bd82b2f4a ""
   "C:/Users/josep/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1623972942 82507 a9eef8696c92627b87e9975edea03b2a ""
@@ -24,16 +24,15 @@
   "C:/Users/josep/AppData/Local/Programs/MiKTeX/tex/latex/graphics/keyval.sty" 1601745126 2677 e3b24ff953e5b58d924f163d25380312 ""
   "C:/Users/josep/AppData/Local/Programs/MiKTeX/tex/latex/graphics/trig.sty" 1601745126 4093 d7fa7d81d2870d509d25b17d0245e735 ""
   "C:/Users/josep/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1600956116 23704 02c466ff883953a445c97e55638005fc ""
-  "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW11/html/hw11.aux" 1624255948 9 a94a2480d3289e625eea47cd1b285758 ""
-  "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW11/html/hw11.tex" 1624255908 8253 74999c1e276311ca014f8b242cf0cd7e ""
+  "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW11/html/hw11.aux" 1624319697 9 a94a2480d3289e625eea47cd1b285758 ""
+  "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW11/html/hw11.tex" 1624319636 8712 354aa1a7817890790021ffdab770ebae ""
   "hw11.aux" 0 -1 0 "pdflatex"
-  "hw11.tex" 1624255908 8253 74999c1e276311ca014f8b242cf0cd7e ""
-  "hw11_01.eps" 1624255906 21641 504b0ccc5318bdff2ea83410ec8a240a ""
-  "hw11_02.eps" 1624255907 21641 20c657611f467c9e23680ebfb2ae87dd ""
-  "hw11_03.eps" 1624255908 21634 16139f1e61b6c925f6b826faf47f393d ""
+  "hw11.tex" 1624319636 8712 354aa1a7817890790021ffdab770ebae ""
+  "hw11_01.eps" 1624319635 21641 d0cf1aa8dd0f4413b96d71d6b6209c77 ""
+  "hw11_02.eps" 1624319636 21622 23c581c11587bc990227595ccc1388f4 ""
   (generated)
-  "hw11.pdf"
-  "hw11.log"
   "hw11.aux"
   "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW11/html/hw11.log"
   "c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW11/html/hw11.pdf"
+  "hw11.pdf"
+  "hw11.log"

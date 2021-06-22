@@ -1,0 +1,42 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx,enumerate}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 14}\\
+\end{center}
+\noindent \textbf{Due Date}: Thursday, June 24\\
+
+\begin{enumerate}
+\item Find a quartic Hermite polynomial that interpolates
+\[p(0)=1,\quad p'(0)=-1,\quad p(1)=-2,\quad p'(1)=2,\quad p(2)=2.\]
+
+\item Consider the function 
+	\[f(x) = \frac{e^{3x}\sin(200x^2)}{1+20x^2}\]
+on the interval $0\le x\le 1$. The goal of this problem is to observe the error reduction in cubic spline interpolation when increasing the number of nodes.
+	\begin{enumerate}
+	\item Plot the function in MATLAB.
+	\item Write a short script using the MATLAB \texttt{spline} command, that interpolates $f(x)$ at equidistant points $x_i = i/n$ ($i=0,1,...,n$), where $n$ is an arbitary fixed number of subintervals prescribed by the user.
+	\item For $n=2^j$, $j=4,5,...,14$, run your script and record the maximum value of the error $e(x) := |f(x)-s(x)|$ at the points \texttt{x=0:0.001:1}, where $s(x)$ denotes the cubic spline interpolant. In other words, for each $n$, compute $\max_{x\in 0:0.001:1}e(x)$ and store this value. (For efficient coding, you shouldn't loop through all $x$. Vectorize $f$ and use the \texttt{max} command to compute $\max_{x\in 0:0.001:1}|f(x)-s(x)|$ in one shot.) 
+	\item Plot the errors against $n$ on a \texttt{loglog} plot and make observations.
+	\end{enumerate}
+\item (Optional, not graded) A natural cubic spline is defined as a cubic spline for which the second derivative is zero at the first and last knots. Find a natural cubic spline function whose knots are $-3, 0, 1$ and that take the corresponding y-values $1, -2, 4$.
+\item (Optional, not graded) A spline of degree $k$ requires having continuous derivatives of order up to and including $k-1$ at the knots. How many additional conditions are required to define the spline uniquely?
+\end{enumerate}
+\end{document}

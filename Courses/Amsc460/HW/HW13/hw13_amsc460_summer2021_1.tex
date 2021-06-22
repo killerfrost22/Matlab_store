@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx,enumerate}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 13}\\
+\end{center}
+\noindent \textbf{Due Date}: Wednesday, June 23\\
+
+\begin{enumerate}
+\item Suppose in designing a natural logarithm function for a calculator on the interval $[1,e]$, we are using a Chebyshev polynomial approximation. What is the smallest degree $n$ of the polynomial that ensures an accuracy of $10^{-6}$ over the interval $[1,e]$?
+\item Special functions appear in physics and applied mathematics, often as a solution to some ODE. The following function is in the \emph{Bessel} family (\url{https://en.wikipedia.org/wiki/Bessel_function})
+	\[J(x) = \frac{1}{\pi}\int_0^\pi\!\cos(x\sin(s))\,\mathrm{d}s.\]
+	\begin{enumerate}
+	\item Show that $|J(x)|\le 1$, $|J'(x)|\le 1$, $|J''(x)|\le 1$, and in general that $|J^{(k)}(x)|\le 1$ for any positive integer $k$.
+	\item Suppose we would like to approximate $J$ with a Chebyshev interpolant. Determine how many interpolation points  are required on the interval $[0,10]$ so that the error (in the max-norm) is no more than $10^{-6}$. [You don't have to write down the interpolant.]
+	\end{enumerate}
+\end{enumerate}
+\end{document}
