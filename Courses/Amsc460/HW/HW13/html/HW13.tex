@@ -1,0 +1,74 @@
+
+% This LaTeX was auto-generated from MATLAB code.
+% To make changes, update the MATLAB code and republish this document.
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{color}
+
+\sloppy
+\definecolor{lightgray}{gray}{0.5}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+    
+    
+\subsection*{Contents}
+
+\begin{itemize}
+\setlength{\itemsep}{-1ex}
+   \item AMSC 460 - HW11
+   \item Problem 1
+   \item Problem 2 (
+\end{itemize}
+
+
+\subsection*{AMSC 460 - HW11}
+
+\begin{verbatim}
+clear all; format compact; close all; syms f(x) x y z
+\end{verbatim}
+
+
+\subsection*{Problem 1}
+
+\begin{par}
+Suppose in designing a natural logarithm function for a calculator on the interval $[1,e]$, we are using a Chebyshev polynomial approximation. What is the smallest degree $n$ of the polynomial that ensures an accuracy of $10^{-6}$ over the interval $[1,e]$?
+\end{par} \vspace{1em}
+\begin{par}
+because the maximum of 1/z on [1, e] occurs at z = 1. We now look for an integer d such that the error is strictly smaller than 10\^{}−6
+\end{par} \vspace{1em}
+\begin{par}
+d = 10 error ≤ 1.7*10\^{}−5
+\end{par} \vspace{1em}
+\begin{par}
+d = 13 error ≤ 1.04*10\^{}−6
+\end{par} \vspace{1em}
+\begin{par}
+d = 14 error ≤ 4.17·10\^{}−7
+\end{par} \vspace{1em}
+\begin{par}
+Thus n = 14 is required, the (n-1)th degree polynomial so 13.
+\end{par} \vspace{1em}
+
+
+\subsection*{Problem 2 (}
+
+\begin{par}
+Special functions appear in physics and applied mathematics, often as a solution to some ODE. The following function is in the \ensuremath{\backslash}emph\{Bessel\} family (\ensuremath{\backslash}url\{https://en.wikipedia.org/wiki/Bessel\_function\})[J(x) = \ensuremath{\backslash}frac\{1\}\{\ensuremath{\backslash}pi\}\ensuremath{\backslash}int\_0\^{}\ensuremath{\backslash}pi\ensuremath{\backslash}!\ensuremath{\backslash}cos(x\ensuremath{\backslash}sin(s))\ensuremath{\backslash},\ensuremath{\backslash}mathrm\{d\}s.\ensuremath{\backslash}]
+\end{par} \vspace{1em}
+\begin{par}
+(a)Show that $|J(x)|\le 1$, $|J'(x)|\le 1$, $|J''(x)|\le 1$, and in general that $|J^{(k)}(x)|\le 1$ for any positive integer $k$.
+\end{par} \vspace{1em}
+\begin{par}
+$|J(x)|\le 1$
+\end{par} \vspace{1em}
+\begin{par}
+(b)Suppose we would like to approximate $J$ with a Chebyshev interpolant. Determine how many interpolation points  are required on the interval $[0,10]$ so that the error (in the max-norm) is no more than $10^{-6}$. [You don't have to write down the interpolant.]
+\end{par} \vspace{1em}
+
+
+
+\end{document}
+
