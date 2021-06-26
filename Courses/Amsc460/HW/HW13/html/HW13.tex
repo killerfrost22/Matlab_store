@@ -43,20 +43,25 @@ From Chebyshev polynomial we have [a,b]=[1,e] and f(x)=lnx. The maximum will be(
 because the maximum of 1/z on [1, e] occurs at z = 1. We now look for an integer d such that the error is strictly smaller than 10\^{}−6
 \end{par} \vspace{1em}
 \begin{par}
-d = 10 error ≤ 1.7*10\^{}−5
+\[(\frac{1}{n*2^(n-1)} * (\frac{e-1}{2})^n) < 10^(-a)\]
 \end{par} \vspace{1em}
 \begin{par}
-d = 13 error ≤ 1.04*10\^{}−6
+n = 10 error ≤ 1.7*10\^{}−5
 \end{par} \vspace{1em}
 \begin{par}
-d = 14 error ≤ 4.17·10\^{}−7
+n = 13 error ≤ 1.04*10\^{}−6
+\end{par} \vspace{1em}
+\begin{par}
+n = 14 error ≤ 4.17·10\^{}−7
 \end{par} \vspace{1em}
 \begin{par}
 Thus n = 14 is required, the (n-1)th degree polynomial so 13.
 \end{par} \vspace{1em}
+\begin{par}
+Therefpre we need at least n = 15
+\end{par} \vspace{1em}
 
-
-\subsection*{Problem 2 (}
+\subsection*{Problem 2}
 
 \begin{par}
 Special functions appear in physics and applied mathematics, often as a solution to some ODE. The following function is in the \ensuremath{\backslash}emph\{Bessel\} family (\ensuremath{\backslash}url\{https://en.wikipedia.org/wiki/Bessel\_function\})[J(x) = \ensuremath{\backslash}frac\{1\}\{\ensuremath{\backslash}pi\}\ensuremath{\backslash}int\_0\^{}\ensuremath{\backslash}pi\ensuremath{\backslash}!\ensuremath{\backslash}cos(x\ensuremath{\backslash}sin(s))\ensuremath{\backslash},\ensuremath{\backslash}mathrm\{d\}s.\ensuremath{\backslash}]
@@ -65,13 +70,29 @@ Special functions appear in physics and applied mathematics, often as a solution
 (a)Show that $|J(x)|\le 1$, $|J'(x)|\le 1$, $|J''(x)|\le 1$, and in general that $|J^{(k)}(x)|\le 1$ for any positive integer $k$.
 \end{par} \vspace{1em}
 \begin{par}
+n is from the even number above 0 that cos and sin both fluctuate bewteen 0 and 1 which meaning both sin and cosine will be bounded between 0 and 1, similarly for odd numbers that will also be bounded by 1 and 0
+\end{par} \vspace{1em}
+
+\begin{par}
 $|J(x)|\le 1$
 \end{par} \vspace{1em}
 \begin{par}
 (b)Suppose we would like to approximate $J$ with a Chebyshev interpolant. Determine how many interpolation points  are required on the interval $[0,10]$ so that the error (in the max-norm) is no more than $10^{-6}$. [You don't have to write down the interpolant.]
 \end{par} \vspace{1em}
 
+\begin{par}
+Since $|J(x)|\le 1$ Given values smaller than 10^(-6). for \[\frac{5^n}{(n!)(2^(n-1))}\]
+\end{par} \vspace{1em}
 
+\begin{verbatim}
+   for (n = 0; (5^n)/(factorial(n)(2^(n-1))) > 10^(-6); n++)
+   \end{verbatim}
+           \color{lightgray} \begin{verbatim}f(x) =
+   (exp(3*x)*sin(200*x^2))/(20*x^2 + 1)
+\end{verbatim} \color{black}   
 
+\color{lightgray} \begin{verbatim}z =
+   n =16
+\end{verbatim} \color{black}
 \end{document}
 

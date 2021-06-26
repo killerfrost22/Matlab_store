@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.25)  23 JUN 2021 21:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.25)  25 JUN 2021 23:49
 entering extended mode
 **c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW13/html/HW13.tex
 (c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW13/html/HW13.tex
@@ -85,32 +85,170 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 37.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 37.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 47.
- (C:\Users\josep\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+
+
+c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW13/html/HW13.tex:43: Package inputenc Error: Unicode character − (U+2212)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.43 ...e error is strictly smaller than 10\^{}−
+                                                  6
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW13/html/HW13.tex:49: Package inputenc Error: Unicode character ≤ (U+2264)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.49 n = 10 error ≤
+                      1.7*10\^{}−5
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW13/html/HW13.tex:49: Package inputenc Error: Unicode character − (U+2212)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.49 n = 10 error ≤ 1.7*10\^{}−
+                                   5
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW13/html/HW13.tex:52: Package inputenc Error: Unicode character ≤ (U+2264)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.52 n = 13 error ≤
+                      1.04*10\^{}−6
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW13/html/HW13.tex:52: Package inputenc Error: Unicode character − (U+2212)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.52 n = 13 error ≤ 1.04*10\^{}−
+                                    6
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW13/html/HW13.tex:55: Package inputenc Error: Unicode character ≤ (U+2264)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 n = 14 error ≤
+                      4.17·10\^{}−7
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW13/html/HW13.tex:55: Package inputenc Error: Unicode character − (U+2212)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 n = 14 error ≤ 4.17·10\^{}−
+                                     7
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 67.
+(C:\Users\josep\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 47.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 67.
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--49
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
 \OT1/cmr/m/n/10 fam-ily ($\OMS/cmsy/m/n/10 n$\OT1/cmr/m/n/10 url\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 https://en.wikipedia.org/wiki/Bessel[]function\OMS/cmsy/m/n/10 g\OT1/cmr/m/n/10 )[J(x) =
  []
 
 [1
 
-{C:/Users/josep/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] (c:/Users\josep\OneDrive\Documents\GitHub\Matlab_store\Courses\Amsc460\HW\HW13\html\HW13.aux) ) 
+{C:/Users/josep/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW13/html/HW13.tex:84: Missing $ inserted.
+<inserted text> 
+                $
+l.84 ...|J(x)|\le 1$ Given values smaller than 10^
+                                                  (-6). for \[\frac{5^n}{(n!...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW13/html/HW13.tex:84: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.84 ... Given values smaller than 10^(-6). for \[
+                                                  \frac{5^n}{(n!)(2^(n-1))}\]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW13/html/HW13.tex:84: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.84 ...10^(-6). for \[\frac{5^n}{(n!)(2^(n-1))}\]
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Amsc460/HW/HW13/html/HW13.tex:85: Missing $ inserted.
+<inserted text> 
+                $
+l.85 \end{par}
+               \vspace{1em}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+[2] (c:/Users\josep\OneDrive\Documents\GitHub\Matlab_store\Courses\Amsc460\HW\HW13\html\HW13.aux) ) 
 Here is how much of TeX's memory you used:
- 1242 strings out of 479696
- 19927 string characters out of 2867136
- 289883 words of memory out of 3000000
- 18375 multiletter control sequences out of 15000+200000
+ 1245 strings out of 479696
+ 19961 string characters out of 2867136
+ 291892 words of memory out of 3000000
+ 18378 multiletter control sequences out of 15000+200000
  404538 words of font info for 31 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,5n,72p,712b,153s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\josep\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on c:/Users\josep\OneDrive\Documents\GitHub\Matlab_store\Courses\Amsc460\HW\HW13\html\HW13.pdf (1 page, 89581 bytes).
+ <C:\Users\josep\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on c:/Users\josep\OneDrive\Documents\GitHub\Matlab_store\Courses\Amsc460\HW\HW13\html\HW13.pdf (2 pages, 112717 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
+ 55 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
