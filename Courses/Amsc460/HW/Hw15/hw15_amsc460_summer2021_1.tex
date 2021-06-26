@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx,enumerate}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 15}\\
+\end{center}
+\noindent \textbf{Due Date}: Friday, June 25\\
+
+\begin{enumerate}
+\item Download the text file \texttt{OrbitData2.txt} from the course webpage, which contains $(x,y,z)$ coordinates of a collection of satellites around a certain planet. Save the file in your MATLAB directory. Your task is to find the sphere best approximating the data in the least-squares sense.
+
+Create a new script. Read the coordinate data using the following command
+\begin{center}
+\texttt{C = dlmread('OrbitData2.txt')}
+\end{center}
+This stores the coordinates in a matrix $C$. Next create a vector \texttt{X} consisting of the x-coordinates (first column of $C$), a vector $Y$ consisting of the y-coordinates (second column of $C$), and finally a vector $Z$ with the z-coordinates. Plot the coordinate pairs using the command \texttt{plot3(X,Y,Z,'.','MarkerSize',10)} to make sure the data is properly loaded. It should look somewhat spherical.
+	\begin{enumerate}
+	\item Center the $X,Y,Z$ coordinates around zero. For example, to center the x-values you would compute $X-\overline{X}$ (where $\overline{X}$ is the mean of the x-values).
+	\item The general equation of a sphere centered at the origin can be written
+	\[ax^2 +by^2 + c = z^2,\]
+	where $a,b,c$ are constant coefficients to be determined. By forcing the coordinates stored in $C$ to fit the model, a linear system $A{\bf{u}} = {\bf{w}}$ is created, where ${\bf{u}} = [a,b,c]^T$. Create the matrix $A$ and vector ${\bf{w}}$ in MATLAB. (Do not print these out.)
+	\item Solve the normal equations for the system $A{\bf{u}} = {\bf{w}}$ to get the least-squares solution ${\bf{u}}$. (It is wise to compute $\mathrm{cond}(A^T A)$ to check the quality of the solution!)
+	\item Plot the coordinate data points and the equation of the ellipse in the same figure. (Use \texttt{fimplicit3} to plot the sphere. Also if the viewing angle is bad when publishing, you can change it by using the command \texttt{view}.)
+	\item Compute the error for the fit using the Euclidean norm $\|\cdot\|_2$ of the residual ${\bf{r}} = {\bf{w}} - A{\bf{u}}.$
+\end{enumerate}
+\end{enumerate}
+\end{document}
