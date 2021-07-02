@@ -1,0 +1,138 @@
+
+% This LaTeX was auto-generated from MATLAB code.
+% To make changes, update the MATLAB code and republish this document.
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{color}
+
+\sloppy
+\definecolor{lightgray}{gray}{0.5}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+    
+    
+\subsection*{Contents}
+
+\begin{itemize}
+\setlength{\itemsep}{-1ex}
+   \item AMSC 460 - HW16
+   \item Problem 1
+\end{itemize}
+
+
+\subsection*{AMSC 460 - HW16}
+
+\begin{verbatim}
+clear all; format compact; close all; syms f(x) x y z
+\end{verbatim}
+
+
+\subsection*{Problem 1}
+
+\begin{par}
+(a) Using MATLAB's backslash command, find the solution to the normal equations $A^T Ax = A^T b$.
+\end{par} \vspace{1em}
+\begin{verbatim}
+A = [1+10^(-8) -1;-1 1;1 -1]
+b = [2;1;-1]
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}A =
+    1.0000   -1.0000
+   -1.0000    1.0000
+    1.0000   -1.0000
+b =
+     2
+     1
+    -1
+\end{verbatim} \color{black}
+    \begin{verbatim}
+AT = A.';
+B = AT*A;
+C = AT*b;
+x1 = B\C
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.896879e-17. 
+x1 =
+   1.0e+07 *
+    5.7533
+    5.7533
+\end{verbatim} \color{black}
+    \begin{par}
+(b)Using MATLAB's \ensuremath{\backslash}texttt\{qr\} command and backslash, find the solution to the triangular system $\widehat{R} x = (Q^T b)_{1:n}$. Compare this to the solution to the normal equations. How far apart are the answers?  Compute the distance in a norm of your choice.
+\end{par} \vspace{1em}
+\begin{verbatim}
+[Q,R] = qr(A)
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}Q =
+   -0.5774   -0.8165   -0.0000
+    0.5774   -0.4082    0.7071
+   -0.5774    0.4082    0.7071
+R =
+   -1.7321    1.7321
+         0   -0.0000
+         0         0
+\end{verbatim} \color{black}
+    \begin{verbatim}
+Qt = Q.'
+D = Qt*b
+x2 = R\D
+distance = abs(x1-x2)
+norm(x1-x2)
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}Qt =
+   -0.5774    0.5774   -0.5774
+   -0.8165   -0.4082    0.4082
+   -0.0000    0.7071    0.7071
+D =
+   -0.0000
+   -2.4495
+   -0.0000
+x2 =
+   1.0e+08 *
+    3.0000
+    3.0000
+distance =
+   1.0e+08 *
+    2.4247
+    2.4247
+ans =
+   3.4290e+08
+\end{verbatim} \color{black}
+    \begin{par}
+(c)Using MATLAB's \ensuremath{\backslash}texttt\{cond\} command, what are the condition numbers of $A$, $A^T A$, and $\widehat{R}$? Which condition number should we worry about in double precision floating point arithmetic? Which computed answer is more accurate?
+\end{par} \vspace{1em}
+\begin{verbatim}
+cond(A)
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}ans =
+   4.2426e+08
+\end{verbatim} \color{black}
+    \begin{par}
+Condition number of $A$, \$A\^{}T
+\end{par} \vspace{1em}
+\begin{verbatim}
+cond(B)
+cond(R)
+% Since all of the items are much larger than 1 so both moethods are bad
+% Therefore the QR decomposition is more accurate
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}ans =
+   1.7998e+16
+ans =
+   4.2426e+08
+\end{verbatim} \color{black}
+    
+
+
+\end{document}
+

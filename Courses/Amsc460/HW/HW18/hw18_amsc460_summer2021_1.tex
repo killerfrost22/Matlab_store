@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx,enumerate}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 18}\\
+\end{center}
+\noindent \textbf{Due Date}: Thursday, July 1\\
+
+\noindent Homework should be handed in \emph{individually}, though you may work with others and collaboration is encouraged. For MATLAB problems please follow the guidelines specified in ELMS.
+
+\begin{enumerate}
+\item Verify that the following two formulas are difference quotients that approximate the third derivative of $f$ and find the errors for both by Taylor expanding. Also give an upper bound on both errors in the form $|f'''(x)-D_h f(x)|\le Ch^p \|f^{(n)}\|_\infty$ (i.e. find $C,p,n$).
+	\begin{enumerate}
+	\item $f'''(x)\approx \displaystyle{\frac{1}{h^3}(f(x+3h)-3f(x+2h)+3f(x+h)-f(x))},$
+	\item $f'''(x)\approx \displaystyle{\frac{1}{2h^3}(f(x+2h)-2f(x+h)+2f(x-h)-f(x-2h))}.$
+	\end{enumerate}
+\item (Optional, not graded) Use a quadratic function to interpolate the values of $f(x)$ at $x_0-h, x_0$, and $x_0 +2h$. Use your interpolant to find a finite difference formula approximating $f'(x_0+h/2)$.
+\item (Optional, not graded) Consider the 3-point centered difference formula \[\displaystyle{f'(x) = \frac{f(x+h)-f(x-h)}{2h} + O(h^2)}.\] In theory, the convergence to $f'(x)$ is guaranteed as $h\rightarrow 0$ since the $O(h^2)$ error term goes to zero. In practice this is not true and there is a limit to how small $h$ can be before rounding error takes over and pollutes the computation. Following the argument from class used to find the optimal $h$ value for the 2-point forward difference formula, show for the centered difference formula that
+	\[\left|f'(x)-\frac{f(x+h)-f(x-h)}{2h}\right|\le \frac{Mh^2}{6}+\frac{\varepsilon}{h},\]
+where $M = \|f'''\|_{\infty}$ and $\varepsilon = \varepsilon_{mach}$. Then minimize the upper bound over all $h$ to determine the optimal value of $h$.
+\end{enumerate}
+\end{document}

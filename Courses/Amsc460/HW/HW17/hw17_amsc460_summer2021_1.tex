@@ -1,0 +1,31 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx,enumerate}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 17}\\
+\end{center}
+\noindent \textbf{Due Date}: Wednesday, June 30\\
+
+\begin{enumerate}
+\item Use the Gram-Schmidt process to orthogonalize the set $\{1,x,x^2\}$ on the interval $(0,\infty)$ with respect to the weight function $w(x)=e^{-x}$. (The set of polynomials you obtain are called \emph{Laguerre polynomials}.)
+\item Find the linear least squares polynomial approximation to $f(x) = e^x$ on the interval $[0,2]$ with weight $w(x)= 1$.
+\item (Optional, not graded) Choose your own function $f(x)$, interval $[a,b]$, weight $w(x)$, and approximation space $V_n$, and solve the least-squares problem, i.e. find $v\in V_n$ such that $\|f-v\|_{2,w}$ is minimized.
+\end{enumerate}
+\end{document}

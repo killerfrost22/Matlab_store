@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx,enumerate}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 16}\\
+\end{center}
+\noindent \textbf{Due Date}: Monday, June 28\\
+
+\begin{enumerate}
+\item For an $m\times n$ matrix $A$, with $m>n$, the system $Ax=b$ is overdetermined for any $b\in \mathbb{R}^m$. The least squares solution satisfies the normal equations
+	\[A^T Ax = A^T b,\]
+and has a unique solution if $A$ has linearly independent columns. However the matrix $A^T A$ can be badly conditioned and solving this way is often unstable. Alternatively, we may factor $A=QR$ using $QR$ factorization, where $Q$ is $m\times m$ orthogonal and $R$ is an $m\times n$ matrix of the form $R = \begin{bmatrix}\widehat{R}\\ 0\end{bmatrix}$, where $\widehat{R}$ is an upper $n\times n$ upper triangular matrix. As shown in class, the least squares solution also satisfies the triangular system 
+	\[\widehat{R} x = (Q^T b)_{1:n},\]
+where the vector on the right only includes the first $n$ components. Consider the problem
+	\[Ax=b,\quad A=\begin{bmatrix}1+10^{-8} & -1\\ -1 & 1 \\ 1 & -1 \end{bmatrix},\quad b=\begin{bmatrix}2\\1\\-1\end{bmatrix}.\]
+	\begin{enumerate}
+	\item Using MATLAB's backslash command, find the solution to the normal equations $A^T Ax = A^T b$.
+	\item Using MATLAB's \texttt{qr} command and backslash, find the solution to the triangular system $\widehat{R} x = (Q^T b)_{1:n}$. Compare this to the solution to the normal equations. How far apart are the answers?  Compute the distance in a norm of your choice.
+	\item Using MATLAB's \texttt{cond} command, what are the condition numbers of $A$, $A^T A$, and $\widehat{R}$? Which condition number should we worry about in double precision floating point arithmetic? Which computed answer is more accurate? 
+	\end{enumerate}
+\item (Optional, not graded) Find the QR decomposition for 
+	\[A=\begin{pmatrix}2&1\\1&-1\\2&1\end{pmatrix}\]
+by hand using Gram-Schmidt orthogonalization. 
+
+Note: There are two versions of QR, depending on the size of $Q$. To obtain a $3\times 3$ matrix for $Q$ as done in the lecture notes, add a third vector to the set of columns of $A$, that is linearly independent, say $(1,0,0)^T$. Then orthogonalize all three vectors using Gram-Schmidt. By construction the 3rd column of $Q$ will be hit by the last row of zeros in $R$ when multiplying $QR$, and so recomputing $A$ is no problem. But this way we get the full orthonormal basis for $\mathbb{R}^3$ which allows us to get the orthogonal matrix $Q$.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,172 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>HW16</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-06-28"><meta name="DC.source" content="HW16.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">AMSC 460 - HW16</a></li><li><a href="#2">Problem 1</a></li></ul></div><h2 id="1">AMSC 460 - HW16</h2><pre class="codeinput">clear <span class="string">all</span>; format <span class="string">compact</span>; close <span class="string">all</span>; syms <span class="string">f(x)</span> <span class="string">x</span> <span class="string">y</span> <span class="string">z</span>
+</pre><h2 id="2">Problem 1</h2><p>(a) Using MATLAB's backslash command, find the solution to the normal equations <img src="HW16_eq08055763426930113281.png" alt="$A^T Ax = A^T b$">.</p><pre class="codeinput">A = [1+10^(-8) -1;-1 1;1 -1]
+b = [2;1;-1]
+</pre><pre class="codeoutput">A =
+    1.0000   -1.0000
+   -1.0000    1.0000
+    1.0000   -1.0000
+b =
+     2
+     1
+    -1
+</pre><pre class="codeinput">AT = A.';
+B = AT*A;
+C = AT*b;
+x1 = B\C
+</pre><pre class="codeoutput">Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  2.896879e-17. 
+x1 =
+   1.0e+07 *
+    5.7533
+    5.7533
+</pre><p>(b)Using MATLAB's \texttt{qr} command and backslash, find the solution to the triangular system <img src="HW16_eq03079088959208642524.png" alt="$\widehat{R} x = (Q^T b)_{1:n}$">. Compare this to the solution to the normal equations. How far apart are the answers?  Compute the distance in a norm of your choice.</p><pre class="codeinput">[Q,R] = qr(A)
+</pre><pre class="codeoutput">Q =
+   -0.5774   -0.8165   -0.0000
+    0.5774   -0.4082    0.7071
+   -0.5774    0.4082    0.7071
+R =
+   -1.7321    1.7321
+         0   -0.0000
+         0         0
+</pre><pre class="codeinput">Qt = Q.'
+D = Qt*b
+x2 = R\D
+distance = abs(x1-x2)
+norm(x1-x2)
+</pre><pre class="codeoutput">Qt =
+   -0.5774    0.5774   -0.5774
+   -0.8165   -0.4082    0.4082
+   -0.0000    0.7071    0.7071
+D =
+   -0.0000
+   -2.4495
+   -0.0000
+x2 =
+   1.0e+08 *
+    3.0000
+    3.0000
+distance =
+   1.0e+08 *
+    2.4247
+    2.4247
+ans =
+   3.4290e+08
+</pre><p>(c)Using MATLAB's \texttt{cond} command, what are the condition numbers of <img src="HW16_eq05147331747641807187.png" alt="$A$">, <img src="HW16_eq03221567871204937077.png" alt="$A^T A$">, and <img src="HW16_eq02163271600136605151.png" alt="$\widehat{R}$">? Which condition number should we worry about in double precision floating point arithmetic? Which computed answer is more accurate?</p><pre class="codeinput">cond(A)
+cond(B)
+cond(R)
+<span class="comment">% Since all of the items are much larger than 1 so both moethods are bad</span>
+<span class="comment">% Therefore the QR decomposition is more accurate</span>
+</pre><pre class="codeoutput">ans =
+   4.2426e+08
+ans =
+   1.7998e+16
+ans =
+   4.2426e+08
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% AMSC 460 - HW16
+clear all; format compact; close all; syms f(x) x y z
+
+
+%% Problem 1
+%%
+% (a) Using MATLAB's backslash command, find the solution to the normal equations $A^T Ax = A^T b$.
+%
+%%
+A = [1+10^(-8) -1;-1 1;1 -1]
+b = [2;1;-1]
+%%
+AT = A.';
+B = AT*A;
+C = AT*b;
+x1 = B\C
+
+%%
+% (b)Using MATLAB's \texttt{qr} command and backslash, find the solution to the triangular system $\widehat{R} x = (Q^T b)_{1:n}$. Compare this to the solution to the normal equations. How far apart are the answers?  Compute the distance in a norm of your choice.
+%% 
+[Q,R] = qr(A)
+%%
+Qt = Q.'
+D = Qt*b
+x2 = R\D
+distance = abs(x1-x2)
+norm(x1-x2)
+%% 
+% (c)Using MATLAB's \texttt{cond} command, what are the condition numbers of $A$, $A^T A$, and $\widehat{R}$? Which condition number should we worry about in double precision floating point arithmetic? Which computed answer is more accurate? 
+%% 
+cond(A)
+cond(B)
+cond(R)
+% Since all of the items are much larger than 1 so both moethods are bad
+% Therefore the QR decomposition is more accurate 
+##### SOURCE END #####
+--></body></html>
