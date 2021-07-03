@@ -1,0 +1,38 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx,enumerate}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 19}\\
+\end{center}
+\noindent \textbf{Due Date}: Friday, July 2\\
+
+\noindent Homework should be handed in \emph{individually}, though you may work with others and collaboration is encouraged. For MATLAB problems please follow the guidelines specified in ELMS.
+
+\begin{enumerate}
+\item Using the method of undetermined coefficients, develop the most accurate difference formula for approximating $f''(x)$ that uses the data $f(x), f(x+h),$ and $f(x+2h)$, and $f(x+3h)$. [MATLAB may be useful for solving the resulting system of equations, or you can do it by hand.]
+\item The forward-difference formula for the first derivative (which is an $O(h)$ method) can be written in the following form:
+\[f'(x_0) = \frac{f(x_0+h)-f(x_0)}{h}-\frac{h}{2}f''(x_0)-\frac{h^2}{6}f'''(x_0) + O(h^3).\]
+Apply Richardson extrapolation twice to obtain an $O(h^3)$ formula for $f'(x_0)$.
+\item (Optional, not graded) In class we showed the 2-point forward difference formula for $f'(x)$ has error that is $O(h)$. Prove the refined estimate
+	\[f'(x) = \frac{f(x+h)-f(x)}{h}-\frac{h}{2}f''(x)-\frac{h^2}{6}f'''(\xi).\]
+\item (Optional, not graded) Develop a finite difference formula for approximating $f''(x)$ that uses the data values $f(x)$, $f'(x)$, and $f(x+h)$.
+\end{enumerate}
+\end{document}

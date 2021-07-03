@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx,enumerate}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 21}\\
+\end{center}
+\noindent \textbf{Due Date}: Tuesday, July 6\\
+
+\noindent Homework should be handed in \emph{individually}, though you may work with others and collaboration is encouraged. For MATLAB problems please follow the guidelines specified in ELMS.
+
+\begin{enumerate}
+\item Consider the integral $\displaystyle{\int_0^1\! e^{3x}\,\mathrm{d}x}$. 
+	\begin{enumerate}
+	\item If using the composite trapezoid rule, how many subintervals are needed to approximate the integral to within an absolute error of $10^{-8}$?
+	\item Implement the composite trapezoid rule in MATLAB. For $n = 10^p$, with $p=1,2,3,4$, keep track of the error $E_T(n) = |I-T(f,n)|$, where $T(f,n)$ denotes the trapezoid rule with $n$ subintervals. Plot $E_T$ for the given values of $n$ on the same plot (use logarithmic axes for better scaling). Does your plot agree with the analysis performed in part (a)? \\
+	
+	\emph{Pro tip: Vectorize your code (for the nodes, function values, summations) if possible, instead of using 'for loops', otherwise the run-time can be very slow - especially for the $p=4$ case.}
+	\end{enumerate}
+\item (Optional, not graded) Use the method of undetermined coefficients to derive a quadrature of the form
+	\[\int_0^1\!f(x)\,\mathrm{d}x\approx Af(1/3)+Bf(3/4).\]
+Transform the quadrature to the new interval $[a,b]$. Apply this result to approximate $\displaystyle{\int_0^{\pi}\sin{x}}$. Compare the result of the approximation with the exact value of the integral.
+\item (Optional, not graded) Derive a formula for approximating $\displaystyle{\int_1^2\!f(x)\,\mathrm{d}x}$ in terms of $f(0)$, $f(1)$, and $f(3)$. Your quadrature should be exact for all polynomials of degree $\le 2$.
+\item (Optional, not graded) Repeat Problem 1 but instead use composite Simpson's Rule.
+\end{enumerate}
+\end{document}
