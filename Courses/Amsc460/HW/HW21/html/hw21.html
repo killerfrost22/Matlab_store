@@ -1,0 +1,126 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hw21</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-07-07"><meta name="DC.source" content="hw21.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">AMSC 460 - HW21</a></li><li><a href="#2">Problem 1</a></li><li><a href="#6">Problem 2</a></li></ul></div><h2 id="1">AMSC 460 - HW21</h2><pre class="codeinput">clear <span class="string">all</span>; format <span class="string">compact</span>; close <span class="string">all</span>; syms <span class="string">f(x)</span> <span class="string">x</span> <span class="string">y</span> <span class="string">z</span>
+</pre><h2 id="2">Problem 1</h2><p>If using the composite trapezoid rule, how many subintervals are needed to approximate the integral to within an absolute error of <img src="hw21_eq06961679242826692662.png" alt="$10^{-8}$">?</p><pre class="codeinput">img = imread(<span class="string">'amsc460p1.jpg'</span>); imshow(img)
+</pre><img vspace="5" hspace="5" src="hw21_01.png" alt=""> <pre class="codeinput">syms <span class="string">n</span>
+vpasolve(9*exp(3)/(12*n^2)== 10^(-8))
+</pre><pre class="codeoutput">ans =
+-38812.565867758281377226918861775
+ 38812.565867758281377226918861775
+</pre><img vspace="5" hspace="5" src="hw21_02.png" alt=""> <h2 id="6">Problem 2</h2><p>Implement the composite trapezoid rule in MATLAB. For <img src="hw21_eq07052849124582909096.png" alt="$n = 10^p$">, with <img src="hw21_eq02759682235608701743.png" alt="$p=1,2,3,4$">, keep track of the error <img src="hw21_eq03401477105735558097.png" alt="$E_T(n) = |I-T(f,n)|$">, where <img src="hw21_eq06754780770186159594.png" alt="$T(f,n)$"> denotes the trapezoid rule with <img src="hw21_eq08984225997457563733.png" alt="$n$"> subintervals. Plot <img src="hw21_eq11877783918220553029.png" alt="$E_T$"> for the given values of <img src="hw21_eq08984225997457563733.png" alt="$n$"> on the same plot (use logarithmic axes for better scaling). Does your plot agree with the analysis performed in part (a)? \\</p><pre class="codeinput">I = int(f,0,1)
+p=1:4;
+<span class="keyword">for</span> i=1:length(p)
+    n(i)=10^p(i);
+    T = trapez(f,n(i));
+    E(i) = abs(I - T);
+    fprintf(<span class="string">'\n 10^%g T = %f, the error is %.9f'</span>,p(i),T,E(i));
+<span class="keyword">end</span>
+
+loglog(n,E);
+xlabel(<span class="string">'n'</span>);
+ylabel(<span class="string">'error'</span>);
+</pre><pre class="codeoutput">I =
+int(f(x), x, 0, 1)
+</pre><pre class="codeoutput error">Undefined function 'trapez' for input arguments of type 'symfun'.
+Error in hw21 (line 23)
+    T = trapez(f,n(i));</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% AMSC 460 - HW21
+clear all; format compact; close all; syms f(x) x y z
+
+
+%% Problem 1
+%%
+% If using the composite trapezoid rule, how many subintervals are needed to approximate the integral to within an absolute error of $10^{-8}$?
+%
+%%
+img = imread('amsc460p1.jpg'); imshow(img)
+%%
+syms n
+vpasolve(9*exp(3)/(12*n^2)== 10^(-8))
+%% Problem 2
+
+%%
+% Implement the composite trapezoid rule in MATLAB. For $n = 10^p$, with $p=1,2,3,4$, keep track of the error $E_T(n) = |I-T(f,n)|$, where $T(f,n)$ denotes the trapezoid rule with $n$ subintervals. Plot $E_T$ for the given values of $n$ on the same plot (use logarithmic axes for better scaling). Does your plot agree with the analysis performed in part (a)? \\
+%%
+I = int(f,0,1)
+p=1:4;
+for i=1:length(p)
+    n(i)=10^p(i);
+    T = trapez(f,n(i));
+    E(i) = abs(I - T);
+    fprintf('\n 10^%g T = %f, the error is %.9f',p(i),T,E(i));
+end
+
+loglog(n,E);
+xlabel('n');
+ylabel('error');
+##### SOURCE END #####
+--></body></html>

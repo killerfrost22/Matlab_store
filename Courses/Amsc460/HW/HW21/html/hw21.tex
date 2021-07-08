@@ -1,0 +1,86 @@
+
+% This LaTeX was auto-generated from MATLAB code.
+% To make changes, update the MATLAB code and republish this document.
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{color}
+
+\sloppy
+\definecolor{lightgray}{gray}{0.5}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+    
+    
+\subsection*{Contents}
+
+\begin{itemize}
+\setlength{\itemsep}{-1ex}
+   \item AMSC 460 - HW21
+   \item Problem 1
+   \item Problem 2
+\end{itemize}
+
+
+\subsection*{AMSC 460 - HW21}
+
+\begin{verbatim}
+clear all; format compact; close all; syms f(x) x y z
+\end{verbatim}
+
+
+\subsection*{Problem 1}
+
+\begin{par}
+If using the composite trapezoid rule, how many subintervals are needed to approximate the integral to within an absolute error of $10^{-8}$?
+\end{par} \vspace{1em}
+\begin{verbatim}
+img = imread('amsc460p1.jpg'); imshow(img)
+\end{verbatim}
+
+\includegraphics [width=4in]{hw21_01.eps}
+\begin{verbatim}
+syms n
+vpasolve(9*exp(3)/(12*n^2)== 10^(-8))
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}ans =
+-38812.565867758281377226918861775
+ 38812.565867758281377226918861775
+\end{verbatim} \color{black}
+    
+
+\subsection*{Problem 2}
+
+\begin{par}
+Implement the composite trapezoid rule in MATLAB. For $n = 10^p$, with $p=1,2,3,4$, keep track of the error $E_T(n) = |I-T(f,n)|$, where $T(f,n)$ denotes the trapezoid rule with $n$ subintervals. Plot $E_T$ for the given values of $n$ on the same plot (use logarithmic axes for better scaling). Does your plot agree with the analysis performed in part (a)? \ensuremath{\backslash}\ensuremath{\backslash}
+\end{par} \vspace{1em}
+\begin{verbatim}
+I = int(f,0,1)
+p=1:4;
+for i=1:length(p)
+    n(i)=10^p(i);
+    T = trapez(f,n(i));
+    E(i) = abs(I - T);
+    fprintf('\n 10^%g T = %f, the error is %.9f',p(i),T,E(i));
+end
+
+loglog(n,E);
+xlabel('n');
+ylabel('error');
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}I =
+int(f(x), x, 0, 1)
+\end{verbatim} \color{black}
+    
+        \color{lightgray} \begin{verbatim}Undefined function 'trapez' for input arguments of type 'symfun'.
+Error in hw21 (line 23)
+    T = trapez(f,n(i));\end{verbatim} \color{black}
+    
+
+
+\end{document}
+
