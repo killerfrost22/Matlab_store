@@ -36,29 +36,58 @@ clear all; format rational; close all; syms f(x) x y
 
 
 \subsection*{Problem 1 (finished)}
+   \[\phi_0(x) =1, \phi_1(x) =x -\alpha_1\]
 
+   \[\alpha_1=\frac{\int_{-1}^{1} w(x)*x\,dx}{\int_{-1}^{1} w(x)\,dx} = \frac{\int_{-1}^{0} x\,dx+ \int_{0}^{1} 3x\,dx}{4} = \frac{1}{4}\]
+   \[(\phi_0, \phi_0) = 2, (f,y_0) = \int_{-1}^{1} w(x)x^3\,d = \frac{1}{2}\]
+   \[(\phi_1, \phi_1) = \int_{-1}^{1} w(x)(x-1/2)^2\,dx = \int_{-1}^{0} (x-1/2)^2\,dx\ + \int_{0}^{1} 3(x-1/2)^2\,dx = \frac{4}{3}\]
+   \[(f_1, \phi_1) = \int_{-1}^{1} w(x)x^3(x-1/2)^2\,dx = \int_{-1}^{0} x^4-(1/2)x^3\,dx + \int_{0}^{1} 3(x^4-(1/2)x^3 \,dx= \frac{11}{20}\]
 
-\begin{verbatim}
-A = [1 0 0 1 2; -1 1 1 1 0; 1 -2 2 1 2/3; -1 3 3 1 0]
-rref(A)
-\end{verbatim}
-
-        \color{lightgray} \begin{verbatim}A =
-       1              0              0              1              2       
-      -1              1              1              1              0       
-       1             -2              2              1              2/3     
-      -1              3              3              1              0       
-ans =
-       1              0              0              0              1       
-       0              1              0              0              1/3     
-       0              0              1              0             -1/3     
-       0              0              0              1              1       
-\end{verbatim} \color{black}
-    
-
+   \[\phi(x) = \frac{(\phi_1, \phi_0)}{(\phi_0, \phi_0)}*\phi_0(x) + \frac{(f_1, \phi)}{(\phi_1, \phi_1)}*\phi_1(x) = \frac{1/4}{2} + \frac{\frac{11}{20}}{\frac{4}{3}}(x-\frac{1}{2}) = \frac{33x}{80} - \frac{13}{160}\]   
 \subsection*{Problem 2 (Yup)}
+      
+\begin{par}
+   $f(x)= 1*\[ \int_{1}^{-1} 1 \,dx \] =2 
+\end{par}
 
+   \[w_1*f(-1)+w_2*f'(-1)+w_3*f'(1)+w_4*f(1) = 2\]
 
+   which means:
+   
+   \[w_1+w_2+w_3+w_4 = 2\]
+   \[w_1 +w_4 = 2\]
+   \[when f(x) = x, f'(x) =1, -w_1 +w_2+w_3+w_4 =0\]
+   \[when f(x) = x^2, f'(x) =2x, w_1 -2*w_2+2*w_3+w_4 =2/3\]
+   \[when f(x) = x^3, f'(x) =3x^2, -w_1 +3*w_2+3*w_3+w_4 =0\]
+   \[when f(x) = x^4, f'(x) =4x^3, -w_1 -4*w_2+4*w_3+w_4 =2/5\]
+
+   We dont want to consider the forth term since the precision is quadrature. The matrix is
+
+   \[\begin{bmatrix} 1 &0& 0& 1& 2 \\ -1& 1& 1& 1& 0 \\1& -2& 2& 1& 2/3 \\ -1& 3 &3& 1& 0 \end{bmatrix}\]
+
+   solve by matlab shown below:
+\begin{verbatim}
+   A = [1 0 0 1 2; -1 1 1 1 0; 1 -2 2 1 2/3; -1 3 3 1 0]
+   rref(A)
+   \end{verbatim}
+   
+           \color{lightgray} \begin{verbatim}A =
+          1              0              0              1              2       
+         -1              1              1              1              0       
+          1             -2              2              1              2/3     
+         -1              3              3              1              0       
+   ans =
+          1              0              0              0              1       
+          0              1              0              0              1/3     
+          0              0              1              0             -1/3     
+          0              0              0              1              1       
+   \end{verbatim} \color{black}
+
+   so we have 
+   \[w_1 = 1\]
+   \[w_2 = 1/3\]
+   \[w_3 = -1/3\]
+   \[w_4 = 1\]
 
 \subsection*{Problem 3 (Yup)}
 \begin{par}

@@ -6,8 +6,6 @@ clear all; format rational; close all; syms f(x) x y
 %
 
 %%
-% (a) What is the distance between the number 8 and the next largest floating point
-% number in this system?
 %% 
 A = [1 0 0 1 2; -1 1 1 1 0; 1 -2 2 1 2/3; -1 3 3 1 0]
 rref(A)
