@@ -57,29 +57,7 @@ vpasolve(9*exp(3)/(12*n^2)== 10^(-8))
 \begin{par}
 Implement the composite trapezoid rule in MATLAB. For $n = 10^p$, with $p=1,2,3,4$, keep track of the error $E_T(n) = |I-T(f,n)|$, where $T(f,n)$ denotes the trapezoid rule with $n$ subintervals. Plot $E_T$ for the given values of $n$ on the same plot (use logarithmic axes for better scaling). Does your plot agree with the analysis performed in part (a)? \ensuremath{\backslash}\ensuremath{\backslash}
 \end{par} \vspace{1em}
-\begin{verbatim}
-I = int(f,0,1)
-p=1:4;
-for i=1:length(p)
-    n(i)=10^p(i);
-    T = trapez(f,n(i));
-    E(i) = abs(I - T);
-    fprintf('\n 10^%g T = %f, the error is %.9f',p(i),T,E(i));
-end
 
-loglog(n,E);
-xlabel('n');
-ylabel('error');
-\end{verbatim}
-
-        \color{lightgray} \begin{verbatim}I =
-int(f(x), x, 0, 1)
-\end{verbatim} \color{black}
-    
-        \color{lightgray} \begin{verbatim}Undefined function 'trapez' for input arguments of type 'symfun'.
-Error in hw21 (line 23)
-    T = trapez(f,n(i));\end{verbatim} \color{black}
-    
 
 
 \end{document}

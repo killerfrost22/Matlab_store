@@ -8,7 +8,6 @@ clear all; format compact; close all; syms f(x) x y z
 %
 %%
 img = imread('amsc460p1.jpg'); imshow(img)
-%%
 syms n
 vpasolve(9*exp(3)/(12*n^2)== 10^(-8))
 %% Problem 2
@@ -20,11 +19,7 @@ I = int(f,0,1)
 p=1:4;
 for i=1:length(p)
     n(i)=10^p(i);
-    T = trapez(f,n(i));
+    T = trapz(f,n(i));
     E(i) = abs(I - T);
     fprintf('\n 10^%g T = %f, the error is %.9f',p(i),T,E(i));
 end
-
-loglog(n,E);
-xlabel('n');
-ylabel('error');
