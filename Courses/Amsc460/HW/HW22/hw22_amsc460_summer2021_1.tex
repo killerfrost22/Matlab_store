@@ -1,0 +1,42 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx,enumerate}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 22}\\
+\end{center}
+\noindent \textbf{Due Date}: Friday, July 9\\
+
+\noindent Homework should be handed in \emph{individually}, though you may work with others and collaboration is encouraged. For MATLAB problems please follow the guidelines specified in ELMS.
+
+\begin{enumerate}
+\item Is the Improved Euler Method 
+	\[w_{i+1}=w_i + \frac{h}{2}(K_1+K_2),\quad K_1=f(t_i,w_i),\quad K_2 = f(t_i+h,w_i+hK_1),\]
+stable for the equation $y'=-20y$ with $h=0.05$? Explain why or why not.
+\item Consider the integro-differential equation on the interval $0\le t\le 20$:
+	\[y'=1.3y - 0.25y^2 + 2\sin(t) - 0.005y\int_0^t\! y(s) \,\mathrm{d}s;\qquad y(0)=8.\]
+Discretize the equation using the forward Euler method with $h=0.2$. To approximate the integral term, use the trapezoidal quadrature rule. Implement the method in MATLAB to obtain the approximate solution $w_i\approx y(t_i)$, and create a plot of your solution.
+    
+
+\end{enumerate}
+
+\end{document}
+
+    

@@ -1,0 +1,137 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>HW22</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-07-09"><meta name="DC.source" content="HW22.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">AMSC 460 - HW22</a></li><li><a href="#2">Problem 1 (finished)</a></li><li><a href="#6">Problem 2</a></li></ul></div><h2 id="1">AMSC 460 - HW22</h2><pre class="codeinput">clear <span class="string">all</span>; format <span class="string">compact</span>
+</pre><pre class="codeoutput error">Error using dbstatus
+Error: File: C:\Users\josep\OneDrive\Documents\GitHub\Matlab_store\Courses\Amsc460\HW\HW22\HW22.m Line: 14 Column: 18
+Character vector is not terminated properly.</pre><h2 id="2">Problem 1 (finished)</h2><p>\[y' = -20y, y = ae^(-20x)\] \[K_1 = f(x_0,y_0) = f(x_0,ae^(-20x_0)) = -20y_0\] \[K_2 = f(x_0 + h,y_0-20hy_0) = -20(y_0-20hy_0)\]</p><pre class="codeinput"><span class="comment">% From the improved Euler method:</span>
+<span class="comment">% \[w_(i+1) = \frac{h}{2}(K_1+K_2) =y_0(1-20h+200h^2)\]</span>
+<span class="comment">% \[1-20h+200h^2&lt;1 so we have &lt;0h&lt;0.1\]</span>
+</pre><pre class="codeinput"> so <span class="string">h</span> <span class="string">=</span> <span class="string">0.05</span> <span class="string">amd</span> <span class="untermstring">y' = -20y is stable</span>
+</pre><h2 id="6">Problem 2</h2><pre class="codeinput">h = 0.2; <span class="comment">% step</span>
+a = 0; <span class="comment">% initial point</span>
+b = 20; <span class="comment">% terminal point</span>
+y0 = 8; <span class="comment">% initial value y(a)</span>
+n = floor((b-a)/h); <span class="comment">% the number of steps (rounded);</span>
+y = zeros(n+1,1); <span class="comment">% memory allocation</span>
+T = zeros(n,1); <span class="comment">% memory allocation</span>
+y(1)=8;
+T(1)=h^2 * y0^2;
+y(2)= y(1)-0.005*T(1);
+<span class="keyword">for</span> k= 2:n
+T(k) = T(k - 1) + h*(y(k) + y(k - 1))/2;
+y(k + 1) = y(k) + h*y(k)*(- 0.005*T(k));
+<span class="keyword">end</span>
+f=@(t,y)1.3*y-0.25*y^2+2*sin(t)
+</pre><pre class="codeinput">Y=forward_Euler(f,0,20,8,n)+y-y0
+</pre><pre class="codeinput">t=0:0.2:20;
+</pre><pre class="codeinput">plot(t,Y(:,2))
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% AMSC 460 - HW22
+clear all; format compact
+
+%% Problem 1 (finished)
+%% 
+%
+% \[y' = -20y, y = ae^(-20x)\]
+% \[K_1 = f(x_0,y_0) = f(x_0,ae^(-20x_0)) = -20y_0\]
+% \[K_2 = f(x_0 + h,y_0-20hy_0) = -20(y_0-20hy_0)\]  
+
+% From the improved Euler method:
+% \[w_(i+1) = \frac{h}{2}(K_1+K_2) =y_0(1-20h+200h^2)\]
+% \[1-20h+200h^2<1 so we have <0h<0.1\]
+ so h = 0.05 amd y' = -20y is stable
+%%
+%% Problem 2
+%%
+%
+h = 0.2; % step
+a = 0; % initial point
+b = 20; % terminal point
+y0 = 8; % initial value y(a)
+n = floor((b-a)/h); % the number of steps (rounded);
+y = zeros(n+1,1); % memory allocation
+T = zeros(n,1); % memory allocation
+y(1)=8;
+T(1)=h^2 * y0^2;
+y(2)= y(1)-0.005*T(1);
+for k= 2:n
+T(k) = T(k - 1) + h*(y(k) + y(k - 1))/2;
+y(k + 1) = y(k) + h*y(k)*(- 0.005*T(k));
+end
+f=@(t,y)1.3*y-0.25*y^2+2*sin(t)
+%%
+Y=forward_Euler(f,0,20,8,n)+y-y0
+%%
+t=0:0.2:20;
+%%
+plot(t,Y(:,2))
+##### SOURCE END #####
+--></body></html>

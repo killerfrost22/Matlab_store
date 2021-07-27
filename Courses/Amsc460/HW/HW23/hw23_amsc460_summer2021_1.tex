@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref,color,palatino,amsmath,amssymb,graphicx,enumerate}
+\usepackage[normalem]{ulem} %For striking out text
+\usepackage[margin=1in]{geometry}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+Computational Methods\qquad Summer 2021
+\\
+
+\textbf{\large HOMEWORK 23}\\
+\end{center}
+\noindent \textbf{Due Date}: Friday, July 9\\
+
+\noindent Homework should be handed in \emph{individually}, though you may work with others and collaboration is encouraged. For MATLAB problems please follow the guidelines specified in ELMS.
+
+\begin{enumerate}
+\item Suppose $h := t_{i+1}-t_i$ is constant for all indices $i$. In deriving the trapezoid method for solving the differential equation $y'=f(t,y)$ we integrated the ODE over the interval $t_i\le t\le t_{i+1}$.
+	\begin{enumerate}
+		\item If we instead integrate the ODE over $t_{i-1}\le t\le t_{i+1},$ write down the numerical method obtained if Simpson’s rule is used on the resulting integral. What is the local truncation error for this rule? What is the order of the global error?
+		\item Write down the method obtained if instead the midpoint rule is used on the integral.
+    \end{enumerate}
+\item (Optional, not graded) 
+Suppose we want to solve the differential equation $y'=f(t,y)$. Consider the finite difference equation
+	\[y_{i+1}=y_i + h[\theta f_i + (1-\theta)f_{i+1}],\]
+where $\theta$ is a predetermined constant satisfying $0\le \theta\le 1$, and $f_i = f(t_i,y_i)$.
+	\begin{enumerate}
+	\item For what value(s) of $\theta$ is the method explicit, and for which value(s) of $\theta$ is it implicit? What well-known methods do $\theta=0$ and $\theta = 1$ correspond to?
+	\item Applying the numerical scheme to the test equation $y'=\lambda y$, with $y(0)=1$, and $\lambda<0$, determine for what value(s) of $\theta$ the method is A-stable.   
+	\item Find the local truncation error for this numerical scheme. Use the method presented in class: insert the actual solution $y(t)$ into the numerical method and Taylor expand $y(t_{i+1})$ about $t=t_i$ to obtain the error term. For what value(s) of $\theta$ is the local truncation error second-order?
+	\end{enumerate}
+\end{enumerate}
+\end{document}
