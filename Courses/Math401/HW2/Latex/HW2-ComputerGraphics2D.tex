@@ -1,0 +1,62 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{epsfig,amssymb,amsmath,multicol,xcolor,enumerate}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\begin{document}
+
+\title{Math 401 - Homework \#2\\ 2D Computer Graphics\\ due on Gradescope Wednesday, 9/15}
+\author{}
+\date{}
+\maketitle
+
+\noindent \textbf{Instructions:} Work through the problems below.  Write down your solutions on paper.  You can use MATLAB for computations unless the problem says ``Must do all computations by hand."  For problems in which you use MATLAB to do computations, I do not want you to turn in any MATLAB code.  You need to clearly present all steps of your solution so that I can follow your thought process without guessing what you are thinking (try writing in complete sentences.)
+
+\begin{enumerate}
+	\item \textbf{(Must do all computations by hand.)} Consider the linear transformation $f: \R^2 \to \R^2$ which first reflects through the $y$-axis, and then rotates counterclockwise about the origin by $\pi/4$ radians (45 degrees).  Find the standard $2 \times 2$ matrix for this linear transformation in two ways:
+	\begin{enumerate}
+		\item Find the standard matrix of $f$ by directly determining the images of the standard basis vectors $\mathbf{e}_1$ and $\mathbf{e}_2$ under $f$.
+		\item Find the standard matrix of $f$ by first finding the standard matrices of the reflection and of the rotation, and then use matrix multiplication.
+	\end{enumerate}
+
+	\item Find the point obtained when $(7, 9)$ is rotated counterclockwise about the origin by 50 degrees ($5\pi/18$ radians).  (Do the computation in MATLAB, but make it clear what computation you are doing.)
+	
+	\item \textbf{(Must do all computations by hand.)} \begin{enumerate}
+		\item Do Exercise 2.5 from the text.  (The matrix should be $3 \times 3$, for homogeneous coordinates.)
+		\item Do Exercise 2.6 from the text.  (The matrix should be $3 \times 3$, for homogeneous coordinates.)
+	\end{enumerate}
+	
+	\item Do Exercise 2.9 from the text.
+	
+	\item Do Exercise 2.11 from the text.
+	
+	\item Find the $3 \times 3$ matrix (for homogeneous coordinates) for the transformation which first rotates counterclockwise about the point $(4, 8)$ by $\pi/5$ radians, and then rotates counterclockwise about the point $(7,1)$ by $4\pi/11$ radians.
+	
+	\item \textbf{(Must do all computations by hand.)}
+	\begin{enumerate}
+		\item Let $L$ denote a line in the plane that does \textbf{not} go through the origin.  Let $f: \R^2 \to \R^2$ denote the transformation which reflects through the line $L$.  Give a reason why $f$ is not a linear transformation.
+		\item Reflection through a line which does not go through the origin can be represented as a $3 \times 3$ matrix (which operates on homogeneous coordinates).  Give the matrix for reflection through the vertical line $x=5$.
+		\item Give a formula for the image of the generic point $(x,y)$ under reflection through the line $x=5$.
+	\end{enumerate}
+
+	\item \textbf{(Must do all computations by hand.)} Let $L_\theta$ denote the line in the plane through the origin that makes an angle of $\theta$ radians with the positive $x$-axis.  In class, we saw that reflection through the line $L_\theta$ has standard matrix $\begin{bmatrix}
+	\cos(2\theta) & \sin(2\theta)\\
+	\sin(2\theta) & -\cos(2\theta)
+	\end{bmatrix}$.  Now let $\theta$ and $\varphi$ be two angles.  Show that the composition of reflection through $L_\varphi$ followed by reflection through $L_\theta$ is equal to a rotation about the origin, and find the angle of rotation.  (Multiply the matrices and use trig identities to recognize the result as a rotation matrix.)
+
+	\item \textbf{(Optional - don't have to turn in)}  
+	\begin{enumerate}
+		\item Let $L_m$ denote the line through the origin with slope $m$.  Find the $2 \times 2$ matrix for the linear transformation $f: \R^2 \to \R^2$ which reflects through the line $L_m$.  Simplify your answer so that there are no trig or inverse trig functions.  Then give the $3 \times 3$ matrix for this transformation (that operates on homogeneous coordinates).
+		\item Let $L_{(a,b),m}$ be the line through the point $(a,b)$ with slope $m$.  Find the $3 \times 3$ matrix (for homogeneous coordinates) for the transformation of reflection through the line $L_{(a,b),m}$.
+	\end{enumerate}  
+
+\end{enumerate}
+
+\end{document}
