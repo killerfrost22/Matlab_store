@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.25)  11 SEP 2021 11:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.25)  12 SEP 2021 12:13
 entering extended mode
 **c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Math401/HW2/Latex/HW2-ComputerGraphics2D.tex
 (c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Math401/HW2/Latex/HW2-ComputerGraphics2D.tex
@@ -292,32 +292,19 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
  (C:\Users\josep\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-c:/Users/josep/OneDrive/Documents/GitHub/Matlab_store/Courses/Math401/HW2/Latex/HW2-ComputerGraphics2D.tex:28: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.28 		\end{enumerate}
-                      
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[1
+) [1
 
 {C:/Users/josep/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2] (c:/Users\josep\OneDrive\Documents\GitHub\Matlab_store\Courses\Math401\HW2\Latex\HW2-ComputerGraphics2D.aux) ) 
 Here is how much of TeX's memory you used:
  3493 strings out of 479696
  47963 string characters out of 2867136
- 338140 words of memory out of 3000000
+ 338131 words of memory out of 3000000
  20560 multiletter control sequences out of 15000+200000
  411000 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,8n,85p,485b,259s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 80i,8n,85p,485b,261s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/josep/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on c:/Users\josep\OneDrive\Documents\GitHub\Matlab_store\Courses\Math401\HW2\Latex\HW2-ComputerGraphics2D.pdf (2 pages, 100547 bytes).
+Output written on c:/Users\josep\OneDrive\Documents\GitHub\Matlab_store\Courses\Math401\HW2\Latex\HW2-ComputerGraphics2D.pdf (2 pages, 100507 bytes).
 PDF statistics:
  45 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
