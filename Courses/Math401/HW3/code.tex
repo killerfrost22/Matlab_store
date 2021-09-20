@@ -1,0 +1,285 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{epsfig,amssymb,amsmath,multicol,xcolor,enumerate}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\title{HW3}
+\author{Yizhan Ao}
+\date{17 September 2021}
+
+\begin{document}
+
+\maketitle 
+
+\section{Question 1}
+\textbf{ In three dimensions write down the translation matrix which
+shifts +1 in the x-direction, 2 in the y-direction and -7 in the z-direction.
+Apply this matrix to the points (1; 2; 0) and (1; 4;-3).}
+
+\begin{center}
+    \item We identify the $\R^3$ with $\R^4$ as (a,b,c,1) 
+    \item and then we put $\Vec{u}$ = \begin{bmatrix}
+    1\\2\\-7
+    \end{bmatrix} for the transformation which we can get $\Vec{x}$ = $\Vec{x}$ + $\Vec{u}$
+    
+    \item $T_\Vec{u}$ = \begin{bmatrix}
+        1 & 0 & 0 & 1 \\ 
+        0 & 1 & 0 & 2 \\ 
+        0 & 0 & 1 & -7\\ 
+        0 & 0 & 0 & 1
+        \end{bmatrix}
+    \item $T_\Vec{u}$ * $\Vec{x}$=     \item $T_\Vec{u}$ = \begin{bmatrix}
+        1 & 0 & 0 & 1 \\ 
+        0 & 1 & 0 & 2 \\ 
+        0 & 0 & 1 & -7\\ 
+        0 & 0 & 0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+        x\\y\\z\\1
+        \end{bmatrix}
+    \item = \begin{bmatrix}x+1\\y+2\\z-7\\1\end{bmatrix}= $\Vec{x}$ = $\Vec{x}$ + $\Vec{u}$ where  $\Vec{x}$ + $\Vec{u}$ \in $\R^3$
+    \item $T(1,2-7) \begin{bmatrix}
+1 \\2 \\0 \\1 
+\end{bmatrix} = \begin{bmatrix}
+2 \\4 \\-7 \\1
+\end{bmatrix} => (2,4,-7)$
+    \item $T(1,4-3) \begin{bmatrix}
+1 \\4 \\-3 \\1 
+\end{bmatrix} = \begin{bmatrix}
+2 \\6 \\-8 \\1
+\end{bmatrix} => (2,6,-8)$
+\end{center}
+\section{Question 2}
+\textbf{In three dimensions find the image of the three points(1; 2; 3); (-2; 3; 1); (3; 2; 2) under rotation around the y-axis by $\pi=4$.} 
+
+\begin{center}
+    \begin{equation}
+R_Y(\pi / 4)=\left[\begin{array}{rrrr}
+\cos (\pi / 4) & 0 & \sin (\pi / 4) & 0 \\
+0 & 1 & 0 & 0 \\
+-\sin (\pi / 4) & 0 & \cos (\pi / 4) & 0 \\
+0 & 0 & 0 & 1
+\end{array}\right]
+\end{equation}
+    \item $R_Y(\frac{\pi}{4})\begin{bmatrix}
+    1 \\ 2\\3\\1
+    \end{bmatrix} = \begin{bmatrix}
+    2.828 \\ 2\\ 1.414\\1
+    \end{bmatrix} =>(2.828,2,1.414)$
+    \item $R_Y(\frac{\pi}{4})\begin{bmatrix}
+    -2\\ 3\\1\\1
+    \end{bmatrix} = \begin{bmatrix}
+    -0.71 \\ 3\\2.12\\1
+    \end{bmatrix} =>(-0.71,2.12,1)$
+    \item $R_Y(\frac{\pi}{4})\begin{bmatrix}
+    3\\ 2\\2\\1
+    \end{bmatrix} = \begin{bmatrix}
+    3.54\\ 2\\-0.71\\1
+    \end{bmatrix} =>(3.54,2,-0.71)$
+\end{center}
+
+
+
+\section{Question 3}
+\textbf{ In three dimensions find the image of the three points(1; 2; 3); (; 3; 1); (3; 2; 2) under the perspective projection with center of perspective at z = 10.}   
+$$
+P(10) A=\left[\begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & -1 / 10 & 1
+\end{array}\right]\left[\begin{array}{l}
+1 \\ 2 \\ 3 \\1
+\end{array}\right]=\left[\begin{array}{c}
+1 \\ 2 \\0 \\ 0.7
+\end{array}\right]=\left[\begin{array}{c}
+1.4286 \\2.8571 \\0 \\1
+\end{array}\right]
+$$
+The point will be $(1.4286,2.8571,0)$
+$$
+P(10) A=\left[\begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & -1 / 10 & 1
+\end{array}\right]\left[\begin{array}{c}
+-2 \\3 \\1 \\1
+\end{array}\right]=\left[\begin{array}{c}
+-2 \\3 \\0 \\0.9
+\end{array}\right]=\left[\begin{array}{c}
+-2.2222 \\3.3333 \\0 \\1
+\end{array}\right]
+$$
+The point will be $(-2.2222,3.3333,0)$
+$$
+P(10) A=\left[\begin{array}{cccc}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & -1 / 10 & 1
+\end{array}\right]\left[\begin{array}{l}
+3 \\2 \\2 \\1
+\end{array}\right]=\left[\begin{array}{c}
+3 \\2 \\0 \\0.8
+\end{array}\right]=\left[\begin{array}{c}
+3.75 \\2.5 \\0 \\1
+\end{array}\right]
+$$
+The point will be $(3.75,2.5,0)$
+
+\section{Question 4}
+\textbf{2.20 In three dimensions we can rotate around an axis parallel to the
+y-axis by translating the desired axis so that it's on top of the y-axis, rotating,
+and then translating back. Using this method find the rotation matrix which
+will rotate around the line x = -2, z = 4 with direction opposite to the y-axis
+by 2$\pi$=3 radians.}
+
+\begin{center}
+    \item $T(2,0,4)P_Y(\frac{2\pi}{3})T(-2,0,4) = \begin{bmatrix}
+    1& 0& 0& 2\\ 0& 1& 0& 0\\ 0& 0& 1& -4\\0& 0 &0 &1
+    \end{bmatrix}
+    \begin{bmatrix}
+    cos(\frac{2\pi}{3})& 0& sin(\frac{2\pi}{3})& 0\\ 0& 1& 0& 0\\ -sin(\frac{2\pi}{3})& 0& cos(\frac{2\pi}{3})& 0\\0& 0 & 0 &1
+    \end{bmatrix}
+    \begin{bmatrix}
+    1& 0& 0& -2\\ 0& 1& 0& 0\\ 0& 0& 1& 4\\0& 0 &0 &1
+    \end{bmatrix}$ 
+    \item = $\begin{bmatrix}
+    -0.5& 0& \frac{\sqrt{3}}{2}& 6.46\\ 0& 1& 0& 0\\ -\frac{\sqrt{3}}{2}& 0& -0.5& -4.2679\\0& 0 &0 &1
+    \end{bmatrix}$
+\end{center}
+
+
+\section{Question 5}
+\textbf{2.25 Projection onto one of the other two coordinate planes (the xz-
+plane and the yz-plane) can easily be accomplished by rotation. For example if
+we wish to project onto the xz-plane what we do is first rotate the y-axis to the
+z-axis (which is a rotation around the x-axis), then project, then rotate back.
+(a) Write down the projection matrix which does this.
+(b) Use this to project the three points
+(1; 2; 3); (4;-1; 0); (5; 2; 3)
+with center of perspective at y = 10.}
+
+\textbf{a)}
+\begin{equation}
+\begin{aligned}
+&\text { (a) } R_Z\left(\frac{\pi}{4}\right) R_X\left(\frac{\pi}{6}\right) \operatorname{R_Z}\left(-\frac{\pi}{4}\right)\\
+&=\left[\begin{array}{ccc}
+\cos \left(\frac{\pi}{4}\right) & -\sin \left(\frac{\pi}{4}\right) & 0 \\
+\sin \left(\frac{\pi}{4}\right) & \cos \left(\frac{\pi}{4}\right) & 0 \\
+0 & 0 & 1
+\end{array}\right]\left[\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & \cos \left(\frac{\pi}{b}\right) & -\sin \left(\frac{\pi}{6}\right) \\
+0 & \sin \left(\frac{\pi}{6}\right) & \cos \left(\frac{\pi}{6}\right)
+\end{array}\right]\left[\begin{array}{ccc}
+\cos \left(-\frac{\pi}{4}\right) & -\sin \left(-\frac{\pi}{4}\right) & 0\\
+\sin \left(-\frac{\pi}{4}\right) & \cos \left(-\frac{\pi}{4}\right) & 0 \\
+0 & 0 & 1
+\end{array}\right]\\
+&=\left[\begin{array}{ccc}
+\frac{\sqrt{3}}{4}+\frac{1}{2} & \frac{1}{2}-\frac{\sqrt{3}}{4} & \frac{\sqrt{2}}{4} \\
+\frac{1}{2}-\frac{\sqrt{3}}{4} & \frac{\sqrt{3}}{4}+\frac{1}{2} & -\frac{\sqrt{2}}{4} \\
+-\frac{\sqrt{2}}{4} & \frac{\sqrt{2}}{4} & \frac{\sqrt{3}}{2}
+\end{array}\right]
+\end{aligned}
+\end{equation}
+
+
+
+\textbf{b)}
+\begin{equation}
+\begin{aligned}
+R_x \left(-\frac{\pi}{6}\right) R_z\left(\frac{\pi}{3}\right) R_x \left(\frac{\pi}{b}\right)=\left[\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & \cos \left(-\frac{\pi}{6}\right) & -\sin \left(-\frac{\pi}{6}\right) \\
+0 & \sin \left(-\frac{\pi}{6}\right) & \cos \left(-\frac{\pi}{6}\right)
+\end{array}\right]\left[\begin{array}{ccc}
+\cos \left(\frac{\pi}{3}\right) & -\sin \left(\frac{\pi}{3}\right) & 0 \\
+\sin \left(\frac{\pi}{3}\right) & \cos \left(\frac{\pi}{3}\right) & 0 \\
+0 & 0 & 1
+\end{array}\right]\left[\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & \cos \left(\frac{\pi}{6}\right) & -\sin \left(\frac{\pi}{6}\right) \\
+0 & \sin \left(\frac{\pi}{6}\right) & \cos \left(\frac{\pi}{6}\right)
+\end{array}\right]\\
+\end{aligned}
+\end{equation}
+$=\begin{bmatrix}
+\frac{1}{2} & -\frac{3}{4} & \frac{\sqrt{3}}{4} \\
+\frac{3}{4} & \frac{5}{8} & \frac{\sqrt{3}}{8} \\
+-\frac{\sqrt{3}}{4} & \frac{\sqrt{3}}{8} & \frac{7}{8}
+\end{bmatrix}$
+
+\textbf{c)}
+\begin{equation}
+\begin{aligned}
+&R_Z\left(\frac{\pi}{3}\right)  R_Y\left(\frac{\pi}{6}\right) R_Z\left(\frac{3}{4} \pi\right) R_Y\left(-\frac{\pi}{6}\right) R_Z\left(-\frac{\pi}{3}\right)=
+&{\left[\begin{array}{lll}
+\frac{1}{16}-\frac{15 \sqrt{2}}{32} & \frac{\sqrt{3}}{16}-\frac{7 \pi}{32} & \frac{\sqrt{3}}{8}+\frac{3 \sqrt{6}}{16} \\
+\frac{\sqrt{3}}{16}+\frac{9 \sqrt{6}}{32} & \frac{3}{16}-\frac{13 \sqrt{2}}{32} & \frac{\sqrt{2}}{16}+\frac{3}{8} \\
+\frac{\sqrt{3}}{8}-\frac{\sqrt{b}}{16} & \frac{5 \sqrt{2}}{16}+\frac{3}{8} & \frac{3}{4}-\frac{\sqrt{2}}{8}
+\end{array}\right]}
+\end{aligned}
+\end{equation}
+
+
+\section{Question 6}
+\textbf{Projection onto one of the other two coordinate planes (the xz-
+plane and the yz-plane) can easily be accomplished by rotation. For example if
+we wish to project onto the xz-plane what we do is first rotate the y-axis to the
+z-axis (which is a rotation around the x-axis), then project, then rotate back.
+(a) Write down the projection matrix which does this.
+(b) Use this to project the three points
+(1; 2; 3); (4;-1; 0); (5; 2; 3)
+with center of perspective at y = 10.}
+
+\textbf a)
+\begin{center}
+    \item $R_x(-\pi/2)P(Y)R_x(\pi/2)$ = \begin{bmatrix}
+    1 &0& 0& 0\\ 0& cos(-\pi/2)& -sin(\pi/2)& 0\\ 0& sin(-\pi/2)& cos(-\pi/2)& 0\\ 0 &0 & 0& 1
+    \end{bmatrix}
+    \begin{bmatrix}
+    [1& 0& 0& 0\\ 0& 1& 0& 0\\ 0& 0& 0& 0\\0& 0 &1/y &1
+    \end{bmatrix}
+    \begin{bmatrix}
+    [1& 0& 0& 0\\ 0& cos(\pi/2)& -sin(-\pi/2)& 0\\ 0& sin(\pi/2)& cos(\pi/2)& 0\\ 0& 0& 0& 1]
+    \end{bmatrix}
+\end{center}
+\textbf b)
+\begin{center}
+    \item $R_x(-\pi/2)P(Y)R_x(\pi/2)\begin{bmatrix}
+1 \\2 \\3 \\1
+\end{bmatrix}$ = $\begin{bmatrix}
+1 \\0 \\-3 \\1.2
+\end{bmatrix}$
+    \item $R_x(-\pi/2)P(Y)R_x(\pi/2)\begin{bmatrix}
+4 \\-1 \\0 \\1
+\end{bmatrix}$ = $\begin{bmatrix}
+4 \\0 \\0 \\0.9
+\end{bmatrix}$
+    \item $R_x(-\pi/2)P(Y)R_x(\pi/2)\begin{bmatrix}
+5 \\2 \\3 \\1
+\end{bmatrix}$ = $\begin{bmatrix}
+5 \\0 \\-3 \\1.2
+\end{bmatrix}$
+\end{center}
+
+\section{Question 7}
+
+
+
+\section{Question 8}
+\textbf{It's possible to do a 2D version of projection, where projection
+is done with the COP at y = d and projection is onto the x-axis. Develop this.
+Specifically, what would the projection matrix look like, how would it work,
+would post-processing be necessary and so on}
+
+\end{document}
