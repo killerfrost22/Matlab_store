@@ -1,0 +1,195 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{epsfig,amssymb,amsmath,multicol,xcolor,enumerate}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\title{HW3}
+\author{Yizhan Ao}
+\date{29 September 2021}
+
+\begin{document}
+
+\maketitle 
+
+\section{Question 1}
+\textbf{Find the least-squares solution and least-squares error for the matrix equation \\$ \left[\begin{array}{rrr}
+1 & 2 & 3 \\
+-1 & 0 & 2 \\
+5 & 1 & 1 \\
+2 & 2 & 0
+\end{array}\right] \hat{x}=\left[\begin{array}{l}
+1 \\ 2 \\ 3 \\ 4 \end{array}\right]$}
+
+\begin{itemize}
+
+    \item $A^T = \left[\begin{array}{rrrr}
+1 & -1 & 5 & 2 \\
+2 & 0 & 1 & 2\\
+3 & 2 & 1 & 0\\
+\end{array}\right]$
+    \item $A^T * A  = \left[\begin{array}{rrr}
+1 & 2 & 3 \\
+-1 & 0 & 2 \\
+5 & 1 & 1 \\
+2 & 2 & 0
+\end{array}\right] \left[\begin{array}{rrrr}
+1 & -1 & 5 & 2 \\
+2 & 0 & 1 & 2\\
+3 & 2 & 1 & 0\\
+\end{array}\right]
+= \left[\begin{array}{rrrr}
+31 & 11 & 6 \\
+11 & 9 & 7\\
+6 & 7 & 14\\
+\end{array}\right] $
+    \item $A^T * b = \left[\begin{array}{rrrr}
+31 & 11 & 6 \\
+11 & 9 & 7\\
+6 & 7 & 14\\
+\end{array}\right] \left[\begin{array}{l}
+1 \\ 2 \\ 3 \\ 4 \end{array}\right] = \left[\begin{array}{l}
+22 \\ 13\\ 10 \end{array}\right]$
+    \item $\left[\begin{array}{ccc}
+31 & 11 & 6 \\
+11 & 9 & 7 \\
+6 & 7 & 14
+\end{array}\right]\left[\begin{array}{l}
+x_{1} \\x_{2} \\x_{3}
+\end{array}\right]=\left[\begin{array}{l}
+22 \\13 \\10
+\end{array}\right]$
+    \item $\hat{x} = rref(above) = \left[\begin{array}{ccc}
+1 & 0 & 0 \\ 
+0 & 1 & 0 \\ 
+0 & 0 & 1 \\ 
+\end{array}\right]\left[\begin{array}{l}
+    \frac{156}{431}\\
+\frac{400}{431}\\
+\frac{41}{431}
+    \end{array}\right]$
+    \item The least square error = $\hat{x} =||A\hat{x}-\bar{b}|| = \left[\begin{array}{l}
+1 \\ 2 \\ 3 \\ 4 \end{array}\right] - \left[\begin{array}{ccc}
+1 & 0 & 0 \\ 
+0 & 1 & 0 \\ 
+0 & 0 & 1 \\ 
+\end{array}\right]\left[\begin{array}{l}
+    \frac{156}{431}\\
+\frac{400}{431}\\
+\frac{41}{431}
+    \end{array}\right] = 
+    \left[\begin{array}{l}
+-\frac{648}{431}\\
+\frac{936}{431}\\
+\frac{72}{431} \\
+\frac{612}{431}
+\end{array}\right]$ 
+\end{itemize}
+
+\section{Question 2}
+\textbf{Assuming it is unique that we know that the least-squares solution is given by:$$
+\hat{x}=\left(A^{T} A\right)^{-1} A^{T} b
+$$What is mathematically wrong with the following attempt to simplify this? Specifically, which equals signs are not valid and why?$$\hat{x}=\left(A^{T} A\right)^{-1} A^{T} \bar{b}=A^{-1}\left(A^{T}\right)^{-1} A^{T} \bar{b}=A^{-1} \bar{b}
+$$}
+
+The least square solution is given by $\hat{x}=\left(A^{T} A\right)^{-1} A^{T} \bar{b}$
+$$
+\begin{aligned}
+\hat{x} &=\left(A^{T} A\right)^{-1} A^{T} \bar{b} \\
+&=\left[A^{-1}\left(A^{T}\right)^{-1}\right] A^{T} \bar{b} \text {, since }(A B)^{-1}=B^{-1} A^{-1} \\
+&=A^{-1}\left[\left(A^{T}\right)^{-1} A^{T}\right] \bar{b}, \text { since matrix multiplication is associative } \\
+&=A^{-1} I \bar{b} \\
+&=A^{-1} \bar{b} \\
+\hat{x} &=A^{-1} \bar{b}
+\end{aligned}
+$$
+Hence there is no mathematical wrong in your attempt.
+
+\section{Question 3}
+	\item $\begin{bmatrix}
+	3 & -1 & 4\\
+	0 & 2 & 1\\
+	-2 & 2 & -2\\
+	1 & -3 & 0
+	\end{bmatrix}\begin{bmatrix}
+	x_1\\ x_2\\ x_3
+	\end{bmatrix} = \begin{bmatrix}
+	1\\ 0\\ -1\\ 0
+	\end{bmatrix}$ \begin{enumerate}
+		\item Find all least-squares solutions to the above linear system (be careful, there is more than one least-squares solution.)  Present your answers in parametric vector form.
+		\item Give two different least-squares solutions, and compute the least-squares error for each one.
+	\end{enumerate}
+	
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\section{Question 4}
+	\item Consider the following system of linear equations, which has $n$ equations and just one variable $x$.
+	\[\left\{\begin{array}{l}
+	x = b_1\\
+	x = b_2\\
+	\quad \vdots \\
+	x = b_n
+	\end{array}\right.\]
+	\begin{enumerate}
+		\item Express this linear system in the form $A\x = \b$.  Clearly identify $A$, $\x$, and $\b$.
+		\item Clearly, this is an inconsistent linear system (unless all $b_i$'s are equal).  Find the least-squares solution.  (Does the answer make sense intuitively?  The least-squares solution is the value of $x$ which tries its best to satisfy all equations at once.)
+	\end{enumerate}
+
+\section{Question 5}
+
+
+\section{Question 6}
+\item Suppose we want to find a line $y = \beta_0 + \beta_1x$ that best fits the following data:\qquad $\begin{array}{r|r}
+	x & y\\
+	\hline
+	0 & 1.15\\
+	1 & 1.56\\
+	2 & 2.69\\
+	3 & 3.45\\
+	4 & 4.10\\
+	5 & 5.00\\
+	6 & 5.89\\
+	7 & 7.03\\
+	8 & 7.77\\
+	9 & 8.17
+	\end{array}$
+	\begin{enumerate}
+		\item Write down the system of equations that we need to find a least-squares solution to in order to find the best fit line.
+		\item Find the line $y = \beta_0 + \beta_1x$ that best fits the data.
+		\item Use your line to predict the value of $y$ when $x=15$.
+	\end{enumerate}
+
+\section{Question 7}
+\item Consider the following data set:\qquad $\begin{array}{r|r}
+	x & y\\
+	\hline
+	-7 & 69.4\\
+	-5 & 42.2\\
+	-3 & 22.3\\
+	-1 & 10.4\\
+	1 & 6.0\\
+	3 & 9.0\\
+	5 & 20.1\\
+	7 & 38.5
+	\end{array}$
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item Find the least-squares line $y = \beta_0 + \beta_1 x$ that best fits this data.
+			\item Find the associated least-squares error.
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item Find the least-squares parabola $y = \gamma_0 + \gamma_1 x + \gamma_2 x^2$ that best fits this data.
+			\item Find the associated least-squares error.
+		\end{enumerate}
+		\item Provide a picture of a graph of the data points, the least-squares line, and the least-squares parabola (all in the same graph).  You can either print out a plot made in MATLAB (or something else), or you can create the graph using technology and then sketch it yourself on paper (it doesn't have to be perfect).
+	\end{enumerate}
+
+\section{Question 8}
+\end{document}
