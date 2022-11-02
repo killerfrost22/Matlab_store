@@ -23,12 +23,12 @@ imwrite(uint8(image_crop), './us_passport_photo/photo_us.jpg');
 
 % 1 in = 2.54 cm
 in_mm = 25.4;
-width = ceil(6*in_mm*pix_per_mm);  height = ceil(4*in_mm*pix_per_mm);
+width = ceil(2*in_mm*pix_per_mm);  height = ceil(2*in_mm*pix_per_mm);
 full_image = [];
 full_image_col = cat(1, image_crop, image_crop);
 for i = 1:3
     full_image = cat(2, full_image, full_image_col);
 end
 figure; imshow(uint8(full_image));
-imwrite(uint8(full_image), './us_passport_photo/4in_by_6in_photo_us.jpg')
+imwrite(uint8(full_image), './us_passport_photo/2in_by_2in_photo_us.jpg')
 
