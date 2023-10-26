@@ -1,4 +1,4 @@
-image = imread('./test_photo.jpg');
+image = imread('./2_2_YA_3.png');
 figure; imshow(image);
 disp("select the top pixel location of the head ((both vertical and horizontal index matter, please cross the horizontal middle of the face))")
 uphead_idx = ginput(1);
